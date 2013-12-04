@@ -2,11 +2,15 @@
 require 'sinatra/base'
 require 'compass'
 
+require_relative 'helpers/view_helpers'
+
 module IdMe
 	class HomeApp < Sinatra::Base
 		set :root, File.expand_path("../..", File.dirname(__FILE__))
 		set :views, File.dirname(__FILE__) + '/views'
 		set :public_folder, 'public'
+
+		helpers Helpers::ViewHelpers
 
 		configure :development do
 			register Sinatra::Reloader
@@ -22,6 +26,8 @@ module IdMe
 		end
 
 		get '/' do
+			content_type :'text/html'
+			erb :index
 		end
 
 		error 400..510 do

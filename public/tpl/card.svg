@@ -102,7 +102,7 @@
          x="234.52077"
          y="670.90521"
          id="identity-birthdate"
-         style="font-size:14px;fill:#d40000"><%- identity.birthdate %></tspan></text>
+         style="font-size:14px;fill:#d40000"><%- ViewHelpers.birthdateFormatted(identity.birthdate) %></tspan></text>
     <text
        x="237.02069"
        y="687.06323"
@@ -124,7 +124,7 @@
     <% if(identity.images && imageKey) { %>
       <% var image = identity.images[imageKey], ratio = 224 / 120; %>
       <image
-         xlink:href="<%= image.href %>"
+         xlink:href="<%= image.protocol + image.href %>"
          x="<%= (image.x || 0) * ratio + 54.976284 %>"
          y="<%= (image.y || 0) * ratio + 619.7193 %>"
          width="<%= (image.w || 0) * ratio || 175.46666 %>"

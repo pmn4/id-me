@@ -1,0 +1,65 @@
+@import 'compass/reset',
+        'compass/css3';
+// @import '_variables';
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700|Amatic+SC);
+
+$color-scheme-foreground: #D0C6B1;
+$color-scheme-background: #192823;
+$color-scheme-create: #DD1E2F;
+$color-scheme-scan: #EBB035;
+$color-scheme-view: #218559;
+$color-scheme-stats: #06A2CB;
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 24px;
+	line-height: 1.2em;
+	background: $color-scheme-background url('/images/fabric.png') repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Amatic SC', cursive;
+	font-weight: 700;
+
+	span {
+		font-weight: normal;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	em {
+		color: $color-scheme-foreground;
+		font-size: 50%;
+	}
+}
+
+$features: 'create' $color-scheme-create, 'scan' $color-scheme-scan, 'view' $color-scheme-view, 'stats' $color-scheme-stats;
+@each $feature in $features {
+	.#{nth($feature, 1)} {
+		h1, h2, h3, h4, h5, h6 { color: nth($feature, 2); }
+	}
+}
+
+$h1-font-size: 64px; // this was just for the presentaiton I did
+$h6-font-size: 24px;
+
+$hmax: 6;
+@for $i from 1 through $hmax {
+	$font-size: floor(($h1-font-size - $h6-font-size) * ($hmax - $i) / $hmax + $h6-font-size);
+	h#{$i} {
+		line-height: $font-size;
+		font-size: $font-size;
+	}
+}
