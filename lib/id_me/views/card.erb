@@ -1,0 +1,53 @@
+<style type="text/css">
+body {
+	background: #eef;
+}
+#current-card {
+}
+#current-card svg {
+	height: 200px;
+}
+</style>
+
+<div id="current-card">
+</div>
+
+<script type="text/template" id="template-id-card">
+	<%= file_load("#{settings.root}/public/tpl/card.svg") %>
+</script>
+
+<script>
+(function(){
+	var fnOnload = window.onload;
+	window.onload = function(){
+		if(typeof(fnOnload) === 'function') fnOnload();
+
+		var cardTemplate = _.template(document.getElementById("template-id-card").innerHTML);
+		var identityData = {
+			name: "Nailed It!",
+			birthdate: "Today",
+			images: {
+				base64: {
+					href: "data:image/png;base64," + "iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAABTklEQVQYVx2PPU8TcRyAn9/dtfe/l/aKhaMNkxRlMUpiDA6SEMLEiokrC6vxI+AMpCyszITEOBFcNNHduBgTBmIYGkkEGqDX9q7H/UC/wPMiX44+arvd5qzzB8uy0KLAtm08z2NzewtZePFMXR3RCFwiU6KX5NQiQy4lfnX+Iq/mZnXpcUyIEDllXONT5EOu01uOb4bI8ss5XXxYJ2KE53i4vk/WT+gVOecZyMrzJzo/HdNNc1pxTLNW4dP3H0xEdYxXRtYWnuqjmSl+n3ZpTcV42RWJU8N1yxgrRzZeL2szCnADQ/eyC2mKqYaE/1R5gbx/s6KVyOKBbegng/+RthRYolxkGbKz8U4HJz/xSw7p/aKWDJKljNUDznop8vXwQD/v7zFhylx1EhrVOhfDc8LJCv1wHPl2dKAfdrdpjAX4Yt2jDWqN6KnD6vpb7gA+F3fQ/zPS+QAAAABJRU5ErkJggg==",
+					x: 20,
+					y: 10,
+					w: 55,
+					h: 75
+				},
+				orig: {
+					href: "http://images.ussportscamps.com/coaches/TonyLowe1.JPG"
+				}
+			}
+		};
+
+		for(var i in identityData.images) {
+			if(identityData.images.hasOwnProperty(i)) {
+				document.getElementById("current-card").innerHTML += cardTemplate({
+					identity: identityData,
+					imageKey: i
+				})
+			}
+		}
+	}
+})();
+</script>
