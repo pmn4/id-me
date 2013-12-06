@@ -42,9 +42,10 @@ function encryptIdentityForUrl(identityData) {
 		h: image.h
 	};
 	var encrypted = CryptoJS.AES.encrypt(JSON.stringify(identityDataForUrl), NOT_SO_SECRET_PASSPHRASE);
-	return encrypted.toString(CryptoJS.enc.Base64);
+	// return encrypted.toString(CryptoJS.enc.Base64);
+	return encrypted.toString();
 }
-function dencryptIdentityFromUrl(dataString) {
+function decryptIdentityFromUrl(dataString) {
 	decrypted = CryptoJS.AES.decrypt(dataString, NOT_SO_SECRET_PASSPHRASE);
 	if(!decrypted.sigBytes) return {};
 
@@ -66,7 +67,135 @@ function dencryptIdentityFromUrl(dataString) {
 	};
 }
 function renderIdentityDataFromUrl() {
-	renderIdentity(dencryptIdentityFromUrl(window.location.hash.substring(1)));
+	renderIdentity(decryptIdentityFromUrl(window.location.hash.substring(1)));
 }
 
 renderIdentityDataFromUrl();
+
+
+
+
+
+var video = document.querySelector('video');
+var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext('2d');
+var localMediaStream = null;
+
+var errorCallback = function(e) {
+	console.log('Reeeejected!', e);
+};
+
+navigator.getUserMedia  = navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
+
+qrcode.callback = function() {
+	console.log('qrcode.callback');
+	console.log(arguments);
+};
+
+function snapshot() {
+	if (localMediaStream) {
+		ctx.drawImage(video, 0, 0);
+		// "image/webp" works in Chrome.
+		// Other browsers will fall back to image/png.
+		document.querySelector('img').src = canvas.toDataURL('image/webp');
+
+		readAsQrCode();
+	}
+}
+
+var Snapshotter = (function() {
+	var timeoutId;
+	return {
+		start: function() {
+			if(timeoutId) return;
+			timeoutId = setInterval(snapshot, 100);
+		},
+		stop: function() {
+			if(timeoutId) {
+				clearTimeout(timeoutId);
+			}
+			timeoutId = undefined;
+		}
+	};
+})();
+
+var readAsQrCode = (function() {
+	var _reading = false;
+	return function() {
+		if(_reading) return null;
+
+		_reading = true;
+        try{
+            qrcode.decode();
+			document.getElementById("video-capture-end").onclick();
+            return true;
+        }
+        catch(e){
+            console.log(e);
+			return false;
+        }
+        finally {
+			_reading = false;
+        }
+	};
+})();
+
+var capturing = false;
+document.getElementById("video-capture-begin").onclick = function(e) {
+	if(e) e.preventDefault();
+
+	if(capturing) return;
+
+	navigator.getUserMedia({video: true}, function(stream) {
+		video.src = window.URL.createObjectURL(stream);
+		localMediaStream = stream;
+	}, errorCallback);
+
+	Snapshotter.start();
+
+	capturing = true;
+};
+document.getElementById("video-capture-end").onclick = function(e) {
+	if(e) e.preventDefault();
+
+	video.pause();
+	localMediaStream.stop(); // Doesn't do anything in Chrome.
+
+	Snapshotter.stop();
+
+	capturing = false;
+};
+
+var form = document.getElementById("form-create-identity");
+function inputToObject(data, inputName, inputValue) {
+	var ptr = data, tokens = inputName.split('[');
+	for(var i=0, ct = tokens.length; i<ct; i++) {
+		key = tokens[i].replace(/]$/, '');
+		if(ptr[key] == null) { // == to account for both null and undefined
+			ptr[key] = (i<ct-1) ? {} : inputValue;
+		}
+
+		ptr = ptr[key];
+	}
+
+	return ptr;
+}
+form.onsubmit = function() {
+	var form = this,
+	    inputs = form.getElementsByTagName("input"),
+	    data = {};
+
+	for(var i=0, ct=inputs.length; i<ct; i++) {
+		inputToObject(data, inputs[i].name, inputs[i].value);
+	}
+
+	console.log(data);
+
+	return false;
+};
+
+
+

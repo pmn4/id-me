@@ -2,23 +2,31 @@
         'compass/css3';
 // @import '_variables';
 
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700|Amatic+SC);
+// @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700|Amatic+SC);
 
 $color-scheme-foreground: #D0C6B1;
-$color-scheme-background: #192823;
-$color-scheme-create: #DD1E2F;
-$color-scheme-scan: #EBB035;
-$color-scheme-view: #218559;
-$color-scheme-stats: #06A2CB;
+$color-scheme-background: #192321;
+$color-scheme-create: #ef5734;
+$color-scheme-scan: #ffcc2f;
+$color-scheme-view: #2baf2b;
+$color-scheme-stats: #00acee;
+
+$default-spacing: 20px;
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 24px;
 	line-height: 1.2em;
-	background: $color-scheme-background url('/images/fabric.png') repeat;
+	background: $color-scheme-background url('/images/linen.png') repeat;
+	color: $color-scheme-foreground;
 }
 
 h1,
@@ -29,6 +37,7 @@ h5,
 h6 {
 	font-family: 'Amatic SC', cursive;
 	font-weight: 700;
+	color: $color-scheme-foreground;
 
 	span {
 		font-weight: normal;
@@ -45,10 +54,50 @@ h6 {
 	}
 }
 
-$features: 'create' $color-scheme-create, 'scan' $color-scheme-scan, 'view' $color-scheme-view, 'stats' $color-scheme-stats;
+button {
+	display: inline-block;
+	padding: $default-spacing 2 * $default-spacing;
+	border: 3px solid $color-scheme-foreground;
+
+	background-color: transparent;
+	color: $color-scheme-foreground;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+$features: 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
 @each $feature in $features {
-	.#{nth($feature, 1)} {
-		h1, h2, h3, h4, h5, h6 { color: nth($feature, 2); }
+	$class: nth($feature, 1);
+	$color: nth($feature, 2);
+	$image: nth($feature, 3);
+
+	.#{$class} {
+		h1, h2, h3, h4, h5, h6 { color: $color; }
+		background: transparent url('/images/backgrounds/#{$image}') no-repeat center center;
+		background-size: cover;
+		// background-color: nth($feature, 2);
+
+		button {
+			color: $color;
+			border-color: $color;
+
+			&:hover {
+				background-color: mix($color-scheme-background, $color, 90%);
+			}
+		}
+		.hexagon {
+			background-color: $color;
+			.hexagon {
+				color: $color;
+				&:hover {
+					background-color: mix($color-scheme-background, $color, 90%);
+				}
+			}
+		}
 	}
 }
 
@@ -63,3 +112,97 @@ $hmax: 6;
 		font-size: $font-size;
 	}
 }
+
+.feature-page {
+	width: 100%;
+	min-height: 100%;
+}
+
+$hexagon-width: 100px;
+$hexagon-height: $hexagon-width / sqrt(3);
+$hexagon-spacing: 6px;
+$menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
+
+#logo {
+	width: $hexagon-width;
+	height: auto;
+}
+
+#main-menu {
+	position: fixed;
+	width: $menu-width;
+	padding: $default-spacing / 2;
+	height: 100%;
+
+	@include transform(translateZ(0));
+
+	.menu-items {
+		margin-top: -($hexagon-height / 2);
+	}
+	.menu-item {
+		display: inline-block;
+		margin-top: $hexagon-height / 2 + $hexagon-spacing / 2;
+
+		a {
+			display: block;
+			text-decoration: none;
+		}
+
+		.icon {
+			font-size: 50px;
+		}
+
+		&:nth-child(2n+1) {
+			margin-left: $hexagon-width / 2 + $hexagon-spacing / 2;
+		}
+	}
+}
+#application-content {
+	padding-left: $menu-width + $default-spacing;
+	min-height: 100%;
+}
+
+
+.hexagon {
+	position: relative;
+	width: $hexagon-width;
+	height: $hexagon-height;
+	line-height: $hexagon-height;
+	text-align: center;
+	background-color: $color-scheme-foreground;
+	z-index: 0;
+
+	.hexagon {
+		position: absolute;
+		top: 3%;
+		left: 3%;
+		width: 0.94 * $hexagon-width;
+		height: 0.94 * $hexagon-height;
+		background-color: $color-scheme-background;
+		z-index: 0;
+	}
+}
+
+.hexagon:before,
+.hexagon:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: " ";
+	display: inherit;
+	width: inherit;
+	height: inherit;
+	line-height: inherit;
+	background-color: inherit;
+	z-index: -100; // :before and :after are actually drawn above the background of the element itself
+}
+
+.hexagon:before {
+	@include transform(rotate(-60deg));
+}
+
+.hexagon:after {
+	@include transform(rotate(60deg));
+}
+
+@import '_icomoon';
