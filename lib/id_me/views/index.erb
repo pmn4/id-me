@@ -67,8 +67,9 @@
 
 	<div id="scan-identity" class="feature-page scan">
 		<h2>Scan a Card</h2>
-		<video autoplay height="120" width="160"></video>
-		<canvas id="qr-canvas" style="display:none;" height="120" width="160"></canvas>
+		<video id="qr-video" autoplay height="360" width="480"></video>
+		<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
+		<img id="qr-image" height="360" width="480" />
 		<div>
 			<button id="video-capture-begin">Start Camera</button>
 			<button id="video-capture-end">Stop Camera</button>

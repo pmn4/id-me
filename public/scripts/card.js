@@ -76,8 +76,8 @@ renderIdentityDataFromUrl();
 
 
 
-var video = document.querySelector('video');
-var canvas = document.querySelector('canvas');
+var video = document.getElementById("qr-video");
+var canvas = document.getElementById("qr-canvas");
 var ctx = canvas.getContext('2d');
 var localMediaStream = null;
 
@@ -100,7 +100,7 @@ function snapshot() {
 		ctx.drawImage(video, 0, 0);
 		// "image/webp" works in Chrome.
 		// Other browsers will fall back to image/png.
-		document.querySelector('img').src = canvas.toDataURL('image/webp');
+		document.getElementById("qr-image").src = canvas.toDataURL('image/webp');
 
 		readAsQrCode();
 	}

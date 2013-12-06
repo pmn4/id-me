@@ -114,7 +114,6 @@ $hmax: 6;
 }
 
 .feature-page {
-	width: 100%;
 	min-height: 100%;
 }
 
@@ -149,7 +148,7 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 		}
 
 		.icon {
-			font-size: 50px;
+			font-size: 30px;
 		}
 
 		&:nth-child(2n+1) {
@@ -158,8 +157,11 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 	}
 }
 #application-content {
-	padding-left: $menu-width + $default-spacing;
 	min-height: 100%;
+
+	.feature-page {
+		padding-left: $menu-width + $default-spacing;
+	}
 }
 
 
@@ -178,6 +180,7 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 		left: 3%;
 		width: 0.94 * $hexagon-width;
 		height: 0.94 * $hexagon-height;
+		line-height: 0.94 * $hexagon-height;
 		background-color: $color-scheme-background;
 		z-index: 0;
 	}
