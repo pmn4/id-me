@@ -30,6 +30,12 @@ module IdMe
 			erb :index
 		end
 
+		get '/create' do
+			content_type :'text/html'
+			@create_only = true
+			erb :index
+		end
+
 		error 400..510 do
 			puts inspect
 			request.env['sinatra_error']

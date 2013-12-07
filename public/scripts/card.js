@@ -106,7 +106,7 @@ function formDataToIdentity(formData, image) {
 
 var video = document.getElementById("qr-video");
 var canvas = document.getElementById("qr-canvas");
-var ctx = canvas.getContext('2d');
+var ctx = canvas ? canvas.getContext('2d') : null;
 var localMediaStream = null;
 
 var errorCallback = function(e) {
@@ -124,7 +124,7 @@ qrcode.callback = function() {
 };
 
 function snapshot() {
-	if (localMediaStream) {
+	if (ctx && localMediaStream) {
 		ctx.drawImage(video, 0, 0);
 		// "image/webp" works in Chrome.
 		// Other browsers will fall back to image/png.
@@ -172,32 +172,41 @@ var readAsQrCode = (function() {
 })();
 
 var capturing = false;
-document.getElementById("video-capture-begin").onclick = function(e) {
-	if(e) e.preventDefault();
+(function() {
+	var button = document.getElementById("video-capture-begin");
+	if(button) {
+		button.onclick = function(e) {
+			if(e) e.preventDefault();
 
-	if(capturing) return;
+			if(capturing) return;
 
-	navigator.getUserMedia({video: true}, function(stream) {
-		video.src = window.URL.createObjectURL(stream);
-		localMediaStream = stream;
-	}, errorCallback);
+			navigator.getUserMedia({video: true}, function(stream) {
+				video.src = window.URL.createObjectURL(stream);
+				localMediaStream = stream;
+			}, errorCallback);
 
-	Snapshotter.start();
+			Snapshotter.start();
 
-	capturing = true;
-};
-document.getElementById("video-capture-end").onclick = function(e) {
-	if(e) e.preventDefault();
+			capturing = true;
+		};
+	}
+})();
+(function() {
+	var button = document.getElementById("video-capture-end");
+	if(button) {
+		button.onclick = function(e) {
+			if(e) e.preventDefault();
 
-	video.pause();
-	localMediaStream.stop(); // Doesn't do anything in Chrome.
+			video.pause();
+			localMediaStream.stop(); // Doesn't do anything in Chrome.
 
-	Snapshotter.stop();
+			Snapshotter.stop();
 
-	capturing = false;
-};
+			capturing = false;
+		};
+	}
+})();
 
-var form = document.getElementById("form-create-identity");
 function inputToObject(data, inputName, inputValue) {
 	var ptr = data, tokens = inputName.split('[');
 	for(var i=0, ct = tokens.length; i<ct; i++) {
@@ -211,27 +220,32 @@ function inputToObject(data, inputName, inputValue) {
 
 	return ptr;
 }
-form.onsubmit = function() {
-	var form = this,
-	    inputs = form.getElementsByTagName("input"),
-	    data = {};
+(function() {
+	var form = document.getElementById("form-create-identity");
+	if(form) {
+		form.onsubmit = function() {
+			var form = this,
+			    inputs = form.getElementsByTagName("input"),
+			    data = {};
 
-	for(var i=0, ct=inputs.length; i<ct; i++) {
-		inputToObject(data, inputs[i].name, inputs[i].value);
+			for(var i=0, ct=inputs.length; i<ct; i++) {
+				inputToObject(data, inputs[i].name, inputs[i].value);
+			}
+
+			var img = new Image();
+			img.onload = function() {
+				var identity = formDataToIdentity(data.identity, this);
+				document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
+				var url = encryptIdentityForUrl(identity);
+				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 142); // be dynamic!
+				qrcodesvg.draw();
+			};
+			img.src = data.identity['image'];
+
+			return false;
+		};
 	}
-
-	var img = new Image();
-	img.onload = function() {
-		var identity = formDataToIdentity(data.identity, this);
-		document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
-		var url = encryptIdentityForUrl(identity);
-		var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 142); // be dynamic!
-		qrcodesvg.draw();
-	};
-	img.src = data.identity['image'];
-
-	return false;
-};
+})();
 
 
 

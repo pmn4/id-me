@@ -11,22 +11,22 @@
 
 	<ul class="menu-items">
 		<li class="menu-item create">
-			<a class="hexagon" href="#create-identity">
+			<a class="hexagon" href="/#create-identity">
 				<div class="hexagon icon">N</div>
 			</a>
 		</li>
 		<li class="menu-item scan">
-			<a class="hexagon" href="#scan-identity">
+			<a class="hexagon" href="/#scan-identity">
 				<div class="hexagon icon">Q</div>
 			</a>
 		</li>
 		<li class="menu-item view">
-			<a class="hexagon" href="#scan-history">
+			<a class="hexagon" href="/#scan-history">
 				<div class="hexagon icon">H</div>
 			</a>
 		</li>
 		<li class="menu-item stats">
-			<a class="hexagon" href="#scan-data">
+			<a class="hexagon" href="/	`1`#scan-data">
 				<div class="hexagon icon">D</div>
 			</a>
 		</li>
@@ -69,27 +69,29 @@
 		</div>
 	</div>
 
-	<div id="scan-identity" class="feature-page scan">
-		<h2>Scan a Card</h2>
-		<video id="qr-video" autoplay height="360" width="480"></video>
-		<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
-		<img id="qr-image" height="360" width="480" />
-		<div>
-			<button id="video-capture-begin">Start Camera</button>
-			<button id="video-capture-end">Stop Camera</button>
+	<% if !@create_only %>
+		<div id="scan-identity" class="feature-page scan">
+			<h2>Scan a Card</h2>
+			<video id="qr-video" autoplay height="360" width="480"></video>
+			<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
+			<img id="qr-image" height="360" width="480" />
+			<div>
+				<button id="video-capture-begin">Start Camera</button>
+				<button id="video-capture-end">Stop Camera</button>
+			</div>
+
+			<div id="current-card">
+			</div>
 		</div>
 
-		<div id="current-card">
+		<div id="scan-history" class="feature-page view">
+			<h2>Scan History</h2>
 		</div>
-	</div>
 
-	<div id="scan-history" class="feature-page view">
-		<h2>Scan History</h2>
-	</div>
-
-	<div id="scan-data" class="feature-page stats">
-		<h2>Scan Data</h2>
-	</div>
+		<div id="scan-data" class="feature-page stats">
+			<h2>Scan Data</h2>
+		</div>
+	<% end %>
 </div>
 
 <script type="text/template" id="template-id-card">
