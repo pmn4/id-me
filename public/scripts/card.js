@@ -49,7 +49,11 @@ function decryptIdentityFromUrl(dataString) {
 	decrypted = CryptoJS.AES.decrypt(dataString, NOT_SO_SECRET_PASSPHRASE);
 	if(!decrypted.sigBytes) return {};
 
-	identityData = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+	try {
+		identityData = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+	} catch {
+		return {};
+	}
 	return {
 		id: identityData.i,
 		name: identityData.n,
