@@ -237,8 +237,14 @@ function inputToObject(data, inputName, inputValue) {
 				var identity = formDataToIdentity(data.identity, this);
 				document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
 				var url = encryptIdentityForUrl(identity);
-				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 142); // be dynamic!
+				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", document.getElementById("card-preview").offsetHeight * 0.5); // be dynamic!
 				qrcodesvg.draw();
+
+				// var destination = document.getElementById("identity-barcode");
+				// var source = document.getElementById("qrcode-preview");
+
+				// console.log(destination);
+				// destination.innerHTML = source.innerHTML;
 			};
 			img.src = data.identity['image'];
 
