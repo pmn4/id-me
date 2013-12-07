@@ -6,32 +6,34 @@
 }
 </style>
 
-<div id="main-menu">
-	<img id="logo" src="/images/logo.svg" />
+<% unless @create_only %>
+	<div id="main-menu">
+		<img id="logo" src="/images/logo.svg" />
 
-	<ul class="menu-items">
-		<li class="menu-item create">
-			<a class="hexagon" href="/#create-identity">
-				<div class="hexagon icon">N</div>
-			</a>
-		</li>
-		<li class="menu-item scan">
-			<a class="hexagon" href="/#scan-identity">
-				<div class="hexagon icon">Q</div>
-			</a>
-		</li>
-		<li class="menu-item view">
-			<a class="hexagon" href="/#scan-history">
-				<div class="hexagon icon">H</div>
-			</a>
-		</li>
-		<li class="menu-item stats">
-			<a class="hexagon" href="/	`1`#scan-data">
-				<div class="hexagon icon">D</div>
-			</a>
-		</li>
-	</ul>
-</div>
+		<ul class="menu-items">
+			<li class="menu-item create">
+				<a class="hexagon" href="/#create-identity">
+					<div class="hexagon icon">N</div>
+				</a>
+			</li>
+			<li class="menu-item scan">
+				<a class="hexagon" href="/#scan-identity">
+					<div class="hexagon icon">Q</div>
+				</a>
+			</li>
+			<li class="menu-item view">
+				<a class="hexagon" href="/#scan-history">
+					<div class="hexagon icon">H</div>
+				</a>
+			</li>
+			<li class="menu-item stats">
+				<a class="hexagon" href="/	`1`#scan-data">
+					<div class="hexagon icon">D</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+<% end %>
 
 <div id="application-content">
 	<div id="create-identity" class="feature-page create">
@@ -69,7 +71,7 @@
 		</div>
 	</div>
 
-	<% if !@create_only %>
+	<% unless @create_only %>
 		<div id="scan-identity" class="feature-page scan">
 			<h2>Scan a Card</h2>
 			<video id="qr-video" autoplay height="360" width="480"></video>
