@@ -38,14 +38,14 @@
 		<h2>Create a Card</h2>
 		<form actions="#" method="POST" id="form-create-identity">
 			<div class="input-wrapper name">
-				<input id="profile_name" name="profile[name]" type="text" placeholder="Full Name" value="Patrick Newell" />
+				<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" value="Tony Lowe" />
 			</div>
 			<div class="input-wrapper birthdate">
-				<input id="profile_birthdate" name="profile[birthdate]" type="date" placeholder="Birthdate" value="1989-02-03" />
+				<input id="profile_birthdate" name="identity[birthdate]" type="date" placeholder="Birthdate" value="1989-02-03" />
 			</div>
 			<div class="input-wrapper image">
-				<!-- <input id="profile_image" name="profile[image]" type="file" accept="image/*;capture=camera" /> -->
-				<input id="profile_image" name="profile[image]" type="text" placeholder="http://" value="http://www.gravatar.com/avatar/e136daad30415f1cef6a9272cb4f91be.png" />
+				<!-- <input id="profile_image" name="identity[image]" type="file" accept="image/*;capture=camera" /> -->
+				<input id="profile_image" name="identity[image]" type="text" placeholder="http://" value="http://images.ussportscamps.com/coaches/TonyLowe1.JPG" />
 			</div>
 			<div class="input-wrapper image-capture">
 				<!--
@@ -63,6 +63,10 @@
 				<button type="submit">Create</button>
 			</div>
 		</form>
+		<div id="card-preview-wrapper">
+			<div id="card-preview"></div>
+			<div id="qrcode-preview"></div>
+		</div>
 	</div>
 
 	<div id="scan-identity" class="feature-page scan">

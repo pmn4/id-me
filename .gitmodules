@@ -1,3 +1,6 @@
 [submodule "ref/jsqrcode"]
 	path = ref/jsqrcode
 	url = https://github.com/LazarSoft/jsqrcode.git
+[submodule "ref/qrcodesvg"]
+	path = ref/qrcodesvg
+	url = https://github.com/pinchtools/qrcodesvg.git

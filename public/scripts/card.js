@@ -16,28 +16,25 @@ var ViewHelpers = {
 };
 
 
-function renderIdentity(identityData){
+function renderIdentity(identityData, imageKey){
 	var cardTemplate = _.template(document.getElementById("template-id-card").innerHTML);
 
-	for(var i in identityData.images) {
-		if(identityData.images.hasOwnProperty(i)) {
-			document.getElementById("current-card").innerHTML += cardTemplate({
-				identity: identityData,
-				imageKey: i
-			});
-		}
-	}
+	return cardTemplate({
+		identity: identityData,
+		imageKey: imageKey
+	});
 }
 
 function encryptIdentityForUrl(identityData) {
-	var image = identityData.images.base64;
+	// var image = identityData.images.base64;
+	var image = identityData.images.orig;
 	var identityDataForUrl = {
 		i: identityData.id,
 		n: identityData.name,
 		b: Math.floor(identityData.birthdate / 86400000),
 		d: image.href,
-		x: image.x,
-		y: image.y,
+		// x: image.x,
+		// y: image.y,
 		w: image.w,
 		h: image.h
 	};
@@ -51,7 +48,8 @@ function decryptIdentityFromUrl(dataString) {
 
 	try {
 		identityData = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-	} catch {
+	} catch(e) {
+		console.log("Failed to Decrypt", dataString, e);
 		return {};
 	}
 	return {
@@ -59,11 +57,13 @@ function decryptIdentityFromUrl(dataString) {
 		name: identityData.n,
 		birthdate: new Date(identityData.b * 86400000),
 		images: {
-			base64: {
-				protocol: "data:image/png;base64,",
+			// base64: {
+			orig: {
+				// protocol: "data:image/png;base64,",
+				protocol: "http:",
 				href: identityData.d,
-				x: identityData.x,
-				y: identityData.y,
+				// x: identityData.x,
+				// y: identityData.y,
 				w: identityData.w,
 				h: identityData.h
 			}
@@ -71,10 +71,34 @@ function decryptIdentityFromUrl(dataString) {
 	};
 }
 function renderIdentityDataFromUrl() {
-	renderIdentity(decryptIdentityFromUrl(window.location.hash.substring(1)));
+	var identityData = decryptIdentityFromUrl(window.location.hash.substring(1));
+	for(var i in identityData.images) {
+		if(identityData.images.hasOwnProperty(i)) {
+			document.getElementById("current-card").innerHTML += renderIdentity(identityData, i);
+		}
+	}
 }
 
 renderIdentityDataFromUrl();
+
+function formDataToIdentity(formData, image) {
+	var urlTokens = /(https?:)(.*)/.exec(image.src);
+	return {
+		id: Math.floor(1000000 * Math.random()),
+		name: formData['name'],
+		birthdate: new Date(Date.parse(formData['birthdate'])),
+		images: {
+			orig: {
+				protocol: urlTokens[1],
+				href: urlTokens[2],
+				x: 0,
+				y: 0,
+				w: image.width,
+				h: image.height
+			}
+		}
+	};
+}
 
 
 
@@ -196,7 +220,15 @@ form.onsubmit = function() {
 		inputToObject(data, inputs[i].name, inputs[i].value);
 	}
 
-	console.log(data);
+	var img = new Image();
+	img.onload = function() {
+		var identity = formDataToIdentity(data.identity, this);
+		document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
+		var url = encryptIdentityForUrl(identity);
+		var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 142); // be dynamic!
+		qrcodesvg.draw();
+	};
+	img.src = data.identity['image'];
 
 	return false;
 };
