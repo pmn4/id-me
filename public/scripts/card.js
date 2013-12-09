@@ -237,14 +237,16 @@ function inputToObject(data, inputName, inputValue) {
 				var identity = formDataToIdentity(data.identity, this);
 				document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
 				var url = encryptIdentityForUrl(identity);
-				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", document.getElementById("card-preview").offsetHeight * 0.5); // be dynamic!
-				qrcodesvg.draw();
+				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 125); // be dynamic!
+				qrcodesvg.draw(null, {"fill": "#d40000", "stroke-width": 0});
 
-				// var destination = document.getElementById("identity-barcode");
-				// var source = document.getElementById("qrcode-preview");
+				var destination = document.getElementById("identity-barcode");
+				var source = document.getElementById("qrcode-preview").getElementsByTagName("path");
 
-				// console.log(destination);
-				// destination.innerHTML = source.innerHTML;
+				console.log(destination);
+				for(var i=source.length-1; i>=0; i--) {
+					destination.appendChild(source[i]);
+				}
 			};
 			img.src = data.identity['image'];
 

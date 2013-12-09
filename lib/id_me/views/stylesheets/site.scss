@@ -238,11 +238,13 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 	// height: 255px; // figure out svg aspect ratio!
 	float: left;
 
-	#qrcode-preview {
-		position: absolute;
-		left: 60%;
-		bottom: 5%;
-		height: 50%;
-	}
+}
+#qrcode-preview {
+	// visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 125px;
+	height: 125px;
 }
 @import '_icomoon';

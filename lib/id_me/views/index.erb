@@ -1,10 +1,4 @@
-<style type="text/css">
-#current-card {
-}
-#current-card svg {
-	height: 200px;
-}
-</style>
+<div id="qrcode-preview"></div>
 
 <% unless @create_only %>
 	<div id="main-menu">
@@ -47,7 +41,7 @@
 			</div>
 			<div class="input-wrapper image">
 				<!-- <input id="profile_image" name="identity[image]" type="file" accept="image/*;capture=camera" /> -->
-				<input id="profile_image" name="identity[image]" type="text" placeholder="http://" value="http://images.ussportscamps.com/coaches/TonyLowe1.JPG" />
+				<input id="profile_image" name="identity[image]" type="text" placeholder="http://" value="http://bit.ly/18rVlMy" />
 			</div>
 			<div class="input-wrapper image-capture">
 				<!--
@@ -67,7 +61,6 @@
 		</form>
 		<div id="card-preview-wrapper">
 			<div id="card-preview"></div>
-			<div id="qrcode-preview"></div>
 		</div>
 	</div>
 
