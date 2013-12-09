@@ -175,14 +175,15 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 		}
 	}
 }
-#application-content {
-	min-height: 100%;
+.has-menu {
+	#application-content {
+		min-height: 100%;
 
-	.feature-page {
-		padding-left: $menu-width + $default-spacing;
+		.feature-page {
+			padding-left: $menu-width + $default-spacing;
+		}
 	}
 }
-
 
 .hexagon {
 	position: relative;

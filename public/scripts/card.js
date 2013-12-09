@@ -238,7 +238,7 @@ function inputToObject(data, inputName, inputValue) {
 				document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
 				var url = encryptIdentityForUrl(identity);
 				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 125); // be dynamic!
-				qrcodesvg.draw(null, {"fill": "#d40000", "stroke-width": 0});
+				qrcodesvg.draw(null, {"fill": "#222222", "stroke-width": 0});
 
 				var destination = document.getElementById("identity-barcode");
 				var source = document.getElementById("qrcode-preview").getElementsByTagName("path");
