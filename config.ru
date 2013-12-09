@@ -10,7 +10,6 @@ require './lib/id_me/home_app'
 # app map
 run Rack::URLMap.new({
   "/"        => IdMe::HomeApp,
-  "/id"      => IdMe::ReaderApp,
 })
 
 # use SCSS for styling

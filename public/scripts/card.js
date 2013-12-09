@@ -40,7 +40,9 @@ function encryptIdentityForUrl(identityData) {
 	};
 	var encrypted = CryptoJS.AES.encrypt(JSON.stringify(identityDataForUrl), NOT_SO_SECRET_PASSPHRASE);
 	// return encrypted.toString(CryptoJS.enc.Base64);
-	return encrypted.toString();
+	var url = "http://" + window.location.host + "/id#" + encrypted.toString();
+	console.log(url);
+	return url;
 }
 function decryptIdentityFromUrl(dataString) {
 	decrypted = CryptoJS.AES.decrypt(dataString, NOT_SO_SECRET_PASSPHRASE);
@@ -75,11 +77,18 @@ function renderIdentityDataFromUrl() {
 	for(var i in identityData.images) {
 		if(identityData.images.hasOwnProperty(i)) {
 			document.getElementById("current-card").innerHTML += renderIdentity(identityData, i);
+			renderQrcodeTo(window.location.href, document.getElementById("identity-barcode"));
 		}
 	}
 }
 
-renderIdentityDataFromUrl();
+(function(){
+	var fnOnload = window.onload;
+	window.onload = function() {
+		if(typeof(fn) === 'function') fn();
+		renderIdentityDataFromUrl();
+	};
+})();
 
 function formDataToIdentity(formData, image) {
 	var urlTokens = /(https?:)(.*)/.exec(image.src);
@@ -220,6 +229,18 @@ function inputToObject(data, inputName, inputValue) {
 
 	return ptr;
 }
+
+function renderQrcodeTo(url, destination) {
+	var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 125); // be dynamic!
+	qrcodesvg.draw(null, {"fill": "#222222", "stroke-width": 0});
+
+	var source = document.getElementById("qrcode-preview").getElementsByTagName("path");
+
+	for(var i=source.length-1; i>=0; i--) {
+		destination.appendChild(source[i]);
+	}
+}
+
 (function() {
 	var form = document.getElementById("form-create-identity");
 	if(form) {
@@ -237,16 +258,7 @@ function inputToObject(data, inputName, inputValue) {
 				var identity = formDataToIdentity(data.identity, this);
 				document.getElementById("card-preview").innerHTML = renderIdentity(identity, 'orig');
 				var url = encryptIdentityForUrl(identity);
-				var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 125); // be dynamic!
-				qrcodesvg.draw(null, {"fill": "#222222", "stroke-width": 0});
-
-				var destination = document.getElementById("identity-barcode");
-				var source = document.getElementById("qrcode-preview").getElementsByTagName("path");
-
-				console.log(destination);
-				for(var i=source.length-1; i>=0; i--) {
-					destination.appendChild(source[i]);
-				}
+				renderQrcodeTo(url, document.getElementById("identity-barcode"));
 			};
 			img.src = data.identity['image'];
 

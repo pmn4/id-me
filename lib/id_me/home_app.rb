@@ -36,6 +36,12 @@ module IdMe
 			erb :index
 		end
 
+		get '/id' do
+			content_type :'text/html'
+			@display_only = true
+			erb :index
+		end
+
 		error 400..510 do
 			puts inspect
 			request.env['sinatra_error']

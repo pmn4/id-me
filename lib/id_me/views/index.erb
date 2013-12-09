@@ -1,7 +1,7 @@
-<div id="page-content" class="<%= @create_only ? 'no-menu' : 'has-menu' %>">
+<div id="page-content" class="<%= @create_only || @display_only ? 'no-menu' : 'has-menu' %>">
 <div id="qrcode-preview"></div>
 
-<% unless @create_only %>
+<% unless @create_only || @display_only %>
 	<div id="main-menu">
 		<img id="logo" src="/images/logo.svg" />
 
@@ -31,59 +31,67 @@
 <% end %>
 
 <div id="application-content">
-	<div id="create-identity" class="feature-page create">
-		<h2>Create a Card</h2>
-		<form actions="#" method="POST" id="form-create-identity">
-			<div class="input-wrapper name">
-				<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" value="Tony Lowe" />
-			</div>
-			<div class="input-wrapper birthdate">
-				<input id="profile_birthdate" name="identity[birthdate]" type="date" placeholder="Birthdate" value="1989-02-03" />
-			</div>
-			<div class="input-wrapper image">
-				<!-- <input id="profile_image" name="identity[image]" type="file" accept="image/*;capture=camera" /> -->
-				<input id="profile_image" name="identity[image]" type="text" placeholder="http://" value="http://bit.ly/18rVlMy" />
-			</div>
-			<div class="input-wrapper image-capture">
-				<!--
-					<video autoplay height="360" width="480"></video>
-					<img src="">
-					<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
-					<div>
-						<button id="video-capture-begin">Start Camera</div>
-						<button id="video-capture-end">Stop Camera</div>
-					</div>
-				-->
-			</div>
+	<% unless @display_only %>
+		<div id="create-identity" class="feature-page create">
+			<h2>Create a Card</h2>
+			<form actions="#" method="POST" id="form-create-identity">
+				<div class="input-wrapper name">
+					<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" value="Tony Lowe" />
+				</div>
+				<div class="input-wrapper birthdate">
+					<input id="profile_birthdate" name="identity[birthdate]" type="date" placeholder="Birthdate" value="1989-02-03" />
+				</div>
+				<div class="input-wrapper image">
+					<!-- <input id="profile_image" name="identity[image]" type="file" accept="image/*;capture=camera" /> -->
+					<input id="profile_image" name="identity[image]" type="text" placeholder="http://" value="http://bit.ly/18rVlMy" />
+				</div>
+				<div class="input-wrapper image-capture">
+					<!--
+						<video autoplay height="360" width="480"></video>
+						<img src="">
+						<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
+						<div>
+							<button id="video-capture-begin">Start Camera</div>
+							<button id="video-capture-end">Stop Camera</div>
+						</div>
+					-->
+				</div>
 
-			<div class="actions">
-				<button type="submit">Create</button>
+				<div class="actions">
+					<button type="submit">Create</button>
+				</div>
+			</form>
+			<div id="card-preview-wrapper">
+				<div id="card-preview"></div>
 			</div>
-		</form>
-		<div id="card-preview-wrapper">
-			<div id="card-preview"></div>
 		</div>
-	</div>
+	<% end %>
 
 	<% unless @create_only %>
 		<div id="scan-identity" class="feature-page scan">
-			<h2>Scan a Card</h2>
-			<video id="qr-video" autoplay height="360" width="480"></video>
-			<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
-			<img id="qr-image" height="360" width="480" />
-			<div>
-				<button id="video-capture-begin">Start Camera</button>
-				<button id="video-capture-end">Stop Camera</button>
-			</div>
+			<% unless @display_only %>
+				<h2>Scan a Card</h2>
+				<video id="qr-video" autoplay height="360" width="480"></video>
+				<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
+				<img id="qr-image" height="360" width="480" />
+				<div>
+					<button id="video-capture-begin">Start Camera</button>
+					<button id="video-capture-end">Stop Camera</button>
+				</div>
+			<% end %>
 
 			<div id="current-card">
 			</div>
 		</div>
+	<% end %>
 
+	<% unless @create_only || @display_only %>
 		<div id="scan-history" class="feature-page view">
 			<h2>Scan History</h2>
 		</div>
+	<% end %>
 
+	<% unless @create_only || @display_only %>
 		<div id="scan-data" class="feature-page stats">
 			<h2>Scan Data</h2>
 		</div>
