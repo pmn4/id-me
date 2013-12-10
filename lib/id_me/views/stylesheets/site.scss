@@ -91,6 +91,8 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 	$image: nth($feature, 3);
 
 	.#{$class} {
+		color: $color;
+
 		h1, h2, h3, h4, h5, h6 { color: $color; }
 		background: transparent url('/images/backgrounds/#{$image}') no-repeat center center;
 		background-size: cover;

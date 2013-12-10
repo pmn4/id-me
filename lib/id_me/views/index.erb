@@ -7,7 +7,7 @@
 
 		<ul class="menu-items">
 			<li class="menu-item create">
-				<a class="hexagon" href="/#create-identity">
+				<a class="hexagon" href="/create">
 					<div class="hexagon icon">N</div>
 				</a>
 			</li>
@@ -33,6 +33,19 @@
 <% unless @create_only || @display_only %>
 	<div id="sprtid-main" class="feature-page main">
 		<img id="main-logo" height="50%" width="auto" src="/images/sprtid.png" />
+		<p>
+			This is a demo app that will mostly do the following:
+		</p>
+		<p>
+			<span class="create">Create</span>,
+			<span class="scan">Scan</span>,
+			<span class="view">View History</span>,
+			<span class="stats">See Stats</span>
+		</p>
+		<p><br/></p>
+		<p>
+			It is a work-in-progress, but should give you an idea of the level of technology that sprtid.com brings to the table.
+		</p>
 	</div>
 <% end %>
 
@@ -45,6 +58,12 @@
 		<div id="scan-identity" class="feature-page scan">
 			<% unless @display_only %>
 				<h2>Scan a Card</h2>
+				<p>
+					(mostly working) No external tools necessary on the field to scan cards,
+					this webpage has the ability to tap into your phone or tablet's camera
+					creating a quick card scanner.  Scanning the card will display up a player's
+					profile to ensure the authenticity of the card is in place.
+				</p>
 				<video id="qr-video" autoplay height="360" width="480"></video>
 				<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
 				<img id="qr-image" height="360" width="480" />
@@ -62,6 +81,7 @@
 	<% unless @create_only || @display_only %>
 		<div id="scan-history" class="feature-page view">
 			<h2>Scan History</h2>
+			<%= erb :list, :layout => false %>
 		</div>
 	<% end %>
 

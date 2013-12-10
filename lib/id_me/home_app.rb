@@ -28,6 +28,12 @@ module SprtId
 
 		get '/' do
 			content_type :'text/html'
+
+			@identities = []
+			Models::FullIdentity.all.each do |identity|
+				@identities << identity
+			end
+
 			erb :index
 		end
 
