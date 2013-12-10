@@ -1,4 +1,4 @@
-module IdMe
+module SprtId
 	module Helpers
 		module ViewHelpers
 			def file_load(file)
@@ -6,10 +6,13 @@ module IdMe
 					s = File.read(file)
 				rescue Errno::ENOENT => e
 					# LOGGER.warn e
-p e
 					s = nil
 				end
 				s
+			end
+
+			def mobile?
+				request.env['X_MOBILE_DEVICE']
 			end
 		end
 	end

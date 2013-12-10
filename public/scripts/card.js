@@ -83,7 +83,7 @@ function renderIdentityDataFromUrl() {
 }
 
 (function(){
-	var fnOnload = window.onload;
+	var fn = window.onload;
 	window.onload = function() {
 		if(typeof(fn) === 'function') fn();
 		renderIdentityDataFromUrl();
@@ -241,6 +241,7 @@ function renderQrcodeTo(url, destination) {
 	}
 }
 
+/*
 (function() {
 	var form = document.getElementById("form-create-identity");
 	if(form) {
@@ -266,6 +267,6 @@ function renderQrcodeTo(url, destination) {
 		};
 	}
 })();
-
+*/
 
 

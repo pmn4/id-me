@@ -1,0 +1,9 @@
+<ul>
+<% @identities.each do |identity| %>
+	<li>
+		<a href="/doc/<%= identity._id %>">
+			<%= identity.name %>
+		</a>
+	</li>
+<% end %>
+</ul>

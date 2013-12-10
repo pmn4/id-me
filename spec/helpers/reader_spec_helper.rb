@@ -9,7 +9,7 @@ module ReaderMixin
 	end
 
 	def app
-		IdMe::ReaderApp
+		SprtId::ReaderApp
 	end
 end
 

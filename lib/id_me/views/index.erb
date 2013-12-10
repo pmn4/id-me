@@ -3,7 +3,7 @@
 
 <% unless @create_only || @display_only %>
 	<div id="main-menu">
-		<img id="logo" src="/images/logo.svg" />
+		<img id="logo" src="/images/sprtid.png" />
 
 		<ul class="menu-items">
 			<li class="menu-item create">
@@ -22,7 +22,7 @@
 				</a>
 			</li>
 			<li class="menu-item stats">
-				<a class="hexagon" href="/	`1`#scan-data">
+				<a class="hexagon" href="/#scan-data">
 					<div class="hexagon icon">D</div>
 				</a>
 			</li>
@@ -30,41 +30,15 @@
 	</div>
 <% end %>
 
+<% unless @create_only || @display_only %>
+	<div id="sprtid-main" class="feature-page main">
+		<img id="main-logo" height="50%" width="auto" src="/images/sprtid.png" />
+	</div>
+<% end %>
+
 <div id="application-content">
 	<% unless @display_only %>
-		<div id="create-identity" class="feature-page create">
-			<h2>Create a Card</h2>
-			<form actions="#" method="POST" id="form-create-identity">
-				<div class="input-wrapper name">
-					<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" value="Tony Lowe" />
-				</div>
-				<div class="input-wrapper birthdate">
-					<input id="profile_birthdate" name="identity[birthdate]" type="date" placeholder="Birthdate" value="1989-02-03" />
-				</div>
-				<div class="input-wrapper image">
-					<!-- <input id="profile_image" name="identity[image]" type="file" accept="image/*;capture=camera" /> -->
-					<input id="profile_image" name="identity[image]" type="text" placeholder="http://" value="http://bit.ly/18rVlMy" />
-				</div>
-				<div class="input-wrapper image-capture">
-					<!--
-						<video autoplay height="360" width="480"></video>
-						<img src="">
-						<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
-						<div>
-							<button id="video-capture-begin">Start Camera</div>
-							<button id="video-capture-end">Stop Camera</div>
-						</div>
-					-->
-				</div>
-
-				<div class="actions">
-					<button type="submit">Create</button>
-				</div>
-			</form>
-			<div id="card-preview-wrapper">
-				<div id="card-preview"></div>
-			</div>
-		</div>
+		<%= erb :create, :layout => false %>
 	<% end %>
 
 	<% unless @create_only %>
@@ -97,16 +71,3 @@
 		</div>
 	<% end %>
 </div>
-
-<script type="text/template" id="template-id-card">
-	<%= file_load("#{settings.root}/public/tpl/card.svg") %>
-</script>
-
-<script>
-// (function(){
-// 	var fnOnload = window.onload;
-// 	window.onload = function() {
-// 		if(typeof(fn) === 'function') fn();
-// 	};
-// })();
-</script>

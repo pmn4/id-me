@@ -1,65 +1,36 @@
 require 'active_model'
 
-module IdMe
+module SprtId
 	module Models
 		class Base # < ActiveRecord::Base
-			include ActiveModel::Validations
+			include Mongoid::Document
 
-			attr_accessor :version
-
-			def initialize(attributes)
-				@version = "0.1"
-			end
+			field :version, :type => String, :default => '1.0'
 		end
 
 		class IdentityImage < Base
-			attr_accessor :key
-			attr_accessor :height
-			attr_accessor :width
-			attr_accessor :type # url, base64
-			attr_accessor :data
-
-			validates :type,    :presence => true
-			validates :data,    :presence => true
-
-			def url=(val)
-				@data = val
-				@type = :url
-			end
-
-			def base64=(val)
-				@data = val
-				@type = :base64
-			end
-
-			def url?
-				@type.to_sym == :url
-			end
-
-			def base64?
-				@type.to_sym == :base64
-			end
-
-			def src
-				case :type
-				when :url
-					@url
-				when :base64
-					"data:image/jpeg;base64,#{@base64}"
-				else
-					nil
-				end
-			end
+			field :key, :type => String
+			field :height, :type => Integer
+			field :width, :type => Integer
+			field :type, :type => String
+			field :href, :type => String
 		end
 
 		class Identity < Base
-			attr_reader :id
+			field :external_id, :type => String
 		end
 
-		class OfflineIdentity < Identity
-			attr_accessor :image_collection
-			attr_accessor :name
-			attr_accessor :birthdate
+		class SimpleIdentity < Identity
+			field :images, :type => Hash
+			field :name, :type => String
+			field :birthdate, :type => Date
+		end
+
+		class FullIdentity < SimpleIdentity
+			field :organization, :type => String
+			field :team, :type => String
+			field :graduation_year, :type => Integer
+			field :sport, :type => String
 		end
 	end
 end

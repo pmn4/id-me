@@ -1,0 +1,16 @@
+<%
+	identity_id_attr = 'identity-display'
+%>
+<div id="<%= identity_id_attr %>"></div>
+
+<script>
+(function() {
+	var fn = window.onload;
+	var identityObject = <%= @identity.to_json %>;
+	window.onload = function() {
+		if(typeof(fn) === 'function') fn();
+
+		document.getElementById("<%= identity_id_attr %>").innerHTML = renderIdentity(identityObject, 'original');
+	};
+})();
+</script>

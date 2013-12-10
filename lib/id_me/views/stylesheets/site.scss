@@ -57,6 +57,7 @@ h6 {
 .input-wrapper {
 	margin-top: 10px;
 }
+select,
 input {
 	height: 2em;
 	width: 400px;
@@ -83,7 +84,7 @@ button {
 	}
 }
 
-$features: 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
+$features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
 @each $feature in $features {
 	$class: nth($feature, 1);
 	$color: nth($feature, 2);
@@ -96,6 +97,7 @@ $features: 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan
 		// background-color: nth($feature, 2);
 
 		.input-wrapper {
+			select,
 			input {
 				color: $color;
 			}
@@ -249,3 +251,10 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 	height: 125px;
 }
 @import '_icomoon';
+
+#sprtid-main {
+	text-align: center;
+}
+#main-logo {
+	margin-top: 10%;
+}

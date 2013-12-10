@@ -1,0 +1,44 @@
+<div id="create-identity" class="feature-page create">
+	<h2>Create a Card</h2>
+	<form action="/create" method="POST" id="form-create-identity">
+		<div class="input-wrapper name">
+			<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" />
+		</div>
+		<div class="input-wrapper aau-id">
+			<input id="profile_id" name="identity[external_id]" type="text" placeholder="AAU Id" />
+		</div>
+		<div class="input-wrapper birthdate">
+			<input id="profile_birthdate" name="identity[birthdate]" type="date" placeholder="Birthdate" />
+		</div>
+		<div class="input-wrapper graduation-year">
+			<select id="profile_graduation_year" name="identity[graduation_year]">
+				<option value="">Graduation year</option>
+				<% this_year = Time.now.year %>
+				<% (this_year..(this_year + 20)).each do |year| %>
+					<option value="<%= year %>"><%= year %></option>
+				<% end %>
+			</select>
+		</div>
+		<div class="input-wrapper sport">
+			<select id="profile_sport" name="identity[sport]">
+				<option value="">Sport</option>
+				<% ['Football', 'Baseball', 'Basketball', 'Hockey', 'Volleyball'].each do |sport| %>
+					<option value="<%= sport %>"><%= sport %></option>
+				<% end %>
+			</select>
+		</div>
+		<div class="input-wrapper image">
+			<input id="profile_image" name="identity[images][original][type]" type="hidden" value="url" />
+			<% if mobile? %>
+				<input id="profile_image" name="identity[images][original][href]" type="file" accept="image/*;capture=camera" />
+			<% else %>
+				<!-- http://bit.ly/18rVlMy -->
+				<input id="profile_image" name="identity[images][original][href]" type="text" placeholder="http://" />
+			<% end %>
+		</div>
+
+		<div class="actions">
+			<button type="submit">Create</button>
+		</div>
+	</form>
+</div>

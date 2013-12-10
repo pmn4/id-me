@@ -6,6 +6,7 @@ gem 'sass'
 gem 'compass'
 gem 'sinatra', '1.4.3'
 gem 'sinatra-contrib'
+gem 'rack-mobile-detect'
 gem 'unicorn'
 
 # DB

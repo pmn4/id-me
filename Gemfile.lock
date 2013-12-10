@@ -34,6 +34,8 @@ GEM
       tzinfo (~> 0.3.22)
     multi_json (1.8.2)
     rack (1.5.2)
+    rack-mobile-detect (0.4.0)
+      rack
     rack-protection (1.5.0)
       rack
     rack-test (0.6.2)
@@ -78,6 +80,7 @@ DEPENDENCIES
   compass
   mongo
   mongoid (~> 2.0.0)
+  rack-mobile-detect
   rake (= 10.1)
   rspec (= 2.10)
   sass

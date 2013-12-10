@@ -6,13 +6,13 @@ production:
 development:
   sessions:
     default:
-      database: test
+      database: sprtid
       hosts:
         - localhost:27017
-  database: test
-test:
+  database: sprtid
+sprtid:
   sessions:
     default:
-      database: test
+      database: sprtid
       hosts:
         - localhost:27017
