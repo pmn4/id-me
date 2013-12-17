@@ -1,4 +1,4 @@
-require 'active_model'
+# require 'active_model'
 
 module SprtId
 	module Models
@@ -9,6 +9,8 @@ module SprtId
 		end
 
 		class IdentityImage < Base
+			# embedded_in :imagable, :polymorphic => true
+
 			field :key, :type => String
 			field :height, :type => Integer
 			field :width, :type => Integer
@@ -33,9 +35,10 @@ module SprtId
 		end
 
 		class SimpleIdentity < Identity
-			field :images, :type => Hash
 			field :name, :type => String
 			field :birthdate, :type => Date
+			field :image, :type => IdentityImage
+			# embeds_many :images, :as => :imagable, :cascade_callbacks => true
 		end
 
 		class FullIdentity < SimpleIdentity

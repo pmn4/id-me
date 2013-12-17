@@ -123,18 +123,25 @@
        width="125"
        id="identity-barcode">
     </g>
-    <% if(identity.images && imageKey) { %>
+    <!-- % if(identity.images && imageKey) { % -->
+    <% if(identity.image) { %>
       <%
-        var image = identity.images[imageKey], ratio = 224 / image.height;
+        var /*image = identity.images[imageKey],*/
+            image = identity.image,
+            ratio = 224 / image.height;
         var randomId = "identity-image-" + Math.floor(Math.random() * 1000000);
+        var displayImageWidth = 175.46666,
+            displayImageHeight = 224,
+            displayImageX = 54.976284,
+            displayImageY = 619.7193;
       %>
       <image
          id="<%= randomId %>"
          xlink:href="<%= (image.protocol || '') + image.url %>"
-         x="<%= (image.x || 0) * ratio + 54.976284 %>"
-         y="<%= (image.y || 0) * ratio + 619.7193 %>"
-         width="<%= (image.width || 0) * ratio || 175.46666 %>"
-         height="<%= (image.height || 0) * ratio || 224 %>"
+         x="<%= (image.x || ((image.width - displayImageWidth/ratio) / -2)) * ratio + displayImageX %>"
+         y="<%= (image.y || 0) * ratio + displayImageY %>"
+         width="<%= (image.width || 0) * ratio || displayImageWidth %>"
+         height="<%= (image.height || 0) * ratio || displayImageHeight %>"
          clip-path="url(#clipPath3160)" />
     <% } %>
   </g>

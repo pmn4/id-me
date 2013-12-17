@@ -49,6 +49,7 @@ GEM
     rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rqrcode (0.4.2)
     rspec (2.10.0)
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)
@@ -90,6 +91,7 @@ DEPENDENCIES
   mongoid (~> 2.0.0)
   rack-mobile-detect
   rake (= 10.1)
+  rqrcode (~> 0.4.2)
   rspec (= 2.10)
   sass
   sinatra (= 1.4.3)

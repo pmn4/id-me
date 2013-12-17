@@ -65,7 +65,6 @@ module SprtId
 # API Base URL: https://api.cloudinary.com/v1_1/sprtid
 
 		post '/create' do
-			p params
 			identity_document = Models::FullIdentity.new()
 			identity_document.attributes = params[:identity]
 
@@ -74,18 +73,14 @@ module SprtId
 
 			if identity_document.invalid? || tmpfile.nil? || filename.nil?
 				@errors = ['Please complete all required fields']
-				# content_type :'text/html'
 				LOGGER.info("Form Validation Error /create")
 				return erb :create
 			end
 
 			begin
-				# image = Models::CloudinaryImage.new()
-				# image.attributes = Cloudinary::Uploader.upload(tmpfile)
-				image = Cloudinary::Uploader.upload(tmpfile)
-				p 'before', identity_document
-				identity_document.attributes = {:images => {:original => image}}
-				p 'after', identity_document
+				image = Models::CloudinaryImage.new()
+				image.attributes = Cloudinary::Uploader.upload(tmpfile)
+				identity_document.image = image
 			rescue Exception => e
 				@errors = ['Failed to save Identity Image']
 				puts "An error occurred saving identity: #{e.to_s}"
@@ -93,30 +88,28 @@ module SprtId
 
 			begin
 				save_response = identity_document.save
-				p 'save', save_response
 			rescue Exception => e
 				@errors = ['Failed to save Identity']
 				LOGGER.error("An error occurred saving identity: #{e.to_s}")
 			end
 
 			if @errors && @errors.length
-				# content_type :'text/html'
 				erb :create
 			else
-				redirect "/doc/#{identity_document['_id']}"
+				redirect "/i/#{identity_document['_id']}"
 			end
 		end
 
-		get '/id' do
+		get '/i/:document_id' do # i => Identify #shorturls
 			content_type :'text/html'
-			@display_only = true
-			erb :create
+			@identity = Models::FullIdentity.find(params[:document_id]).as_document
+			erb :identity
 		end
 
-		get '/doc/:document_id' do
+		get '/ci/:document_id' do # ci => Check In #shorturls
 			content_type :'text/html'
-			@identity = Models::FullIdentity.find(params[:document_id])
-			erb :identity
+			@identity = Models::FullIdentity.find(params[:document_id]).as_document
+			erb :check_in
 		end
 
 		get '/list' do

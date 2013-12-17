@@ -3,12 +3,15 @@ var NOT_SO_SECRET_PASSPHRASE = "killer boots man";
 var ViewHelpers = {
 	months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 	birthdateFormatted: function(date) {
+		var tmp;
 		if(date instanceof Date) {
 			if(date > 0) {
 				return ViewHelpers.months[date.getUTCMonth()] + " " + date.getUTCDate() + ", " + date.getUTCFullYear();
 			}
 
 			return "";
+		} else if((tmp = Date.parse(date)) && !isNaN(tmp)) {
+			return ViewHelpers.birthdateFormatted(new Date(tmp));
 		}
 
 		return date;
@@ -231,14 +234,22 @@ function inputToObject(data, inputName, inputValue) {
 }
 
 function renderQrcodeTo(url, destination) {
-	var qrcodesvg = new Qrcodesvg(url, "qrcode-preview", 125); // be dynamic!
-	qrcodesvg.draw(null, {"fill": "#222222", "stroke-width": 0});
+	var preview_id = "preview" + Date.now(),
+	    preview = document.createElement("DIV");
 
-	var source = document.getElementById("qrcode-preview").getElementsByTagName("path");
+	preview.setAttribute("id", preview_id);
+	document.body.appendChild(preview);
+
+	var qrcodesvg = new Qrcodesvg(url, preview_id, 125); // be dynamic!
+	qrcodesvg.draw(null, {"fill": "#222222", "stroke-width": 0.1});
+
+	var source = preview.getElementsByTagName("path");
 
 	for(var i=source.length-1; i>=0; i--) {
 		destination.appendChild(source[i]);
 	}
+
+	preview.parentElement.removeChild(preview);
 }
 
 /*
