@@ -2,7 +2,8 @@
         'compass/css3';
 // @import '_variables';
 
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700|Amatic+SC);
+$font-family-headline: "Arial Black", Gadget, sans-serif;
+$font-family-content: Verdana, Geneva, sans-serif;
 
 $color-scheme-foreground: #D0C6B1;
 $color-scheme-background: #192321;
@@ -22,7 +23,7 @@ html, body {
 }
 
 body {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: $font-family-content;
 	font-size: 24px;
 	line-height: 1.2em;
 	background: $color-scheme-background url('/images/linen.png') repeat;
@@ -35,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Amatic SC', cursive;
+	font-family: $font-family-headline;
 	font-weight: 700;
 	color: $color-scheme-foreground;
 
@@ -76,7 +77,7 @@ button {
 
 	background-color: transparent;
 	color: $color-scheme-foreground;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: $font-family-content;
 	font-size: 16px;
 
 	&:hover {
@@ -93,6 +94,18 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 	.#{$class} {
 		color: $color;
 
+		.hexagon {
+			background-color: $color;
+			.hexagon {
+				color: $color;
+				&:hover {
+					background-color: mix($color-scheme-background, $color, 90%);
+				}
+			}
+		}
+	}
+
+	.feature-page.#{$class} {
 		h1, h2, h3, h4, h5, h6 { color: $color; }
 		background: transparent url('/images/backgrounds/#{$image}') no-repeat center center;
 		background-size: cover;
@@ -110,15 +123,6 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 
 			&:hover {
 				background-color: mix($color-scheme-background, $color, 90%);
-			}
-		}
-		.hexagon {
-			background-color: $color;
-			.hexagon {
-				color: $color;
-				&:hover {
-					background-color: mix($color-scheme-background, $color, 90%);
-				}
 			}
 		}
 	}
