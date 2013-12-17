@@ -13,7 +13,19 @@ module SprtId
 			field :height, :type => Integer
 			field :width, :type => Integer
 			field :type, :type => String
-			field :href, :type => String
+			field :secure_url, :type => String
+		end
+
+		class CloudinaryImage < IdentityImage
+			field :public_id, :type => String
+			field :version, :type => Integer
+			field :signature, :type => String
+			field :format, :type => String
+			field :resource_type, :type => String
+			field :created_at, :type => Date
+			field :bytes, :type => Integer
+			field :etag, :type => String
+			field :secure_url, :type => String
 		end
 
 		class Identity < Base

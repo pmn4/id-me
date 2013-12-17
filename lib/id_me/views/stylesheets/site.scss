@@ -185,6 +185,7 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 
 		.feature-page {
 			padding-left: $menu-width + $default-spacing;
+			padding-right: $default-spacing;
 		}
 	}
 }
@@ -255,8 +256,13 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 @import '_icomoon';
 
 #sprtid-main {
-	text-align: center;
+	padding-top: $default-spacing;
+	h5,
+	p {
+		margin-top: $default-spacing;
+	}
 }
 #main-logo {
-	margin-top: 10%;
+	float: left;
+	margin: $default-spacing;
 }

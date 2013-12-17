@@ -30,30 +30,31 @@
 	</div>
 <% end %>
 
-<% unless @create_only || @display_only %>
-	<div id="sprtid-main" class="feature-page main">
-		<img id="main-logo" height="50%" width="auto" src="/images/sprtid.png" />
-		<h3>
-			sprtId is a white-label provider of identification products.
-		</h3>
-		<p>
-			When your next tournament calls for rapid, on-field photo verification of players, sprtId is the solution.
-		</p>
-		<p>
-			sprtId takes the registration process you already have in-place to the field with no apps to download, meaning
-			pre-registration by tournament organizers, and spot-checks at the field by officials are quick and easy, ensuring
-			fair play with limited interruption.
-		</p>
-		<h5>How it works</h5>
-		<p>
-			Upon registration for an event, an email will be sent to each player (or parent of player) at which time a photo
-			will be taken or uploaded.  Once complete, a player or parent may either print a temporary id card or display it
-			on his or her phone to the tournament organizers.
-		</p>
-	</div>
-<% end %>
-
 <div id="application-content">
+	<% unless @create_only || @display_only %>
+		<div id="sprtid-main" class="feature-page main">
+			<img id="main-logo" height="50%" width="auto" src="/images/sprtid.png" />
+			<h2>
+				<span class="create">sprtId: white-label identification services</span>
+			</h2>
+			<p>
+				When your tournament calls for <span class="scan">rapid photo verification</span> of players, sprtId
+				is the solution.
+			</p>
+			<p>
+				sprtId takes the registration process you already use to the field with no apps to download, meaning
+				<span class="view">pre-registration by tournament organizers, and spot-checks by on-field officials
+				are quick and easy</span>, ensuring fair play with limited interruption.
+			</p>
+			<h5>How it Works</h5>
+			<p>
+				Upon registration for an event, each player (or parent of player) will upload or take a photo with his or
+				her web cam.  Once complete, a player or parent may either print or <span class="stats">display
+				a temporary id card on a smartphone</span> to the tournament organizers.
+			</p>
+		</div>
+	<% end %>
+
 	<% unless @display_only %>
 		<%= erb :create, :layout => false %>
 	<% end %>

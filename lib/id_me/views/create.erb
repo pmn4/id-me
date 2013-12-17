@@ -1,6 +1,6 @@
 <div id="create-identity" class="feature-page create">
 	<h2>Create a Card</h2>
-	<form action="/create" method="POST" id="form-create-identity">
+	<form action="/create" method="POST" id="form-create-identity" enctype="multipart/form-data">
 		<div class="input-wrapper name">
 			<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" />
 		</div>
@@ -28,13 +28,12 @@
 			</select>
 		</div>
 		<div class="input-wrapper image">
-			<input id="profile_image" name="identity[images][original][type]" type="hidden" value="url" />
-			<% if mobile? %>
-				<input id="profile_image" name="identity[images][original][href]" type="file" accept="image/*;capture=camera" />
-			<% else %>
+			<%# if mobile? %>
+				<input id="profile_image" name="profile_image" type="file" accept="image/*;capture=camera" />
+			<%# else %>
 				<!-- http://bit.ly/18rVlMy -->
-				<input id="profile_image" name="identity[images][original][href]" type="text" placeholder="http://" />
-			<% end %>
+				<!-- <input id="profile_image" name="identity[images][original][url]" type="text" placeholder="http://" /> -->
+			<%# end %>
 		</div>
 
 		<div class="actions">

@@ -18,7 +18,7 @@ http://sportsid.com/
 	images: {
 		base64: {
 			protocol: "data:image/png;base64,",
-			href: "iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAABTklEQVQYVx2PPU8TcRyAn9/dtfe/l/aKhaMNkxRlMUpiDA6SEMLEiokrC6vxI+AMpCyszITEOBFcNNHduBgTBmIYGkkEGqDX9q7H/UC/wPMiX44+arvd5qzzB8uy0KLAtm08z2NzewtZePFMXR3RCFwiU6KX5NQiQy4lfnX+Iq/mZnXpcUyIEDllXONT5EOu01uOb4bI8ss5XXxYJ2KE53i4vk/WT+gVOecZyMrzJzo/HdNNc1pxTLNW4dP3H0xEdYxXRtYWnuqjmSl+n3ZpTcV42RWJU8N1yxgrRzZeL2szCnADQ/eyC2mKqYaE/1R5gbx/s6KVyOKBbegng/+RthRYolxkGbKz8U4HJz/xSw7p/aKWDJKljNUDznop8vXwQD/v7zFhylx1EhrVOhfDc8LJCv1wHPl2dKAfdrdpjAX4Yt2jDWqN6KnD6vpb7gA+F3fQ/zPS+QAAAABJRU5ErkJggg==",
+			url: "iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAABTklEQVQYVx2PPU8TcRyAn9/dtfe/l/aKhaMNkxRlMUpiDA6SEMLEiokrC6vxI+AMpCyszITEOBFcNNHduBgTBmIYGkkEGqDX9q7H/UC/wPMiX44+arvd5qzzB8uy0KLAtm08z2NzewtZePFMXR3RCFwiU6KX5NQiQy4lfnX+Iq/mZnXpcUyIEDllXONT5EOu01uOb4bI8ss5XXxYJ2KE53i4vk/WT+gVOecZyMrzJzo/HdNNc1pxTLNW4dP3H0xEdYxXRtYWnuqjmSl+n3ZpTcV42RWJU8N1yxgrRzZeL2szCnADQ/eyC2mKqYaE/1R5gbx/s6KVyOKBbegng/+RthRYolxkGbKz8U4HJz/xSw7p/aKWDJKljNUDznop8vXwQD/v7zFhylx1EhrVOhfDc8LJCv1wHPl2dKAfdrdpjAX4Yt2jDWqN6KnD6vpb7gA+F3fQ/zPS+QAAAABJRU5ErkJggg==",
 			x: 20,
 			y: 10,
 			w: 55,
@@ -26,7 +26,7 @@ http://sportsid.com/
 		},
 		orig: {
 			protocol: "http:",
-			href: "//images.ussportscamps.com/coaches/TonyLowe1.JPG"
+			url: "//images.ussportscamps.com/coaches/TonyLowe1.JPG"
 		}
 	}
 }

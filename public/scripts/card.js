@@ -32,7 +32,7 @@ function encryptIdentityForUrl(identityData) {
 		i: identityData.id,
 		n: identityData.name,
 		b: Math.floor(identityData.birthdate / 86400000),
-		d: image.href,
+		d: image.url,
 		// x: image.x,
 		// y: image.y,
 		w: image.w,
@@ -99,7 +99,7 @@ function formDataToIdentity(formData, image) {
 		images: {
 			orig: {
 				protocol: urlTokens[1],
-				href: urlTokens[2],
+				url: urlTokens[2],
 				x: 0,
 				y: 0,
 				w: image.width,

@@ -9,6 +9,9 @@ gem 'sinatra-contrib'
 gem 'rack-mobile-detect'
 gem 'unicorn'
 
+# gem 'aws-s3'
+gem 'cloudinary'
+
 # DB
 gem 'activemodel', '~> 3.0.0'
 gem 'bson_ext'

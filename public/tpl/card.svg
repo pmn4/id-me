@@ -8,20 +8,6 @@
    version="1.1"
    id="svg2"
    viewBox="0 0 353 224" preserveAspectRatio="xMidYMid meet">
-    <% if(identity.images && imageKey) { %>
-      <%
-        var image = identity.images[imageKey], ratio = 224 / 120;
-        var randomId = "identity-image-" + Math.floor(Math.random() * 1000000);
-      %>
-      <style>
-        #<%= randomId %> {
-          background-image: url('<%= (image.protocol || '') + image.href %>');
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover;
-        }
-      </style>
-    <% } %>
   <defs
      id="defs4">
     <clipPath
@@ -137,16 +123,18 @@
        width="125"
        id="identity-barcode">
     </g>
-    <% if(image) { %>
-      <g class="identity-image" transform="translate(54.976284,619.7193)">
-        <rect id="<%= randomId %>" height="224" width="175.46666" style="fill:white;" />
-      </g>
+    <% if(identity.images && imageKey) { %>
+      <%
+        var image = identity.images[imageKey], ratio = 224 / image.height;
+        var randomId = "identity-image-" + Math.floor(Math.random() * 1000000);
+      %>
       <image
-         xlink:href="<%= (image.protocol || '') + image.href %>"
+         id="<%= randomId %>"
+         xlink:href="<%= (image.protocol || '') + image.url %>"
          x="<%= (image.x || 0) * ratio + 54.976284 %>"
          y="<%= (image.y || 0) * ratio + 619.7193 %>"
-         width="<%= (image.w || 0) * ratio || 175.46666 %>"
-         height="<%= (image.h || 0) * ratio || 224 %>"
+         width="<%= (image.width || 0) * ratio || 175.46666 %>"
+         height="<%= (image.height || 0) * ratio || 224 %>"
          clip-path="url(#clipPath3160)" />
     <% } %>
   </g>
