@@ -1,18 +1,7 @@
 @import 'compass/reset',
         'compass/css3';
-// @import '_variables';
-
-$font-family-headline: "Arial Black", Gadget, sans-serif;
-$font-family-content: Verdana, Geneva, sans-serif;
-
-$color-scheme-foreground: #D0C6B1;
-$color-scheme-background: #192321;
-$color-scheme-create: #ef5734;
-$color-scheme-scan: #ffcc2f;
-$color-scheme-view: #2baf2b;
-$color-scheme-stats: #00acee;
-
-$default-spacing: 20px;
+@import '_variables',
+        '_mixins';
 
 /*********************************************
  * GLOBAL STYLES
@@ -30,14 +19,10 @@ body {
 	color: $color-scheme-foreground;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: $font-family-headline;
-	font-weight: 700;
+	font-style: italic;
 	color: $color-scheme-foreground;
 
 	span {
@@ -107,6 +92,10 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 
 	.feature-page.#{$class} {
 		h1, h2, h3, h4, h5, h6 { color: $color; }
+		.h1, .h2, .h3, .h4, .h5, .h6 { color: $color; }
+		svg {
+			.h1, .h2, .h3, .h4, .h5, .h6 { fill: $color; }
+		}
 		background: transparent url('/images/backgrounds/#{$image}') no-repeat center center;
 		background-size: cover;
 		// background-color: nth($feature, 2);
@@ -134,7 +123,7 @@ $h6-font-size: 24px;
 $hmax: 6;
 @for $i from 1 through $hmax {
 	$font-size: floor(($h1-font-size - $h6-font-size) * ($hmax - $i) / $hmax + $h6-font-size);
-	h#{$i} {
+	h#{$i}, .h#{$i} {
 		line-height: $font-size;
 		font-size: $font-size;
 	}
@@ -269,4 +258,40 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 #main-logo {
 	float: left;
 	margin: $default-spacing;
+}
+
+.top-line-stats {
+	@include clearfix;
+
+	.top-line-stat {
+		width: 30%;
+		margin-left: 5%;
+		float: left;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		h6 {
+			padding-bottom: $default-spacing / 2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			padding-bottom: $default-spacing / 2;
+			text-align: center;
+			color: $color-scheme-foreground;
+		}
+
+		.count {
+			font-size: 4em;
+			line-height: 1em;
+			text-align: center;
+		}
+	}
+}
+#check-in-progress {
+	width: 100%;
+
+	td {
+		align: center;
+	}
 }

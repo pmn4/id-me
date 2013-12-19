@@ -1,0 +1,103 @@
+<div class="top-line-stats">
+	<div class="top-line-stat">
+		<h6>Total Check-Ins</h6>
+		<div class="count h1">
+			73
+		</div>
+	</div>
+	<div class="top-line-stat">
+		<h6>Expected Check-Ins</h6>
+		<div class="count h1">
+			274
+		</div>
+	</div>
+	<div class="top-line-stat">
+		<h6>% Checked-in</h6>
+		<div class="count h1">
+			26.6%
+		</div>
+	</div>
+</div>
+<table id="check-in-progress">
+	<thead>
+		<tr>
+			<th>Bears</th>
+			<th>Panthers</th>
+			<th>Lions</th>
+			<th>Dolphins</th>
+			<th>Ravens</th>
+			<th>Seahawks</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="check-in-progress" data-count="10" data-expected="18"></td>
+			<td class="check-in-progress" data-count="8" data-expected="15"></td>
+			<td class="check-in-progress" data-count="7" data-expected="16"></td>
+			<td class="check-in-progress" data-count="17" data-expected="17"></td>
+			<td class="check-in-progress" data-count="12" data-expected="19"></td>
+			<td class="check-in-progress" data-count="14" data-expected="16"></td>
+		</tr>
+	</tbody>
+</table>
+
+<script>
+function formatPercentage(ratio) {
+	var _ratio = ratio <= 1 ? ratio * 100 : ratio,
+	    quotient = Math.floor(_ratio),
+	    decimal = Math.round((_ratio % 1) * 10);
+
+	return quotient + '<tspan style="font-size:50%">.' + decimal + '</tspan>';
+}
+(function() {
+	var fn = window.onload;
+	window.onload = function() {
+		if(typeof(fn) === 'function') fn();
+
+		var color = d3.scale.ordinal()
+		    .range(["#D0C6B1", "#192321", "#ef5734", "#ffcc2f", "#2baf2b", "#d0743c"]);
+
+		var pie = d3.layout.pie()
+		    .sort(null)
+		    .value(function(d) { return d.value; });
+
+		var checkInProgress = document.getElementById("check-in-progress"),
+		    checkInProgressCells = d3.select(checkInProgress).selectAll(".check-in-progress")[0],
+		    padding = 10,
+		    diameter = checkInProgress.offsetWidth / checkInProgressCells.length - padding,
+		    radius = diameter / 2;
+
+		checkInProgressCells.forEach(function(e) {
+			var checkedIn = +e.getAttribute("data-count"),
+			    expected = +e.getAttribute("data-expected"),
+			    uncheckedIn = expected - checkedIn;
+
+			var arc = d3.svg.arc()
+			    .outerRadius(radius)
+			    .innerRadius(radius * 0.75);
+
+			var svg = d3.select(e).selectAll(".pie")
+					.data([[{label: "checkedIn", value: checkedIn}, {label: "uncheckedIn", value: uncheckedIn}]])
+				.enter().append("svg")
+					.attr("class", "pie")
+					.attr("width", radius * 2)
+					.attr("height", radius * 2)
+				.append("g")
+					.attr("transform", "translate(" + radius + "," + radius + ")");
+
+			svg.selectAll(".arc")
+					.data(function(d) { return pie(d); })
+				.enter().append("path")
+					.attr("class", "arc")
+					.attr("d", arc)
+					.style("fill", function(d, i) { return color(i); });
+
+			svg.append("text")
+					.attr("dy", ".35em")
+					.style("text-anchor", "middle")
+					.attr("class", "h3")
+					.html(formatPercentage(checkedIn / expected));
+		})
+	};
+})();
+</script>

@@ -4,3 +4,6 @@
 [submodule "ref/qrcodesvg"]
 	path = ref/qrcodesvg
 	url = https://github.com/pinchtools/qrcodesvg.git
+[submodule "ref/d3"]
+	path = ref/d3
+	url = https://github.com/mbostock/d3.git

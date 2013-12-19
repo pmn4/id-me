@@ -2,56 +2,13 @@
 <div id="qrcode-preview"></div>
 
 <% unless @create_only || @display_only %>
-	<div id="main-menu">
-		<img id="logo" src="/images/sprtid.png" />
-
-		<ul class="menu-items">
-			<li class="menu-item create">
-				<a class="hexagon" href="/create">
-					<div class="hexagon icon">N</div>
-				</a>
-			</li>
-			<li class="menu-item scan">
-				<a class="hexagon" href="/#scan-identity">
-					<div class="hexagon icon">Q</div>
-				</a>
-			</li>
-			<li class="menu-item view">
-				<a class="hexagon" href="/#scan-history">
-					<div class="hexagon icon">H</div>
-				</a>
-			</li>
-			<li class="menu-item stats">
-				<a class="hexagon" href="/#scan-data">
-					<div class="hexagon icon">D</div>
-				</a>
-			</li>
-		</ul>
-	</div>
+	<%= erb :'_navigation', :layout => false %>
 <% end %>
 
 <div id="application-content">
 	<% unless @create_only || @display_only %>
 		<div id="sprtid-main" class="feature-page main">
-			<img id="main-logo" height="50%" width="auto" src="/images/sprtid.png" />
-			<h2>
-				<span class="create">sprtId: white-label identification services</span>
-			</h2>
-			<p>
-				When your tournament calls for <span class="scan">rapid photo verification</span> of players, sprtId
-				is the solution.
-			</p>
-			<p>
-				sprtId takes the registration process you already use to the field with no apps to download, meaning
-				<span class="view">pre-registration by tournament organizers, and spot-checks by on-field officials
-				are quick and easy</span>, ensuring fair play with limited interruption.
-			</p>
-			<h5>How it Works</h5>
-			<p>
-				Upon registration for an event, each player (or parent of player) will upload or take a photo with his or
-				her web cam.  Once complete, a player or parent may either print or <span class="stats">display
-				a temporary id card on a smartphone</span> to the tournament organizers.
-			</p>
+			<%= erb :about, :layout => false %>
 		</div>
 	<% end %>
 
@@ -69,13 +26,13 @@
 					creating a quick card scanner.  Scanning the card will display up a player's
 					profile to ensure the authenticity of the card is in place.
 				</p>
-				<video id="qr-video" autoplay height="360" width="480"></video>
-				<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
-				<img id="qr-image" height="360" width="480" />
 				<div>
 					<button id="video-capture-begin">Start Camera</button>
 					<button id="video-capture-end">Stop Camera</button>
 				</div>
+				<video id="qr-video" autoplay height="360" width="480"></video>
+				<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
+				<img id="qr-image" height="360" width="480" />
 			<% end %>
 
 			<div id="current-card">
@@ -93,6 +50,7 @@
 	<% unless @create_only || @display_only %>
 		<div id="scan-data" class="feature-page stats">
 			<h2>Scan Data</h2>
+			<%= erb :stats, :layout => false %>
 		</div>
 	<% end %>
 </div>
