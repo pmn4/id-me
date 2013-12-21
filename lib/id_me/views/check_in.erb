@@ -1,4 +1,10 @@
+<% puts @identity.class %>
+<% puts @identity.inspect %>
 <div id="check-in-page">
-	<img src="@identity.image['secure_url']" />
-	<h1><%= @identity.name %></h1>
+	<img style="float:left; margin: 0 10px 10px 0;" src="<%= @identity.image.url %>" />
+	<h1>Name: <%= @identity.name %></h1>
+	<h2>Birthday: <%= @identity.birthdate %></h2>
+	<h3>AAU ID: <%= @identity.external_id %></h3>
+	<h4>Sport: <%= @identity.sport %></h4>
+	<h3>Graduates: <%= @identity.graduation_year %></h3>
 </div>

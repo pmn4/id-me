@@ -102,13 +102,13 @@ module SprtId
 
 		get '/i/:document_id' do # i => Identify #shorturls
 			content_type :'text/html'
-			@identity = Models::FullIdentity.find(params[:document_id]).as_document
+			@identity = Models::FullIdentity.find(params[:document_id])
 			erb :identity
 		end
 
 		get '/ci/:document_id' do # ci => Check In #shorturls
 			content_type :'text/html'
-			@identity = Models::FullIdentity.find(params[:document_id]).as_document
+			@identity = Models::FullIdentity.find(params[:document_id])
 			erb :check_in
 		end
 

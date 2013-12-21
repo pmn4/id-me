@@ -6,7 +6,7 @@
 <script>
 (function() {
 	var fn = window.onload;
-	var identityObject = <%= @identity.to_json %>;
+	var identityObject = <%= @identity.as_document.to_json %>;
 	window.onload = function() {
 		if(typeof(fn) === 'function') fn();
 
