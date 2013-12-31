@@ -1,0 +1,14 @@
+@import '_variables',
+        '_mixins';
+
+.feature-page.about {
+	text-align: center;
+}
+
+#main-logo {
+	clear: both;
+}
+
+#value-prop-venn-diagram {
+	margin-top: $default-spacing;
+}

@@ -2,12 +2,15 @@ source "https://rubygems.org"
 ruby '1.9.3'
 
 ## Main application
-gem 'sass'
-gem 'compass'
 gem 'sinatra', '1.4.3'
 gem 'sinatra-contrib'
 gem 'rack-mobile-detect'
 gem 'unicorn'
+
+## SCSS/Compass/Grid Framework
+gem 'sass'
+gem 'compass'
+gem 'susy'
 
 ## cdn
 # gem 'aws-s3'

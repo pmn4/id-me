@@ -1,5 +1,7 @@
 @import '_variables';
 
+@import 'compass/css3';
+
 // mega clearfix complete with all the browser-specific hacks
 @mixin clearfix {
 	zoom:1;
@@ -10,5 +12,69 @@
 		clear: both;
 		font-size: 0;
 		visibility: hidden;
+	}
+}
+
+$default-spacing: 20px !default;
+@mixin hr($position: 'top', $spacing: $default-spacing) {
+	margin-#{$position}: $spacing;
+	border-#{$position}-width: 3px;
+	border-#{$position}-style: solid;
+	padding-#{$position}: $spacing;
+
+	@include clearfix;
+}
+
+$transition-on-speed: 500 !default;
+$transition-off-speed: 2 * $transition-on-speed !default;
+@mixin button($hover-color, $hover-background-color: $hover-color) {
+	border-color: $hover-color;
+
+	@include transition-property(color, background-color);
+	@include transition-duration($transition-off-speed);
+	@include transition-timing-function(ease-in-out);
+
+	&:hover {
+		color: rgba($hover-color, 1.0);
+		background-color: rgba($hover-background-color, 0.15);
+		@include transition-duration($transition-on-speed);
+	}
+}
+
+@mixin hexagon() {
+	position: relative;
+	z-index: 0;
+
+	&:before,
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: " ";
+		display: inherit;
+		width: inherit;
+		height: inherit;
+		line-height: inherit;
+		background-color: inherit;
+		z-index: -100; // :before and :after are actually drawn above the background of the element itself
+	}
+}
+
+$hex-divider-height: $default-spacing;
+$root-three: sqrt(3);
+$hex-divider-width: $root-three * $hex-divider-height;
+@mixin hex-divider($color: $color-scheme-foreground) {
+	position: relative;
+	border-top: 1px solid $color;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -1 * $hex-divider-width;
+		border: $hex-divider-width solid transparent;
+		border-top: $hex-divider-height solid $color;
+		border-bottom: 0;
 	}
 }

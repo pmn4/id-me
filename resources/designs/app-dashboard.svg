@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="800"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#161616"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="411.55895"
+     inkscape:cy="278.53746"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1279"
+     inkscape:window-height="777"
+     inkscape:window-x="0"
+     inkscape:window-y="474"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-252.36218)">
+    <rect
+       style="opacity:1;fill:#d0c6b1;fill-opacity:1;stroke:none"
+       id="rect2985"
+       width="216.37468"
+       height="137.17871"
+       x="268.70056"
+       y="30.667822"
+       transform="translate(0,252.36218)" />
+    <text
+       xml:space="preserve"
+       style="font-size:100px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="101.14581"
+       y="498.13846"
+       id="text2991"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan2993"
+         x="101.14581"
+         y="498.13846"
+         style="font-size:50px;fill:#ffffff">camera</tspan></text>
+    <rect
+       y="354.36295"
+       x="508.70056"
+       height="65.845779"
+       width="216.37468"
+       id="rect2995"
+       style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#d0c6b1;fill-opacity:1;stroke:none"
+       id="rect2997"
+       width="216.37468"
+       height="65.845779"
+       x="508.70056"
+       y="283.03" />
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="578.56171"
+       y="325.82788"
+       id="text2999"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3001"
+         x="578.56171"
+         y="325.82788">scan</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="535.67657"
+       y="404.03583"
+       id="text3003"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3005"
+         x="535.67657"
+         y="404.03583">multiscan</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3007"
+       width="455.37677"
+       height="432.74933"
+       x="268.70056"
+       y="191.88817"
+       transform="translate(0,252.36218)" />
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="516.18793"
+       y="493.01993"
+       id="text3009"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3011"
+         x="516.18793"
+         y="493.01993">name</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="516.18793"
+       y="548.39551"
+       id="text3013"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3015"
+         x="516.18793"
+         y="548.39551">birthday</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="517.43793"
+       y="603.6712"
+       id="text3021"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3023"
+         x="517.43793"
+         y="603.6712">team</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="516.18793"
+       y="659.04688"
+       id="text3025"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3027"
+         x="516.18793"
+         y="659.04688">player id</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="517.38794"
+       y="722.1225"
+       id="text3029"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3031"
+         x="517.38794"
+         y="722.1225">sprtid id</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       x="295.57062"
+       y="524.22833"
+       id="text3033"
+       sodipodi:linespacing="125%"
+       transform="translate(0,252.36218)"><tspan
+         sodipodi:role="line"
+         x="295.57062"
+         y="524.22833"
+         id="tspan3037"
+         style="font-size:25px">any other details you can think of</tspan></text>
+    <rect
+       y="462.63513"
+       x="281.4285"
+       height="264.45792"
+       width="216.37468"
+       id="rect3041"
+       style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+    <text
+       transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"
+       sodipodi:linespacing="125%"
+       id="text3043"
+       y="715.36401"
+       x="3.4078393"
+       style="font-size:100px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+       xml:space="preserve"><tspan
+         style="font-size:50px;fill:#ffffff"
+         y="715.36401"
+         x="3.4078393"
+         id="tspan3045"
+         sodipodi:role="line">picture</tspan></text>
+    <g
+       id="g3181"
+       style="opacity:0.5">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect3047"
+         width="248.5226"
+         height="165.46297"
+         x="745.66949"
+         y="283.03" />
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="880.73615"
+         y="309.64609"
+         id="text3049"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3051"
+           x="880.73615"
+           y="309.64609">name</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="880.73615"
+         y="339.8674"
+         id="text3053"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3055"
+           x="880.73615"
+           y="339.8674">birthday</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="881.41833"
+         y="370.03418"
+         id="text3057"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3059"
+           x="881.41833"
+           y="370.03418">team</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="880.73615"
+         y="400.25555"
+         id="text3061"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3063"
+           x="880.73615"
+           y="400.25555">player id</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="881.39105"
+         y="434.67917"
+         id="text3065"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3067"
+           x="881.39105"
+           y="434.67917">sprtid id</tspan></text>
+      <rect
+         y="293.06354"
+         x="752.61578"
+         height="144.32834"
+         width="118.08683"
+         id="rect3073"
+         style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+      <text
+         transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"
+         sodipodi:linespacing="125%"
+         id="text3075"
+         y="710.1084"
+         x="510.0647"
+         style="font-size:54.57516097999999971px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           style="font-size:27.28758048999999986px;fill:#ffffff"
+           y="710.1084"
+           x="510.0647"
+           id="tspan3077"
+           sodipodi:role="line">picture</tspan></text>
+    </g>
+    <g
+       id="g3197"
+       transform="translate(0,180)"
+       style="opacity:0.5">
+      <rect
+         y="283.03"
+         x="745.66949"
+         height="165.46297"
+         width="248.5226"
+         id="rect3199"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3201"
+         y="309.64609"
+         x="880.73615"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="309.64609"
+           x="880.73615"
+           id="tspan3203"
+           sodipodi:role="line">name</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3205"
+         y="339.8674"
+         x="880.73615"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="339.8674"
+           x="880.73615"
+           id="tspan3207"
+           sodipodi:role="line">birthday</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3209"
+         y="370.03418"
+         x="881.41833"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="370.03418"
+           x="881.41833"
+           id="tspan3211"
+           sodipodi:role="line">team</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3213"
+         y="400.25555"
+         x="880.73615"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="400.25555"
+           x="880.73615"
+           id="tspan3215"
+           sodipodi:role="line">player id</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3217"
+         y="434.67917"
+         x="881.39105"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="434.67917"
+           x="881.39105"
+           id="tspan3219"
+           sodipodi:role="line">sprtid id</tspan></text>
+      <rect
+         style="fill:#d0c6b1;fill-opacity:1;stroke:none"
+         id="rect3221"
+         width="118.08683"
+         height="144.32834"
+         x="752.61578"
+         y="293.06354" />
+      <text
+         xml:space="preserve"
+         style="font-size:54.57516097999999971px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="510.0647"
+         y="710.1084"
+         id="text3223"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3225"
+           x="510.0647"
+           y="710.1084"
+           style="font-size:27.28758048999999986px;fill:#ffffff">picture</tspan></text>
+    </g>
+    <g
+       transform="translate(0,360)"
+       id="g3227"
+       style="opacity:0.5">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect3229"
+         width="248.5226"
+         height="165.46297"
+         x="745.66949"
+         y="283.03" />
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="880.73615"
+         y="309.64609"
+         id="text3231"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3233"
+           x="880.73615"
+           y="309.64609">name</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="880.73615"
+         y="339.8674"
+         id="text3235"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3237"
+           x="880.73615"
+           y="339.8674">birthday</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="881.41833"
+         y="370.03418"
+         id="text3239"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3241"
+           x="881.41833"
+           y="370.03418">team</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="880.73615"
+         y="400.25555"
+         id="text3243"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3245"
+           x="880.73615"
+           y="400.25555">player id</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="881.39105"
+         y="434.67917"
+         id="text3247"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3249"
+           x="881.39105"
+           y="434.67917">sprtid id</tspan></text>
+      <rect
+         y="293.06354"
+         x="752.61578"
+         height="144.32834"
+         width="118.08683"
+         id="rect3251"
+         style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+      <text
+         transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"
+         sodipodi:linespacing="125%"
+         id="text3253"
+         y="710.1084"
+         x="510.0647"
+         style="font-size:54.57516097999999971px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           style="font-size:27.28758048999999986px;fill:#ffffff"
+           y="710.1084"
+           x="510.0647"
+           id="tspan3255"
+           sodipodi:role="line">picture</tspan></text>
+    </g>
+    <g
+       id="g3257"
+       transform="translate(0,540)"
+       style="opacity:0.5">
+      <rect
+         y="283.03"
+         x="745.66949"
+         height="165.46297"
+         width="248.5226"
+         id="rect3259"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3261"
+         y="309.64609"
+         x="880.73615"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="309.64609"
+           x="880.73615"
+           id="tspan3263"
+           sodipodi:role="line">name</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3265"
+         y="339.8674"
+         x="880.73615"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="339.8674"
+           x="880.73615"
+           id="tspan3267"
+           sodipodi:role="line">birthday</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3269"
+         y="370.03418"
+         x="881.41833"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="370.03418"
+           x="881.41833"
+           id="tspan3271"
+           sodipodi:role="line">team</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3273"
+         y="400.25555"
+         x="880.73615"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="400.25555"
+           x="880.73615"
+           id="tspan3275"
+           sodipodi:role="line">player id</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3277"
+         y="434.67917"
+         x="881.39105"
+         style="font-size:27.28758048999999986px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           y="434.67917"
+           x="881.39105"
+           id="tspan3279"
+           sodipodi:role="line">sprtid id</tspan></text>
+      <rect
+         style="fill:#d0c6b1;fill-opacity:1;stroke:none"
+         id="rect3281"
+         width="118.08683"
+         height="144.32834"
+         x="752.61578"
+         y="293.06354" />
+      <text
+         xml:space="preserve"
+         style="font-size:54.57516097999999971px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="510.0647"
+         y="710.1084"
+         id="text3283"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3285"
+           x="510.0647"
+           y="710.1084"
+           style="font-size:27.28758048999999986px;fill:#ffffff">picture</tspan></text>
+    </g>
+    <g
+       id="g4069"
+       style="opacity:0.5">
+      <path
+         sodipodi:end="5.2743106"
+         sodipodi:start="0"
+         transform="matrix(0,-0.92424242,0.92424242,0,-13.130998,534.16004)"
+         d="M 231.93102,138.14806 A 93.338097,93.338097 0 1 1 188.32471,59.162296 l -49.73178,78.985764 z"
+         sodipodi:ry="93.338097"
+         sodipodi:rx="93.338097"
+         sodipodi:cy="138.14806"
+         sodipodi:cx="138.59293"
+         id="path3287"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#161616;fill-opacity:1;stroke:none"
+         id="path3289"
+         sodipodi:cx="138.59293"
+         sodipodi:cy="138.14806"
+         sodipodi:rx="93.338097"
+         sodipodi:ry="93.338097"
+         d="m 231.93102,138.14806 a 93.338097,93.338097 0 1 1 -186.676191,0 93.338097,93.338097 0 1 1 186.676191,0 z"
+         transform="matrix(0.6969697,0,0,0.6969697,17.956226,309.78157)" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4063"
+         y="428.88846"
+         x="63.529419"
+         style="font-size:136.24993896000000859px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         xml:space="preserve"><tspan
+           style="font-size:68.12496948000000430px"
+           y="428.88846"
+           x="63.529419"
+           id="tspan4065"
+           sodipodi:role="line">total</tspan></text>
+    </g>
+    <g
+       id="g4075"
+       transform="translate(0,200)"
+       style="opacity:0.5">
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="path4077"
+         sodipodi:cx="138.59293"
+         sodipodi:cy="138.14806"
+         sodipodi:rx="93.338097"
+         sodipodi:ry="93.338097"
+         d="M 231.93102,138.14806 A 93.338097,93.338097 0 1 1 84.15399,62.329836 l 54.43894,75.818224 z"
+         transform="matrix(-0.23921154,-0.89274962,0.89274962,-0.23921154,24.372698,562.84198)"
+         sodipodi:start="0"
+         sodipodi:end="4.0896717" />
+      <path
+         transform="matrix(0.6969697,0,0,0.6969697,17.956226,309.78157)"
+         d="m 231.93102,138.14806 c 0,51.5492 -41.78889,93.33809 -93.33809,93.33809 -51.549211,0 -93.338101,-41.78889 -93.338101,-93.33809 0,-51.549211 41.78889,-93.338101 93.338101,-93.338101 51.5492,0 93.33809,41.78889 93.33809,93.338101 z"
+         sodipodi:ry="93.338097"
+         sodipodi:rx="93.338097"
+         sodipodi:cy="138.14806"
+         sodipodi:cx="138.59293"
+         id="path4079"
+         style="fill:#161616;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <text
+         xml:space="preserve"
+         style="font-size:68.72187805000000083px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="64.138962"
+         y="414.9317"
+         id="text4081"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="64.138962"
+           y="414.9317"
+           style="font-size:34.36093902999999727px"
+           id="tspan4085">dolphins</tspan></text>
+    </g>
+    <g
+       id="g4089"
+       transform="translate(0,400)"
+       style="opacity:0.5">
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="path4091"
+         sodipodi:cx="138.59293"
+         sodipodi:cy="138.14806"
+         sodipodi:rx="93.338097"
+         sodipodi:ry="93.338097"
+         d="M 231.93102,138.14806 A 93.338097,93.338097 0 0 1 82.43194,212.69968 l 56.16099,-74.55162 z"
+         transform="matrix(0,-0.92424242,0.92424242,0,-13.130998,534.16004)"
+         sodipodi:start="0"
+         sodipodi:end="2.2164168" />
+      <path
+         transform="matrix(0.6969697,0,0,0.6969697,17.956226,309.78157)"
+         d="m 231.93102,138.14806 c 0,51.5492 -41.78889,93.33809 -93.33809,93.33809 -51.549211,0 -93.338101,-41.78889 -93.338101,-93.33809 0,-51.549211 41.78889,-93.338101 93.338101,-93.338101 51.5492,0 93.33809,41.78889 93.33809,93.338101 z"
+         sodipodi:ry="93.338097"
+         sodipodi:rx="93.338097"
+         sodipodi:cy="138.14806"
+         sodipodi:cx="138.59293"
+         id="path4093"
+         style="fill:#161616;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <text
+         xml:space="preserve"
+         style="font-size:106.69689941000000033px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="62.417358"
+         y="423.93832"
+         id="text4095"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4097"
+           x="62.417358"
+           y="423.93832"
+           style="font-size:53.34844970999999703px">bears</tspan></text>
+    </g>
+    <g
+       id="g4099"
+       transform="translate(0,600)"
+       style="opacity:0.5">
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="path4101"
+         sodipodi:cx="138.59293"
+         sodipodi:cy="138.14806"
+         sodipodi:rx="93.338097"
+         sodipodi:ry="93.338097"
+         d="m 231.93102,138.14806 c 0,51.5492 -41.78889,93.33809 -93.33809,93.33809 -51.549211,0 -93.338101,-41.78889 -93.338101,-93.33809 0,-51.549211 41.78889,-93.338101 93.338101,-93.338101 17.59882,0 34.83908,4.975452 49.73178,14.352337 l -49.73178,78.985764 z"
+         transform="matrix(0,-0.92424242,0.92424242,0,-13.130998,534.16004)"
+         sodipodi:start="0"
+         sodipodi:end="5.2743106" />
+      <path
+         transform="matrix(0.6969697,0,0,0.6969697,17.956226,309.78157)"
+         d="m 231.93102,138.14806 c 0,51.5492 -41.78889,93.33809 -93.33809,93.33809 -51.549211,0 -93.338101,-41.78889 -93.338101,-93.33809 0,-51.549211 41.78889,-93.338101 93.338101,-93.338101 51.5492,0 93.33809,41.78889 93.33809,93.338101 z"
+         sodipodi:ry="93.338097"
+         sodipodi:rx="93.338097"
+         sodipodi:cy="138.14806"
+         sodipodi:cx="138.59293"
+         id="path4103"
+         style="fill:#161616;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <text
+         xml:space="preserve"
+         style="font-size:89.58754729999999711px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Apple LiGothic;-inkscape-font-specification:Apple LiGothic Medium"
+         x="63.834595"
+         y="421.07251"
+         id="text4105"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4107"
+           x="63.834595"
+           y="421.07251"
+           style="font-size:44.79377364999999855px">sharks</tspan></text>
+    </g>
+  </g>
+</svg>

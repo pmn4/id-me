@@ -4,8 +4,12 @@ $font-family-content: "Trebuchet MS", Helvetica, sans-serif;
 $color-scheme-foreground: #D0C6B1;
 $color-scheme-background: #192321;
 $color-scheme-create: #ef5734;
-$color-scheme-scan: #ffcc2f;
-$color-scheme-view: #2baf2b;
+$color-scheme-scan: #2baf2b;
+$color-scheme-view: #ffcc2f;
+$color-scheme-app: $color-scheme-view;
 $color-scheme-stats: #00acee;
 
 $default-spacing: 20px;
+
+$transition-on-speed: 333;
+$transition-off-speed: 2 * $transition-on-speed;

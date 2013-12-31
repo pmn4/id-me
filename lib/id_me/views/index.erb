@@ -1,22 +1,21 @@
-<div id="page-content" class="<%= @create_only || @display_only ? 'no-menu' : 'has-menu' %>">
+<div id="page-content">
 <div id="qrcode-preview"></div>
 
-<% unless @create_only || @display_only %>
+<% unless true || @create_only || @display_only %>
 	<%= erb :'_navigation', :layout => false %>
 <% end %>
 
 <div id="application-content">
 	<% unless @create_only || @display_only %>
-		<div id="sprtid-main" class="feature-page main">
-			<%= erb :about, :layout => false %>
-		</div>
+		<%= erb :about, :layout => false %>
+		<%= erb :audience, :layout => false %>
 	<% end %>
 
-	<% unless @display_only %>
+	<% unless true || @display_only %>
 		<%= erb :create, :layout => false %>
 	<% end %>
 
-	<% unless @create_only %>
+	<% unless true || @create_only %>
 		<div id="scan-identity" class="feature-page scan">
 			<% unless @display_only %>
 				<h2>Scan a Card</h2>
@@ -40,7 +39,7 @@
 		</div>
 	<% end %>
 
-	<% unless @create_only || @display_only %>
+	<% unless true || @create_only || @display_only %>
 		<div id="scan-history" class="feature-page view">
 			<h2>Scan History</h2>
 			<%= erb :list, :layout => false %>
@@ -48,9 +47,10 @@
 	<% end %>
 
 	<% unless @create_only || @display_only %>
-		<div id="scan-data" class="feature-page stats">
-			<h2>Scan Data</h2>
-			<%= erb :stats, :layout => false %>
-		</div>
+		<%= erb :stats, :layout => false %>
+	<% end %>
+
+	<% unless @create_only || @display_only %>
+		<%= erb :footer, :layout => false %>
 	<% end %>
 </div>

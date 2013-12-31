@@ -1,0 +1,60 @@
+@import '_variables',
+        '_mixins';
+
+@import 'susy';
+
+.feature-page-wrapper.realtime-data {
+	@include hex-divider($color-scheme-foreground);
+	background-color: $color-scheme-background;
+}
+
+.feature-page.realtime-data {
+	.top-line-stats {
+		margin-top: $default-spacing;
+
+		@include clearfix;
+
+		.headline {
+			margin-bottom: $default-spacing;
+			@include clearfix;
+		}
+
+		.top-line-stat {
+			@include span-columns(4);
+
+			&:last-child {
+				@include span-columns(4 omega);
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			h6 {
+				padding-bottom: $default-spacing / 2;
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				padding-bottom: $default-spacing / 2;
+				text-align: center;
+				color: $color-scheme-foreground;
+			}
+
+			.count {
+				font-size: 4em;
+				line-height: 1em;
+				text-align: center;
+			}
+		}
+	}
+	#check-in-progress {
+		margin-top: $default-spacing;
+		width: 100%;
+
+		th {
+			color: $color-scheme-foreground;
+		}
+		td {
+			align: center;
+		}
+	}
+}

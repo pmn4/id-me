@@ -14,6 +14,10 @@ module SprtId
 			def mobile?
 				request.env['X_MOBILE_DEVICE']
 			end
+
+			def plaintext_logo
+				'<em>sprt<strong>id</strong></em>'
+			end
 		end
 	end
 end

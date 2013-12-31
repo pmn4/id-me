@@ -1,7 +1,20 @@
-@import 'compass/reset',
-        'compass/css3';
 @import '_variables',
         '_mixins';
+
+@import 'compass/reset',
+        'compass/css3';
+
+@import 'susy';
+
+/*********************************************
+ * SUSY Setup
+ *********************************************/
+// Setting up the Magic Grid
+$total-columns: 12; // 12 columns
+$column-width: 4em; // columns are 4em wide
+$gutter-width: 1em; // with 1em gutters
+$grid-padding: 1em; // and 1em padding on the grid container
+
 
 /*********************************************
  * GLOBAL STYLES
@@ -13,9 +26,11 @@ html, body {
 
 body {
 	font-family: $font-family-content;
-	font-size: 24px;
-	line-height: 1.2em;
-	background: $color-scheme-background url('/images/linen.png') repeat;
+	font-size: 14px;
+	line-height: 1.4em;
+	// background: $color-scheme-background url('/images/linen.png') repeat;
+	background: transparent url('/images/backgrounds/hockey.jpg') no-repeat fixed center center;
+	background-size: cover;
 	color: $color-scheme-foreground;
 }
 
@@ -36,7 +51,6 @@ h1, h2, h3, h4, h5, h6,
 
 	em {
 		color: $color-scheme-foreground;
-		font-size: 50%;
 	}
 }
 
@@ -55,22 +69,37 @@ input {
 	border: 3px solid $color-scheme-background;
 }
 
-button {
+button,
+.button {
 	display: inline-block;
 	padding: $default-spacing 2 * $default-spacing;
-	border: 3px solid $color-scheme-foreground;
+	border: 1px solid $color-scheme-foreground;
 
-	background-color: transparent;
-	color: $color-scheme-foreground;
+	background-color: rgba($color-scheme-foreground, 1.0);
+	color: $color-scheme-background;
 	font-family: $font-family-content;
 	font-size: 16px;
+	text-decoration: none;
 
 	&:hover {
 		cursor: pointer;
 	}
 }
 
-$features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
+strong {
+	font-weight: bold;
+}
+em {
+	font-style: italic;
+}
+p {
+	margin-top: $default-spacing / 2;
+}
+blockquote {
+	margin: $default-spacing/2 $default-spacing 0;
+}
+
+$features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'app' $color-scheme-app 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
 @each $feature in $features {
 	$class: nth($feature, 1);
 	$color: nth($feature, 2);
@@ -78,6 +107,12 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 
 	.#{$class} {
 		color: $color;
+
+		h1, h2, h3, h4, h5, h6 { color: $color; }
+		.h1, .h2, .h3, .h4, .h5, .h6 { color: $color; }
+		svg {
+			.h1, .h2, .h3, .h4, .h5, .h6 { fill: $color; }
+		}
 
 		.hexagon {
 			background-color: $color;
@@ -88,16 +123,16 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 				}
 			}
 		}
+
+		&.button {
+			color: $color-scheme-background; // override the color definition for .#{$class}
+			@include button($color);
+		}
 	}
 
 	.feature-page.#{$class} {
-		h1, h2, h3, h4, h5, h6 { color: $color; }
-		.h1, .h2, .h3, .h4, .h5, .h6 { color: $color; }
-		svg {
-			.h1, .h2, .h3, .h4, .h5, .h6 { fill: $color; }
-		}
-		background: transparent url('/images/backgrounds/#{$image}') no-repeat center center;
-		background-size: cover;
+		// background: transparent url('/images/backgrounds/#{$image}') no-repeat center center;
+		// background-size: cover;
 		// background-color: nth($feature, 2);
 
 		.input-wrapper {
@@ -107,18 +142,13 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 			}
 		}
 		button {
-			color: $color;
-			border-color: $color;
-
-			&:hover {
-				background-color: mix($color-scheme-background, $color, 90%);
-			}
+			@include button($color);
 		}
 	}
 }
 
-$h1-font-size: 64px; // this was just for the presentaiton I did
-$h6-font-size: 24px;
+$h1-font-size: 36px; // this was just for the presentaiton I did
+$h6-font-size: 16px;
 
 $hmax: 6;
 @for $i from 1 through $hmax {
@@ -130,7 +160,10 @@ $hmax: 6;
 }
 
 .feature-page {
-	min-height: 100%;
+	@include container;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	min-height: 400px;
 }
 
 $hexagon-width: 100px;
@@ -184,13 +217,11 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 }
 
 .hexagon {
-	position: relative;
 	width: $hexagon-width;
 	height: $hexagon-height;
 	line-height: $hexagon-height;
 	text-align: center;
 	background-color: $color-scheme-foreground;
-	z-index: 0;
 
 	.hexagon {
 		position: absolute;
@@ -202,20 +233,8 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 		background-color: $color-scheme-background;
 		z-index: 0;
 	}
-}
 
-.hexagon:before,
-.hexagon:after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	content: " ";
-	display: inherit;
-	width: inherit;
-	height: inherit;
-	line-height: inherit;
-	background-color: inherit;
-	z-index: -100; // :before and :after are actually drawn above the background of the element itself
+	@include hexagon();
 }
 
 .hexagon:before {
@@ -255,43 +274,14 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 		margin-top: $default-spacing;
 	}
 }
-#main-logo {
-	float: left;
-	margin: $default-spacing;
-}
 
-.top-line-stats {
-	@include clearfix;
-
-	.top-line-stat {
-		width: 30%;
-		margin-left: 5%;
-		float: left;
-
-		&:first-child {
-			margin-left: 0;
-		}
-
-		h6 {
-			padding-bottom: $default-spacing / 2;
-			border-bottom-width: 1px;
-			border-bottom-style: solid;
-			padding-bottom: $default-spacing / 2;
-			text-align: center;
-			color: $color-scheme-foreground;
-		}
-
-		.count {
-			font-size: 4em;
-			line-height: 1em;
-			text-align: center;
-		}
+@each $position in 'top', 'bottom' {
+	.hr-#{$position} {
+		@include hr($position);
 	}
 }
-#check-in-progress {
-	width: 100%;
 
-	td {
-		align: center;
-	}
-}
+@import '_about',
+        '_audience',
+        '_footer',
+        '_stats';

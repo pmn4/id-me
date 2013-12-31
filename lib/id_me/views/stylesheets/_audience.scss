@@ -1,0 +1,46 @@
+@import '_variables',
+        '_mixins';
+
+@import 'susy';
+
+.feature-page-wrapper.audience {
+	@include hex-divider($color-scheme-foreground);
+	background-color: $color-scheme-background;
+}
+
+.feature-page.audience {
+	article {
+		position: relative;
+
+		@include span-columns(4);
+
+		&:last-child {
+			@include span-columns(4 omega);
+		}
+
+		.headline {
+			margin-bottom: $default-spacing;
+			text-align: center;
+		}
+
+		p {
+			text-indent: $default-spacing;
+		}
+
+		.button {
+			display: block;
+			margin: $default-spacing;
+			text-align: center;
+		}
+		.badge {
+			display: block;
+			margin: 0 auto $default-spacing;
+		}
+	}
+
+	ol{
+		margin-top: $default-spacing / 2;
+		margin-left: 2em;
+		list-style: decimal; /* Keep using default numbering for IE6/7 */
+	}
+}
