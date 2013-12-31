@@ -1,0 +1,32 @@
+<% content_for :ng_app do %>SprtId<% end %>
+<% content_for :head_scripts do %>
+    <script src="http://code.angularjs.org/1.2.6/angular.min.js"></script>
+<% end %>
+
+
+<script src="invoice1.js"></script>
+<script src="/scripts/lib/aes-min.js"></script>
+<script src="/scripts/lib/qr-code-reader/grid.js"></script>
+<script src="/scripts/lib/qr-code-reader/version.js"></script>
+<script src="/scripts/lib/qr-code-reader/detector.js"></script>
+<script src="/scripts/lib/qr-code-reader/formatinf.js"></script>
+<script src="/scripts/lib/qr-code-reader/errorlevel.js"></script>
+<script src="/scripts/lib/qr-code-reader/bitmat.js"></script>
+<script src="/scripts/lib/qr-code-reader/datablock.js"></script>
+<script src="/scripts/lib/qr-code-reader/bmparser.js"></script>
+<script src="/scripts/lib/qr-code-reader/datamask.js"></script>
+<script src="/scripts/lib/qr-code-reader/rsdecoder.js"></script>
+<script src="/scripts/lib/qr-code-reader/gf256poly.js"></script>
+<script src="/scripts/lib/qr-code-reader/gf256.js"></script>
+<script src="/scripts/lib/qr-code-reader/decoder.js"></script>
+<script src="/scripts/lib/qr-code-reader/qrcode.js"></script>
+<script src="/scripts/lib/qr-code-reader/findpat.js"></script>
+<script src="/scripts/lib/qr-code-reader/alignpat.js"></script>
+<script src="/scripts/lib/qr-code-reader/databr.js"></script>
+
+<script src="/scripts/lib/qr-code-writer/raphael-2.1.0-min.js"></script>
+<script src="/scripts/lib/qr-code-writer/qrcodesvg.js"></script>
+
+<script type="text/template" id="template-id-card">
+	<%= file_load("#{settings.root}/public/tpl/card.svg") %>
+</script>

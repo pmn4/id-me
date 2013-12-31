@@ -1,43 +1,17 @@
-<html>
+<!doctype html>
+<html <%= "ng-app=\"#{yield_content(:ng_app)}\"" if content_for?(:ng_app) %>>
 <head>
 	<title>Sport Id : sprtid.com</title>
 	<link rel="stylesheet" type="text/css" href="/styles/site.css">
+
+	<%= yield_content(:head_scripts) if content_for?(:head_scripts) %>
 </head>
 <body>
 	<%= yield %>
 
-	<!-- script src="/scripts/lib/jquery-1.10.2.min.js"></script -->
-	<script src="/scripts/lib/underscore-min.js"></script>
-	<script src="/scripts/lib/aes-min.js"></script>
 	<script src="/scripts/lib/d3/d3.min.js"></script>
 
-	<script src="/scripts/lib/qr-code-reader/grid.js"></script>
-	<script src="/scripts/lib/qr-code-reader/version.js"></script>
-	<script src="/scripts/lib/qr-code-reader/detector.js"></script>
-	<script src="/scripts/lib/qr-code-reader/formatinf.js"></script>
-	<script src="/scripts/lib/qr-code-reader/errorlevel.js"></script>
-	<script src="/scripts/lib/qr-code-reader/bitmat.js"></script>
-	<script src="/scripts/lib/qr-code-reader/datablock.js"></script>
-	<script src="/scripts/lib/qr-code-reader/bmparser.js"></script>
-	<script src="/scripts/lib/qr-code-reader/datamask.js"></script>
-	<script src="/scripts/lib/qr-code-reader/rsdecoder.js"></script>
-	<script src="/scripts/lib/qr-code-reader/gf256poly.js"></script>
-	<script src="/scripts/lib/qr-code-reader/gf256.js"></script>
-	<script src="/scripts/lib/qr-code-reader/decoder.js"></script>
-	<script src="/scripts/lib/qr-code-reader/qrcode.js"></script>
-	<script src="/scripts/lib/qr-code-reader/findpat.js"></script>
-	<script src="/scripts/lib/qr-code-reader/alignpat.js"></script>
-	<script src="/scripts/lib/qr-code-reader/databr.js"></script>
-
-    <script src="/scripts/lib/qr-code-writer/raphael-2.1.0-min.js"></script>
-    <script src="/scripts/lib/qr-code-writer/qrcodesvg.js"></script>
-
 	<script src="/scripts/card.js"></script>
-
-	<script type="text/template" id="template-id-card">
-		<%= file_load("#{settings.root}/public/tpl/card.svg") %>
-	</script>
-
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

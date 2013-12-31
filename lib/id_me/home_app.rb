@@ -1,7 +1,3 @@
-# require 'sinatra'
-require 'sinatra/base'
-require 'compass'
-require 'rack/mobile-detect'
 # require 'aws/s3'
 require 'cloudinary'
 
@@ -9,37 +5,15 @@ set :bucket, 'mybucket'
 set :s3_key, 'THISISANEXAMPLEKEYID'
 set :s3_secret, 'Thi$isJu5taNExamp/etO0itSh0u1dBel0NgeR'
 
+require_relative 'base_app'
 require_relative 'helpers/view_helpers'
 
 module SprtId
-	class HomeApp < Sinatra::Base
-		LOGGER = Logger.new(STDOUT) unless defined?(LOGGER)
-
-		set :root, File.expand_path("../..", File.dirname(__FILE__))
-		set :views, File.dirname(__FILE__) + '/views'
-		set :public_folder, 'public'
-
-		helpers Helpers::ViewHelpers
-
-		configure :development do
-			register Sinatra::Reloader
-		end
-
-		configure do
-			Compass.add_project_configuration(File.join(Sinatra::Application.root, 'config', 'compass.config'))
-			enable :logging
-			LOGGER.level = Logger::DEBUG
-		end
-
+	class HomeApp < BaseApp
 		Cloudinary.config do |config|
 			config.cloud_name = 'sprtid'
 			config.api_key = '738889633191996'
 			config.api_secret = 'He1EmU42y2Plv0FjaCU5SDpMLGQ'
-		end
-
-		get '/styles/:name.css' do
-			content_type 'text/css', :charset => 'utf-8'
-			scss(:"stylesheets/#{params[:name]}", Compass.sass_engine_options)
 		end
 
 		get '/' do
@@ -118,11 +92,6 @@ module SprtId
 				@identities << identity
 			end
 			erb :list
-		end
-
-		error 400..510 do
-			puts inspect
-			request.env['sinatra_error']
 		end
 	end
 end
