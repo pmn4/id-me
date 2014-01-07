@@ -27,16 +27,23 @@ $default-spacing: 20px !default;
 
 $transition-on-speed: 500 !default;
 $transition-off-speed: 2 * $transition-on-speed !default;
-@mixin button($hover-color, $hover-background-color: $hover-color) {
-	border-color: $hover-color;
+@mixin button($hover-color) {
+	$initial-opacity: 0.9;
 
-	@include transition-property(color, background-color);
+	color: rgba($hover-color, $initial-opacity);
+	border-color: rgba($hover-color, $initial-opacity);
+	background-color: rgba($hover-color, 1.0 - $initial-opacity);
+
+	@include transition-property(color, border-color, background-color);
 	@include transition-duration($transition-off-speed);
 	@include transition-timing-function(ease-in-out);
 
 	&:hover {
-		color: rgba($hover-color, 1.0);
-		background-color: rgba($hover-background-color, 0.15);
+		$hover-opacity: 1.0;
+
+		color: rgba($hover-color, $hover-opacity);
+		border-color: rgba($hover-color, $hover-opacity);
+		background-color: rgba($hover-color, 1.0 - $hover-opacity);
 		@include transition-duration($transition-on-speed);
 	}
 }
