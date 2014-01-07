@@ -85,9 +85,9 @@ function ScanController($scope, $log, identityProvider) {
 		if(QrCode.read(_video)) {
 			_this.stop();
 			// _this.toggle();
-		} else {
+		} /* else {
 			_this.stop();
-		}
+		} */
 	}
 
 // public variables

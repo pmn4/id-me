@@ -3,6 +3,13 @@
 %>
 <div id="<%= identity_id_attr %>"></div>
 
+<script src="/scripts/lib/qr-code-writer/raphael-2.1.0-min.js"></script>
+<script src="/scripts/lib/qr-code-writer/qrcodesvg.js"></script>
+
+<script type="text/template" id="template-id-card">
+	<%= file_load("#{settings.root}/public/tpl/card.svg") %>
+</script>
+
 <script>
 (function() {
 	var fn = window.onload;
