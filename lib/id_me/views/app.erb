@@ -1,11 +1,30 @@
-<% content_for :ng_app do %>SprtId<% end %>
-<% content_for :head_scripts do %>
-    <script src="http://code.angularjs.org/1.2.6/angular.min.js"></script>
-<% end %>
+<% content_for :ng_app do %>sprtId<% end %>
 
+<div ng-controller="ScanController as scanner">
+	<!-- button class="btn" ng-click="scanner.start()">Start Scanner</button -->
+	<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)" placeholder="img/ajax-loader.gif">
+		<div classs="error initialization-error" ng-show="webcamError">
+			Use of your webcam is required to scan ids.
+		</div>
+	</webcam>
+	<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
+	<img id="qr-image" height="360" width="480" />
+</div>
 
-<script src="invoice1.js"></script>
+<div ng-controller="IdentityController as identity">
+	<input ng-model="identityId" required />
+	<button class="btn" ng-click="identity.render()">Display Identity</button>
+	<div id="id-card-container"></div>
+</div>
+
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+-->
+<script src="/scripts/lib/angular/angular.min.js"></script>
+<script src="/scripts/lib/underscore/underscore-min.js"></script>
+<!--
 <script src="/scripts/lib/aes-min.js"></script>
+-->
 <script src="/scripts/lib/qr-code-reader/grid.js"></script>
 <script src="/scripts/lib/qr-code-reader/version.js"></script>
 <script src="/scripts/lib/qr-code-reader/detector.js"></script>
@@ -23,9 +42,17 @@
 <script src="/scripts/lib/qr-code-reader/findpat.js"></script>
 <script src="/scripts/lib/qr-code-reader/alignpat.js"></script>
 <script src="/scripts/lib/qr-code-reader/databr.js"></script>
-
+<!--
 <script src="/scripts/lib/qr-code-writer/raphael-2.1.0-min.js"></script>
 <script src="/scripts/lib/qr-code-writer/qrcodesvg.js"></script>
+-->
+<script src="/scripts/app/modules/webcam.js"></script>
+<script src="/scripts/app/controllers/AuthController.js"></script>
+<script src="/scripts/app/controllers/CheckInController.js"></script>
+<script src="/scripts/app/controllers/IdentityController.js"></script>
+<script src="/scripts/app/controllers/ScanController.js"></script>
+<script src="/scripts/app/controllers/StatsController.js"></script>
+<script src="/scripts/app/app.js"></script>
 
 <script type="text/template" id="template-id-card">
 	<%= file_load("#{settings.root}/public/tpl/card.svg") %>

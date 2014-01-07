@@ -6,15 +6,6 @@
 
 @import 'susy';
 
-/*********************************************
- * SUSY Setup
- *********************************************/
-// Setting up the Magic Grid
-$total-columns: 12; // 12 columns
-$column-width: 4em; // columns are 4em wide
-$gutter-width: 1em; // with 1em gutters
-$grid-padding: 1em; // and 1em padding on the grid container
-
 
 /*********************************************
  * GLOBAL STYLES
@@ -160,10 +151,24 @@ $hmax: 6;
 }
 
 .feature-page {
-	@include container;
 	padding-top: 100px;
 	padding-bottom: 100px;
 	min-height: 400px;
+
+	$total-columns: $desktop-columns;
+	@include container;
+	// @include susy-grid-background;
+
+	@include at-breakpoint($phone-layout) {
+		$total-columns: $phone-columns;
+		@include container;
+		// @include susy-grid-background;
+	}
+	@include at-breakpoint($tablet-layout) {
+		$total-columns: $tablet-columns;
+		@include container;
+		// @include susy-grid-background;
+	}
 }
 
 $hexagon-width: 100px;

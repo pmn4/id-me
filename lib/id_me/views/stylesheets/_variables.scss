@@ -13,3 +13,23 @@ $default-spacing: 20px;
 
 $transition-on-speed: 333;
 $transition-off-speed: 2 * $transition-on-speed;
+
+/*********************************************
+ * SUSY Setup
+ *********************************************/
+
+$desktop-columns: 12;
+$tablet-columns: 8;
+$phone-columns: 4;
+
+$desktop-layout: 800px 12;
+$tablet-layout: 400px 8 800px;
+$phone-layout: 4 400px;
+
+// Setting up the Magic Grid
+$total-columns: $desktop-columns; // 12 columns
+$column-width: 4em; // columns are 4em wide
+$gutter-width: 1em; // with 1em gutters
+$grid-padding: 1em; // and 1em padding on the grid container
+
+$container-style: static;

@@ -1,3 +1,5 @@
+/*jshint smarttabs:true */
+
 var NOT_SO_SECRET_PASSPHRASE = "killer boots man";
 
 var ViewHelpers = {
@@ -85,13 +87,13 @@ function renderIdentityDataFromUrl() {
 	}
 }
 
-(function(){
-	var fn = window.onload;
-	window.onload = function() {
-		if(typeof(fn) === 'function') fn();
-		renderIdentityDataFromUrl();
-	};
-})();
+// (function(){
+// 	var fn = window.onload;
+// 	window.onload = function() {
+// 		if(typeof(fn) === 'function') fn();
+// 		renderIdentityDataFromUrl();
+// 	};
+// })();
 
 function formDataToIdentity(formData, image) {
 	var urlTokens = /(https?:)(.*)/.exec(image.src);
@@ -117,8 +119,6 @@ function formDataToIdentity(formData, image) {
 
 
 var video = document.getElementById("qr-video");
-var canvas = document.getElementById("qr-canvas");
-var ctx = canvas ? canvas.getContext('2d') : null;
 var localMediaStream = null;
 
 var errorCallback = function(e) {
@@ -130,94 +130,98 @@ navigator.getUserMedia  = navigator.getUserMedia ||
                           navigator.mozGetUserMedia ||
                           navigator.msGetUserMedia;
 
-qrcode.callback = function() {
-	console.log('qrcode.callback');
-	console.log(arguments);
-};
+// if(typeof(qrcode) !== 'undefined') {
+// 	qrcode.callback = function() {
+// 		console.log('qrcode.callback');
+// 		console.log(arguments);
+// 	};
+// }
 
-function snapshot() {
-	if (ctx && localMediaStream) {
-		ctx.drawImage(video, 0, 0);
-		// "image/webp" works in Chrome.
-		// Other browsers will fall back to image/png.
-		document.getElementById("qr-image").src = canvas.toDataURL('image/webp');
+// var canvas = document.getElementById("qr-canvas");
+// var ctx = canvas ? canvas.getContext('2d') : null;
+// function snapshot() {
+// 	if (ctx && localMediaStream) {
+// 		ctx.drawImage(video, 0, 0);
+// 		// "image/webp" works in Chrome.
+// 		// Other browsers will fall back to image/png.
+// 		document.getElementById("qr-image").src = canvas.toDataURL('image/webp');
 
-		readAsQrCode();
-	}
-}
+// 		readAsQrCode();
+// 	}
+// }
 
-var Snapshotter = (function() {
-	var timeoutId;
-	return {
-		start: function() {
-			if(timeoutId) return;
-			timeoutId = setInterval(snapshot, 100);
-		},
-		stop: function() {
-			if(timeoutId) {
-				clearTimeout(timeoutId);
-			}
-			timeoutId = undefined;
-		}
-	};
-})();
+// var Snapshotter = (function() {
+// 	var timeoutId;
+// 	return {
+// 		start: function() {
+// 			if(timeoutId) return;
+// 			timeoutId = setInterval(snapshot, 100);
+// 		},
+// 		stop: function() {
+// 			if(timeoutId) {
+// 				clearTimeout(timeoutId);
+// 			}
+// 			timeoutId = undefined;
+// 		}
+// 	};
+// })();
 
-var readAsQrCode = (function() {
-	var _reading = false;
-	return function() {
-		if(_reading) return null;
+// var readAsQrCode = (function() {
+// 	var _reading = false;
+// 	return function() {
+// 		if(_reading) return null;
 
-		_reading = true;
-        try{
-            qrcode.decode();
-			document.getElementById("video-capture-end").onclick();
-            return true;
-        }
-        catch(e){
-            console.log(e);
-			return false;
-        }
-        finally {
-			_reading = false;
-        }
-	};
-})();
+// 		_reading = true;
+//         try{
+//             qrcode.decode();
+// 			document.getElementById("video-capture-end").onclick();
+//             return true;
+//         }
+//         catch(e){
+//             console.log(e);
+// 			return false;
+//         }
+//         finally {
+// 			_reading = false;
+//         }
+// 	};
+// })();
 
-var capturing = false;
-(function() {
-	var button = document.getElementById("video-capture-begin");
-	if(button) {
-		button.onclick = function(e) {
-			if(e) e.preventDefault();
+// var capturing = false;
+// (function() {
+// 	var button = document.getElementById("video-capture-begin");
+// 	if(button) {
+// 		button.onclick = function(e) {
+// 			if(e) e.preventDefault();
 
-			if(capturing) return;
+// 			if(capturing) return;
 
-			navigator.getUserMedia({video: true}, function(stream) {
-				video.src = window.URL.createObjectURL(stream);
-				localMediaStream = stream;
-			}, errorCallback);
+// 			navigator.getUserMedia({video: true}, function(stream) {
+// 				video.src = window.URL.createObjectURL(stream);
+// 				localMediaStream = stream;
+// 			}, errorCallback);
 
-			Snapshotter.start();
+// 			Snapshotter.start();
 
-			capturing = true;
-		};
-	}
-})();
-(function() {
-	var button = document.getElementById("video-capture-end");
-	if(button) {
-		button.onclick = function(e) {
-			if(e) e.preventDefault();
+// 			capturing = true;
+// 		};
+// 	}
+// })();
+// (function() {
+// 	var button = document.getElementById("video-capture-end");
+// 	if(button) {
+// 		button.onclick = function(e) {
+// 			if(e) e.preventDefault();
 
-			video.pause();
-			localMediaStream.stop(); // Doesn't do anything in Chrome.
+// 			video.pause();
+// 			localMediaStream.stop(); // Doesn't do anything in Chrome.
 
-			Snapshotter.stop();
+// 			Snapshotter.stop();
 
-			capturing = false;
-		};
-	}
-})();
+// 			capturing = false;
+// 		};
+// 	}
+// })();
 
 function inputToObject(data, inputName, inputValue) {
 	var ptr = data, tokens = inputName.split('[');
