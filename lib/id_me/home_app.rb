@@ -30,7 +30,7 @@ module SprtId
 		get '/create' do
 			content_type :'text/html'
 			@create_only = true
-			erb :index
+			erb :create
 		end
 
 # Environment variable: CLOUDINARY_URL=cloudinary://738889633191996:He1EmU42y2Plv0FjaCU5SDpMLGQ@sprtid
