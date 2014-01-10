@@ -1,9 +1,6 @@
 /*jshint smarttabs:true */
 
-(function() {
-	'use strict';
-})();
-
+'use strict';
 
 var Snapshotter = (function(interval) {
 	var _timeoutId, _fnSnapshot;
@@ -18,8 +15,8 @@ var Snapshotter = (function(interval) {
 
 			if(_fnSnapshot) {
 				_timeoutId = setInterval(function() {
-						requestAnimationFrame(_fnSnapshot);
-					}, interval);
+					requestAnimationFrame(_fnSnapshot);
+				}, interval);
 			}
 		},
 		stop: function() {
@@ -52,6 +49,9 @@ var QrCode = (function(qrcodeApi, canvas) {
 	}
 
 	return {
+		callback: function(fn) {
+			qrcodeApi.callback = fn;
+		},
 		read: function(video) {
 			if(_reading) return null;
 
@@ -103,6 +103,7 @@ function ScanController($scope, $log, identityProvider) {
 			// doesn't work. // _localMediaStream.start(); // Doesn't do anything in Chrome.
 		}
 
+		QrCode.callback(this.renderId);
 		Snapshotter.start(scanForBarcode);
 	};
 	this.stop = function() {
@@ -117,6 +118,14 @@ function ScanController($scope, $log, identityProvider) {
 		} else {
 			this.start();
 		}
+	};
+	this.renderId = function(data) {
+		$log('renderId...', data);
+		if(!data || !data.length) return;
+
+		var url = data[0];
+
+		$scope.identityId = url.replace(/http:\/\/.*\/(.*)(\?.*)?/i, '$1');
 	};
 
 // Constructor stuff

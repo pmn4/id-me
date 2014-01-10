@@ -86,6 +86,9 @@ p {
 blockquote {
 	margin: $default-spacing/2 $default-spacing 0;
 }
+img {
+	max-width: 100%;
+}
 
 $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'app' $color-scheme-app 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
 @each $feature in $features {

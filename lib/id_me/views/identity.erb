@@ -19,7 +19,7 @@
 
 		var cardElement = document.getElementById("<%= identity_id_attr %>");
 		cardElement.innerHTML = renderIdentity(identityObject, 'original');
-		renderQrcodeTo(window.location.href.replace('/i/', '/ci/'), document.getElementById("identity-barcode"));
+		renderQrcodeTo(window.location.href, document.getElementById("identity-barcode"));
 		// renderQrcodeTo(window.location.href, cardElement.getElementById("identity-barcode"));
 	};
 })();
