@@ -1,20 +1,20 @@
 <% content_for :ng_app do %>sprtId<% end %>
 
-<div ng-controller="IdentityController as identity">
-	<div ng-controller="ScanController as scanner">
+<div ng-controller="IdentityController">
+	<div ng-controller="ScanController">
 		<!-- button class="btn" ng-click="scanner.start()">Start Scanner</button -->
 		<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)" placeholder="img/ajax-loader.gif">
 			<div classs="error initialization-error" ng-show="webcamError">
 				Use of your webcam is required to scan ids.
 			</div>
 		</webcam>
-		<canvas id="qr-canvas" style="display:none;" height="360" width="480"></canvas>
-		<img id="qr-image" height="360" width="480" />
-	</div>
+		<canvas id="qr-canvas" style="display: none;"></canvas>
+		<img id="qr-image" style="display: none;" />
 
-	<input ng-model="identityId" required />
-	<button class="btn" ng-click="identity.render()">Display Identity</button>
-	<div id="id-card-container"></div>
+		<input ng-model="identityId" required />
+		<button class="btn" ng-click="render()">Display Identity</button>
+		<div id="id-card-container"></div>
+	</div>
 </div>
 
 <!--

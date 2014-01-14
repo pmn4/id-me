@@ -28,16 +28,15 @@ var Snapshotter = (function(interval) {
 	};
 })(100);
 
-var QrCode = (function(qrcodeApi, canvas) {
+var QrCode = (function(qrcodeApi) {
 	var _reading = false;
-	var _ctx = canvas ? canvas.getContext('2d') : null;
 
-	function snapshot(video) {
-		if (_ctx && video) {
-			_ctx.drawImage(video, 0, 0);
+	function snapshot(video, canvas, canvasCtx, image) {
+		if (canvasCtx && video) {
+			canvasCtx.drawImage(video, 0, 0);
 			// "image/webp" works in Chrome.
 			// Other browsers will fall back to image/png.
-			document.getElementById("qr-image").src = canvas.toDataURL('image/webp');
+			image.src = canvas.toDataURL('image/webp');
 		}
 	}
 
@@ -52,12 +51,12 @@ var QrCode = (function(qrcodeApi, canvas) {
 		callback: function(fn) {
 			qrcodeApi.callback = fn;
 		},
-		read: function(video) {
+		read: function(video, canvas, canvasCtx, image) {
 			if(_reading) return null;
 
 			_reading = true;
 			try{
-				snapshot(video); // would love to move this crap into the qrcode API
+				snapshot(video, canvas, canvasCtx, image); // would love to move this crap into the qrcode API
 				qrcodeApi.decode();
 				return true;
 			}
@@ -70,19 +69,27 @@ var QrCode = (function(qrcodeApi, canvas) {
 			}
 		}
 	};
-})(qrcode, document.getElementById("qr-canvas"));
+})(qrcode);
 
 
-function ScanController($scope, $log, identityProvider) {
+function ScanController($scope, $log, $identityProvider) {
 	var _this = this;
+
+	IdentityController.call(this, $scope, $log, $identityProvider);
+	ScanController.prototype = new IdentityController();
+	ScanController.prototype.constructor = ScanController;
 
 // private variables
 	var _video = null,
 	    _localMediaStream = null;
 
+	var _canvas = document.getElementById("qr-canvas"),
+	    _ctx = _canvas ? _canvas.getContext('2d') : null,
+	    _img = document.getElementById("qr-image");
+
 // private methods
 	function scanForBarcode(timestamp) {
-		if(QrCode.read(_video)) {
+		if(QrCode.read(_video, _canvas, _ctx, _img)) {
 			_this.stop();
 			// _this.toggle();
 		} /* else {
@@ -96,14 +103,21 @@ function ScanController($scope, $log, identityProvider) {
 	this.start = function() {
 		if(Snapshotter.scanning()) return;
 
-		if(_video && _video.paused) {
-			_video.play();
+		if(_video) {
+			if(_video.paused) {
+				_video.play();
+			}
+			_canvas.height = _img.height = _video.videoHeight;
+			_canvas.width  = _img.width  = _video.videoWidth;
 		}
 		if(_localMediaStream && !_localMediaStream.started) {
 			// doesn't work. // _localMediaStream.start(); // Doesn't do anything in Chrome.
 		}
 
-		QrCode.callback(this.renderId);
+		// QrCode.callback(_this.renderId);
+		QrCode.callback(function() {
+			_this.renderId(arguments);
+		});
 		Snapshotter.start(scanForBarcode);
 	};
 	this.stop = function() {
@@ -120,12 +134,13 @@ function ScanController($scope, $log, identityProvider) {
 		}
 	};
 	this.renderId = function(data) {
-		$log('renderId...', data);
+		$log.info('renderId...', data);
 		if(!data || !data.length) return;
 
 		var url = data[0];
 
 		$scope.identityId = url.replace(/http:\/\/.*\/(.*)(\?.*)?/i, '$1');
+		this.render();
 	};
 
 // Constructor stuff

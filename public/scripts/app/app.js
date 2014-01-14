@@ -6,7 +6,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module("sprtId", [
+var module = angular.module("sprtId", [
 	'webcam'
   // "ngRoute",
   // "sprtId.filters",
@@ -37,5 +37,5 @@ angular.module("sprtId", [
 			});
 		}
 	}])
-	.controller("IdentityController", ["$scope", "$log", "$identityProvider", IdentityController])
-	.controller("ScanController", ["$scope", "$log", ScanController]);
+	// .controller("IdentityController", ["$scope", "$log", "$identityProvider", IdentityController])
+	.controller("ScanController", ["$scope", "$log", "$identityProvider", ScanController]);
