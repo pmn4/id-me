@@ -1,4 +1,5 @@
 require_relative 'base_app'
+require_relative 'models/ajax_response'
 
 module SprtId
 	class SprtIdApp < BaseApp
@@ -9,10 +10,22 @@ module SprtId
 		end
 
 		get '/id/:id' do
-			identity = Models::FullIdentity.find(params[:id])
+			begin
+				identity = Models::FullIdentity.find(params[:id])
+				response = Models::AjaxResponse.new({
+					:success => true,
+					:content => identity.as_document
+				})
+			rescue Mongoid::Errors::DocumentNotFound => e
+				LOGGER.error(e)
+				response = Models::AjaxResponse.new({
+					:success => false,
+					:errors => ['Unable to find this Identity']
+				})
+			end
 
 			content_type :'application/json'
-			identity.as_document.to_json
+			response.to_json
 		end
 	end
 end

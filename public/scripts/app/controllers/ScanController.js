@@ -114,7 +114,6 @@ function ScanController($scope, $log, $identityProvider) {
 			// doesn't work. // _localMediaStream.start(); // Doesn't do anything in Chrome.
 		}
 
-		// QrCode.callback(_this.renderId);
 		QrCode.callback(function() {
 			_this.renderId(arguments);
 		});
@@ -139,8 +138,7 @@ function ScanController($scope, $log, $identityProvider) {
 
 		var url = data[0];
 
-		$scope.identityId = url.replace(/http:\/\/.*\/(.*)(\?.*)?/i, '$1');
-		this.render();
+		$scope.render(url.replace(/http:\/\/.*\/(.*)(\?.*)?/i, '$1'));
 	};
 
 // Constructor stuff
@@ -154,19 +152,12 @@ function ScanController($scope, $log, $identityProvider) {
 	};
 
 	$scope.onSuccess = function (videoElem) {
-		// The video element contains the captured camera data
 		_video = videoElem;
-		// $scope.$apply(function() {
-		//     $scope.patOpts.w = _video.width;
-		//     $scope.patOpts.h = _video.height;
-		//     $scope.showDemos = true;
-		// });
 
 		_this.start();
 	};
 
 	$scope.onStream = function (stream, videoElem) {
-		// You could do something manually with the stream.
 		_localMediaStream = stream;
 		_video = videoElem;
 	};

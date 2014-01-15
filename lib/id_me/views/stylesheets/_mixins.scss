@@ -34,6 +34,8 @@ $transition-off-speed: 2 * $transition-on-speed !default;
 	border-color: rgba($hover-color, $initial-opacity);
 	background-color: rgba($hover-color, 1.0 - $initial-opacity);
 
+	cursor: pointer;
+
 	@include transition-property(color, border-color, background-color);
 	@include transition-duration($transition-off-speed);
 	@include transition-timing-function(ease-in-out);

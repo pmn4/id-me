@@ -5,6 +5,7 @@
 	<title>Sport Id : sprtid.com</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="/styles/site.css">
+	<%= yield_content(:stylesheet) if content_for?(:stylesheet) %>
 </head>
 <body>
 	<%= yield %>
