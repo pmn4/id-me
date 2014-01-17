@@ -25,29 +25,30 @@ $container-style: fluid;
 	}
 
 	.webcam {
-		@include span-columns(3 omega);
+		@include span-columns(4 omega);
 		@include isolate(0, $from: right);
+		@include translateZ(0);
 	}
 }
 
 /*
            Desktop
-+----+----------------+----+
-|    |                |    | <-- scan
-|  s |                +----+
-|  t |       ID       |    | <-- history
-|  a |                |    |
++----+--------------+------+
+|    |  form entry  |      | <-- scan
+|  s +--------------+------+
+|  t |                |    | <-- history
+|  a |       ID       |    |
 |  t |                |    |
 |  s +----------------+    |
 |    |     stats      |    |
 +----+----------------+----+
 
         Tablet
-+--------------+----+
-|              |    | <-- scan
-|              +----+
-|      ID      |    | <-- history
-|              |    |
++------------+------+
+| form entry |      | <-- scan
++------------+------+
+|              |    | <-- history
+|      ID      |    |
 |              |    |
 +--------------+    |
 |              |    |

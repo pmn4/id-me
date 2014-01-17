@@ -6,14 +6,25 @@
 <div id="sprtid-app">
 	<div ng-controller="IdentityController">
 		<div ng-controller="ScanController">
-			<!-- button class="btn" ng-click="scanner.start()">Start Scanner</button -->
-			<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)" placeholder="img/ajax-loader.gif">
-				<div classs="error initialization-error" ng-show="webcamError">
-					Use of your webcam is required to scan ids.
-				</div>
+			<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)">
 			</webcam>
 			<canvas id="qr-canvas" style="display: none;"></canvas>
 			<img id="qr-image" style="display: none;" />
+			<div classs="error initialization-error" ng-show="state.error">
+				<p>Use of your webcam is required to scan ids.</p>
+			</div>
+			<div classs="info webcam-init" ng-show="state.init">
+				<p>Please &quot;allow&quot; use of your camera</p>
+			</div>
+			<div classs="info start-message" ng-show="state.pause" on-click="play(false)" on-dblclick="play(true)">
+				<div class="icon play"></div>
+				<p>Click to scan an id.</p>
+				<p>Double-click to start multi-scan mode.</p>
+			</div>
+			<div classs="info pause-message" ng-show="state.play" on-click="pause()">
+				<div class="icon pause"></div>
+				<p>Click to stop camera.</p>
+			</div>
 
 			<input ng-model="identityId" required />
 			<button class="btn" ng-click="render()">Display Identity</button>

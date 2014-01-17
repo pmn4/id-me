@@ -7,7 +7,6 @@
 
 // Declare app level module which depends on filters, and services
 var module = angular.module("sprtId", [
-	'webcam'
   // "ngRoute",
   // "sprtId.filters",
   // "sprtId.services",
@@ -19,6 +18,7 @@ var module = angular.module("sprtId", [
 //   $routeProvider.when("/view2", {templateUrl: "partials/partial2.html", controller: "MyCtrl2"});
 //   $routeProvider.otherwise({redirectTo: "/view1"});
 // }]);
+	.directive("webcam", ["$log", Webcam])
 	.factory("$identityProvider", ["$http", "$log", function($http, $log) {
 		var URL_TOKEN_ID = "#{id}",
 		    APP_ID_URL_PATTERN = "/app/id/" + URL_TOKEN_ID;

@@ -71,6 +71,27 @@ var QrCode = (function(qrcodeApi) {
 	};
 })(qrcode);
 
+var State = {
+	init: 0,
+	error: -1,
+	pause: 1,
+	play: 2
+};
+function _state(currentState) {
+	var states = {};
+	for(var s in State) {
+		states[s] = State[s] == currentState;
+	}
+	return states;
+}
+function state($scope, currentState) {
+	$scope.state = $scope.state || {};
+
+	$scope.$apply(function() {
+		$scope.state = _state(currentState);
+		$scope._state = currentState;
+	});
+}
 
 function ScanController($scope, $log, $identityProvider) {
 	var _this = this;
@@ -118,12 +139,14 @@ function ScanController($scope, $log, $identityProvider) {
 			_this.renderId(arguments);
 		});
 		Snapshotter.start(scanForBarcode);
+		state($scope, State.play);
 	};
 	this.stop = function() {
 		if(_video) _video.pause();
 		if(_localMediaStream) _localMediaStream.stop(); // Doesn't do anything in Chrome.
 
 		Snapshotter.stop();
+		state($scope, State.pause);
 	};
 	this.toggle = function(pause) {
 		if(arguments.length && pause || this.scanning) {
@@ -144,11 +167,9 @@ function ScanController($scope, $log, $identityProvider) {
 // Constructor stuff
 
 // Scopey bits
-	$scope.webcamError = false;
+	$scope.state = _state(State.init);
 	$scope.onError = function (err) {
-		$scope.$apply(function() {
-			$scope.webcamError = err;
-		});
+		state($scope, State.error);
 	};
 
 	$scope.onSuccess = function (videoElem) {
