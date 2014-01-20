@@ -24,12 +24,12 @@
 			<div classs="message info webcam-init" ng-show="state.init">
 				<p>Please &quot;allow&quot; use of your camera</p>
 			</div>
-			<div classs="message success start-message" ng-show="state.pause" on-click="play(false)" on-dblclick="play(true)">
+			<div classs="message success start-message" ng-show="state.pause" ng-click="play(false)" ng-dblclick="play(true)">
 				<div class="icon play"></div>
 				<p>Click to scan an id.</p>
 				<p>Double-click to start multi-scan mode.</p>
 			</div>
-			<div classs="message warn pause-message" ng-show="state.play" on-click="pause()">
+			<div classs="message warn pause-message" ng-show="state.play" ng-click="pause()">
 				<div class="icon pause"></div>
 				<p>Click to stop camera.</p>
 			</div>
@@ -39,11 +39,11 @@
 		</div>
 		<div id="current-scan-and-history">
 			<div id="id-card-container"></div>
-			<div ng-controller="HistoryController" id="historycontroller-container">
-				<h6>History</h6>
+			<div ng-controller="HistoryController" id="historycontroller-container" class="view">
+				<h6 class="headline">History</h6>
 				<ul>
 					<li ng-repeat="identity in identities | reverse">
-						<div class="history-identity">
+						<div class="history-identity" ng-click="render(identity._id)">
 							<div class="image-wrapper">
 								<img ng-src="{{(identity.image.protocol || '') + identity.image.url}}" />
 							</div>
@@ -94,8 +94,8 @@
 <script src="/scripts/app/modules/webcam.js"></script>
 <script src="/scripts/app/controllers/AuthController.js"></script>
 <script src="/scripts/app/controllers/CheckInController.js"></script>
-<script src="/scripts/app/controllers/HistoryController.js"></script>
 <script src="/scripts/app/controllers/IdentityController.js"></script>
+<script src="/scripts/app/controllers/HistoryController.js"></script>
 <script src="/scripts/app/controllers/ScanController.js"></script>
 <script src="/scripts/app/controllers/StatsController.js"></script>
 <script src="/scripts/app/app.js"></script>

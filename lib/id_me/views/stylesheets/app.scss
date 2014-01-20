@@ -115,11 +115,25 @@
 		#historycontroller-container {
 			@include span-columns(3 omega, $idcontroller-container-columns);
 
+			.headline {
+				text-align: center;
+				margin-bottom: 5px;
+			}
+
 			ul {
-				border-width: 1px;
-				border-style: solid;
+				border: 1px solid rgba($color-scheme-view, 0.25);
 				max-height: 400px;
 				overflow-y: scroll;
+
+				li {
+					@include opacity(0.5);
+					cursor: pointer;
+
+					&:hover {
+						@include opacity(1.0);
+						background-color: rgba($color-scheme-view, 0.05);
+					}
+				}
 			}
 		}
 	}

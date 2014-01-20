@@ -97,8 +97,6 @@ function ScanController($scope, $log, $identityProvider, $scanDispatcher) {
 	var _this = this;
 
 	IdentityController.apply(this, arguments);
-	ScanController.prototype = new IdentityController();
-	ScanController.prototype.constructor = ScanController;
 
 // private variables
 	var _video = null,
@@ -183,4 +181,5 @@ function ScanController($scope, $log, $identityProvider, $scanDispatcher) {
 		_video = videoElem;
 	};
 }
-
+ScanController.prototype = new IdentityController();
+ScanController.prototype.constructor = ScanController;

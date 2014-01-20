@@ -59,8 +59,8 @@ var module = angular.module("sprtId", [
 			return items.slice().reverse();
 		};
 	})
-	// .controller("IdentityController", ["$scope", "$log", "$identityProvider", IdentityController])
+	// .controller("IdentityController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", IdentityController])
 	.controller("ScanController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", ScanController])
-	.controller("HistoryController", ["$scope", "$log", "$scanDispatcher", HistoryController])
+	.controller("HistoryController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", HistoryController])
 	.controller("AppStatsController", ["$scope", "$log", "$scanDispatcher", StatsController])
 	;

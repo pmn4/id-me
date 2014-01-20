@@ -25,11 +25,11 @@ body {
 	background: transparent url('/images/backgrounds/hockey.jpg') no-repeat fixed center center;
 
 	&.organization-perfect-game {
-		background-image: url('/images/backgrounds/baseball.jpg');
+		background: transparent url('/images/backgrounds/baseball.jpg') no-repeat fixed center center;
 	}
 
 	&.organization-aau {
-		background-image: url('/images/backgrounds/backetball.jpg');
+		background: transparent url('/images/backgrounds/backetball.jpg') no-repeat fixed center center;
 	}
 }
 
