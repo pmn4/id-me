@@ -9,22 +9,29 @@
 		</p>
 	</div>
 	<h2>Create an Identity</h2>
+	<% if @errors.present? %>
+		<div class="messages">
+			<% @errors.each do |error| %>
+				<div class="error"><%= error %></div>
+			<% end %>
+		</div>
+	<% end %>
 	<form action="/create" method="POST" id="form-create-identity" enctype="multipart/form-data">
 		<div class="input-wrapper name">
-			<input id="profile_name" name="identity[name]" type="text" placeholder="Full Name" />
+			<input id="profile_name" name="identity[name]" value="<%= params[:identity]['name'] %>" type="text" placeholder="Full Name" />
 		</div>
 		<div class="input-wrapper aau-id">
-			<input id="profile_id" name="identity[external_id]" type="text" placeholder="Organization Id" />
+			<input id="profile_id" name="identity[external_id]" value="<%= params[:identity]['external_id'] %>" type="text" placeholder="Organization Id" />
 		</div>
 		<div class="input-wrapper birthdate">
-			<input id="profile_birthdate" name="identity[birthdate]" type="date" placeholder="Birthdate" />
+			<input id="profile_birthdate" name="identity[birthdate]" value="<%= params[:identity]['birthdate'] %>" type="date" placeholder="Birthdate" />
 		</div>
 		<div class="input-wrapper graduation-year">
 			<select id="profile_graduation_year" name="identity[graduation_year]">
 				<option value="">Graduation year</option>
 				<% this_year = Time.now.year %>
 				<% (this_year..(this_year + 20)).each do |year| %>
-					<option value="<%= year %>"><%= year %></option>
+					<option value="<%= year %>" <%= 'selected="selected"' if year == params[:identity]['birthdate'] %>><%= year %></option>
 				<% end %>
 			</select>
 		</div>
@@ -32,7 +39,7 @@
 			<select id="profile_sport" name="identity[sport]">
 				<option value="">Sport</option>
 				<% ['Football', 'Baseball', 'Basketball', 'Hockey', 'Volleyball'].each do |sport| %>
-					<option value="<%= sport %>"><%= sport %></option>
+					<option value="<%= sport %>" <%= 'selected="selected"' if sport == params[:identity]['sport'] %>><%= sport %></option>
 				<% end %>
 			</select>
 		</div>
@@ -40,7 +47,7 @@
 			<select id="profile_team" name="identity[team]">
 				<option value="">Team</option>
 				<% ['Bears', 'Panthers', 'Lions', 'Dolphins', 'Ravens', 'Seahawks'].each do |team| %>
-					<option value="<%= team %>"><%= team %></option>
+					<option value="<%= team %>" <%= 'selected="selected"' if team == params[:identity]['team'] %>><%= team %></option>
 				<% end %>
 			</select>
 		</div>

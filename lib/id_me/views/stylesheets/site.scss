@@ -98,6 +98,26 @@ blockquote {
 img {
 	max-width: 100%;
 }
+.success {
+	padding: 10px;
+	color: $color-scheme-success;
+	background-color: rgba($color-scheme-success, 0.05);
+}
+.error {
+	padding: 10px;
+	color: $color-scheme-error;
+	background-color: rgba($color-scheme-error, 0.05);
+}
+.warning {
+	padding: 10px;
+	color: $color-scheme-warning;
+	background-color: rgba($color-scheme-warning, 0.05);
+}
+.info {
+	padding: 10px;
+	color: $color-scheme-info;
+	background-color: rgba($color-scheme-info, 0.05);
+}
 
 $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-create 'hockey.jpg', 'scan' $color-scheme-scan 'football.jpg', 'view' $color-scheme-view 'soccer.jpg', 'app' $color-scheme-app 'soccer.jpg', 'stats' $color-scheme-stats 'baseball.jpg';
 @each $feature in $features {

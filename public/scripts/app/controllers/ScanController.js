@@ -93,10 +93,10 @@ function state($scope, currentState) {
 	});
 }
 
-function ScanController($scope, $log, $identityProvider) {
+function ScanController($scope, $log, $identityProvider, $scanDispatcher) {
 	var _this = this;
 
-	IdentityController.call(this, $scope, $log, $identityProvider);
+	IdentityController.apply(this, arguments);
 	ScanController.prototype = new IdentityController();
 	ScanController.prototype.constructor = ScanController;
 

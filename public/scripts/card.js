@@ -28,6 +28,8 @@ var ViewHelpers = {
 			return "";
 		} else if((tmp = Date.parse(date)) && !isNaN(tmp)) {
 			return ViewHelpers.age(new Date(tmp));
+		} else if((tmp = new Date(date)) && !isNaN(tmp)) {
+			return ViewHelpers.age(tmp);
 		}
 	}
 };

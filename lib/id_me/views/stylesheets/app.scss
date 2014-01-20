@@ -29,7 +29,8 @@
 	}
 
 	#idcontroller-container {
-		@include span-columns(9 omega);
+		$idcontroller-container-columns: 9;
+		@include span-columns($idcontroller-container-columns omega);
 
 		.message {
 			width: 100%;
@@ -38,7 +39,7 @@
 			vertical-align: middle;
 		}
 		.webcam {
-			float: right;
+			@include span-columns(3, $idcontroller-container-columns, $from: right);
 			@include translateZ(0);
 		}
 
@@ -90,6 +91,35 @@
 			.external-id,
 			.sport-team {
 				padding-bottom: 10px;
+			}
+		}
+		#current-scan-and-history {
+			#id-card-container {
+				@include span-columns(6, $idcontroller-container-columns);
+				min-height: 100px;
+			}
+			.history-identity {
+				padding: 5px;
+
+				@include clearfix;
+
+				.image-wrapper {
+					float: left;
+					margin-right: 10px;
+					width: 50px;
+					height: 100%;
+				}
+			}
+		}
+
+		#historycontroller-container {
+			@include span-columns(3 omega, $idcontroller-container-columns);
+
+			ul {
+				border-width: 1px;
+				border-style: solid;
+				max-height: 400px;
+				overflow-y: scroll;
 			}
 		}
 	}

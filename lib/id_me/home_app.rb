@@ -30,6 +30,7 @@ module SprtId
 		get '/create' do
 			content_type :'text/html'
 			@create_only = true
+			params[:identity] = {}
 			erb :create
 		end
 

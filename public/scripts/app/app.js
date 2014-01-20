@@ -1,8 +1,6 @@
 /*jshint smarttabs:true */
 
-(function() {
-	"use strict";
-})();
+"use strict";
 
 
 // Declare app level module which depends on filters, and services
@@ -37,5 +35,32 @@ var module = angular.module("sprtId", [
 			});
 		}
 	}])
+	.factory("$scanDispatcher", ['$rootScope', function($rootScope) {
+		var service = {
+			EVENT_NAME: 'scanned-identity'
+		};
+		service.identity = null;
+		service.scan = function(identity) {
+			this.identity = identity;
+			this.broadcast();
+		};
+		service.broadcast = function() {
+			$rootScope.$broadcast(this.EVENT_NAME);
+		};
+		return service;
+	}])
+	.filter('ageFormatter', function() {               // filter is a factory function
+		return function(unformattedDate, emptyStrText) { // first arg is the input, rest are filter params
+			return ViewHelpers.age(unformattedDate);
+		};
+	})
+	.filter('reverse', function() {
+		return function(items) {
+			return items.slice().reverse();
+		};
+	})
 	// .controller("IdentityController", ["$scope", "$log", "$identityProvider", IdentityController])
-	.controller("ScanController", ["$scope", "$log", "$identityProvider", ScanController]);
+	.controller("ScanController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", ScanController])
+	.controller("HistoryController", ["$scope", "$log", "$scanDispatcher", HistoryController])
+	.controller("AppStatsController", ["$scope", "$log", "$scanDispatcher", StatsController])
+	;

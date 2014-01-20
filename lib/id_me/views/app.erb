@@ -6,12 +6,10 @@
 <div id="sprtid-app">
 	<div id="utilities-wrapper">
 		<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
-<!--
-		<div ng-controller="HistoryController" id="historycontroller-container">
+		<div ng-controller="StatsController" id="statscontroller-container">
 		</div>
--->
 	</div>
-	<div ng-controller="IdentityController" id="idcontroller-container">
+	<div ng-controller="IdentityController" id="idcontroller-container" container="id-card-container">
 		<div ng-controller="ScanController">
 			<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)">
 			</webcam>
@@ -38,13 +36,28 @@
 
 			<input ng-model="identityId" required />
 			<button class="btn" ng-click="render()">Display Identity</button>
+		</div>
+		<div id="current-scan-and-history">
 			<div id="id-card-container"></div>
+			<div ng-controller="HistoryController" id="historycontroller-container">
+				<h6>History</h6>
+				<ul>
+					<li ng-repeat="identity in identities | reverse">
+						<div class="history-identity">
+							<div class="image-wrapper">
+								<img ng-src="{{(identity.image.protocol || '') + identity.image.url}}" />
+							</div>
+							<div class="name">
+								{{identity.name}}
+								({{identity.birthdate | ageFormatter}})
+							</div>
+							<div class="team">{{identity.team}}</div>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-<!--
-	<div ng-controller="AppStatsController" id="statscontroller-container">
-	</div>
--->
 </div>
 
 <!--
@@ -75,9 +88,13 @@
 <script src="/scripts/lib/qr-code-writer/raphael-2.1.0-min.js"></script>
 <script src="/scripts/lib/qr-code-writer/qrcodesvg.js"></script>
 -->
+<script src="/scripts/polyfill.js"></script>
+<script src="/scripts/lib/client_storage.js"></script>
+
 <script src="/scripts/app/modules/webcam.js"></script>
 <script src="/scripts/app/controllers/AuthController.js"></script>
 <script src="/scripts/app/controllers/CheckInController.js"></script>
+<script src="/scripts/app/controllers/HistoryController.js"></script>
 <script src="/scripts/app/controllers/IdentityController.js"></script>
 <script src="/scripts/app/controllers/ScanController.js"></script>
 <script src="/scripts/app/controllers/StatsController.js"></script>
