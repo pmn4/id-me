@@ -4,7 +4,6 @@ require_relative 'models/ajax_response'
 module SprtId
 	class SprtIdApp < BaseApp
 		get '/' do
-
 			content_type :'text/html'
 			erb :app
 		end

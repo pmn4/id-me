@@ -16,9 +16,14 @@
 	};
 })();
 
+var ScanStyle = {
+	Single: 1,
+	Multi: 2
+};
+
 function Webcam($log) {
 	return {
-		template: '<div class="webcam" ng-transclude></div>',
+		template: '<div class="webcam" ng-transclude ng-click="toggle()" ng-dbclick="multiToggle()"></div>',
 		restrict: 'E',
 		replace: true,
 		transclude: true,
@@ -115,6 +120,29 @@ function Webcam($log) {
 					}
 				}
 			}, false);
+		},
+		controller: function($scope, $element) {
+			$scope.scanStyle = ScanStyle.Single;
+			$scope.singleScanning = true;
+			$scope.multiScanning = false;
+			$scope.toggle = function() {
+				if($scope.scanStyle == ScanStyle.Single) {
+					$scope.singleScanning = !$scope.singleScanning;
+				} else if($scope.scanStyle == ScanStyle.Multi) {
+					$scope.multiScanning = !$scope.multiScanning;
+				}
+			};
+			$scope.multiToggle = function() {
+				if($scope.scanStyle == ScanStyle.Single) {
+					$scope.scanStyle = ScanStyle.Multi;
+					$scope.multiScanning = true;
+					$scope.singleScanning = false;
+				} else if($scope.scanStyle == ScanStyle.Multi) {
+					$scope.scanStyle = ScanStyle.Single;
+					$scope.singleScanning = true;
+					$scope.multiScanning = false;
+				}
+			};
 		}
 	};
 }

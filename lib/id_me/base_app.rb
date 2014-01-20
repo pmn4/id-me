@@ -28,6 +28,10 @@ module SprtId
 			LOGGER.level = Logger::DEBUG
 		end
 
+		before do
+			@organization = "perfect-game"
+		end
+
 		get '/styles/:name.css' do
 			content_type 'text/css', :charset => 'utf-8'
 			scss(:"stylesheets/#{params[:name]}", Compass.sass_engine_options)

@@ -4,24 +4,34 @@
 <% end %>
 
 <div id="sprtid-app">
-	<div ng-controller="IdentityController">
+	<div id="utilities-wrapper">
+		<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
+<!--
+		<div ng-controller="HistoryController" id="historycontroller-container">
+		</div>
+-->
+	</div>
+	<div ng-controller="IdentityController" id="idcontroller-container">
 		<div ng-controller="ScanController">
 			<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)">
 			</webcam>
+			<!-- move to directive, modify qrcode reader to take init properties, e.g., #qr-canvas -->
 			<canvas id="qr-canvas" style="display: none;"></canvas>
 			<img id="qr-image" style="display: none;" />
-			<div classs="error initialization-error" ng-show="state.error">
+			<!-- (end) move to directive -->
+
+			<div classs="message error initialization-error" ng-show="state.error">
 				<p>Use of your webcam is required to scan ids.</p>
 			</div>
-			<div classs="info webcam-init" ng-show="state.init">
+			<div classs="message info webcam-init" ng-show="state.init">
 				<p>Please &quot;allow&quot; use of your camera</p>
 			</div>
-			<div classs="info start-message" ng-show="state.pause" on-click="play(false)" on-dblclick="play(true)">
+			<div classs="message success start-message" ng-show="state.pause" on-click="play(false)" on-dblclick="play(true)">
 				<div class="icon play"></div>
 				<p>Click to scan an id.</p>
 				<p>Double-click to start multi-scan mode.</p>
 			</div>
-			<div classs="info pause-message" ng-show="state.play" on-click="pause()">
+			<div classs="message warn pause-message" ng-show="state.play" on-click="pause()">
 				<div class="icon pause"></div>
 				<p>Click to stop camera.</p>
 			</div>
@@ -31,6 +41,10 @@
 			<div id="id-card-container"></div>
 		</div>
 	</div>
+<!--
+	<div ng-controller="AppStatsController" id="statscontroller-container">
+	</div>
+-->
 </div>
 
 <!--
@@ -69,6 +83,4 @@
 <script src="/scripts/app/controllers/StatsController.js"></script>
 <script src="/scripts/app/app.js"></script>
 
-<script type="text/template" id="template-id-card">
-	<%= file_load("#{settings.root}/public/tpl/card.svg") %>
-</script>
+<%= file_load("#{settings.root}/public/scripts/app/templates/identity.html") %>

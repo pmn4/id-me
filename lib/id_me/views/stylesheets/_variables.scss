@@ -9,6 +9,11 @@ $color-scheme-view: #ffcc2f;
 $color-scheme-app: $color-scheme-view;
 $color-scheme-stats: #00acee;
 
+$color-scheme-success: $color-scheme-scan;
+$color-scheme-error: $color-scheme-create;
+$color-scheme-warning: $color-scheme-view;
+$color-scheme-info: $color-scheme-stats;
+
 $default-spacing: 20px;
 
 $transition-on-speed: 333;

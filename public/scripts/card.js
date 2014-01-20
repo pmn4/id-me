@@ -17,6 +17,18 @@ var ViewHelpers = {
 		}
 
 		return date;
+	},
+	age: function(date) {
+		var tmp;
+		if(date instanceof Date) {
+			if(date > 0) {
+				return ~~((Date.now() - date) / (31557600000));
+			}
+
+			return "";
+		} else if((tmp = Date.parse(date)) && !isNaN(tmp)) {
+			return ViewHelpers.age(new Date(tmp));
+		}
 	}
 };
 

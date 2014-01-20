@@ -7,15 +7,15 @@
 <script src="/scripts/lib/qr-code-writer/qrcodesvg.js"></script>
 
 <script type="text/template" id="template-id-card">
-	<%= file_load("#{settings.root}/public/tpl/card.svg") %>
+	<%= file_load("#{settings.root}/public/tpl/card-#{@organization}.svg") %>
 </script>
 <script type="text/template" id="template-id-card-errors">
 	<div class="id-card-errors">
 		<h5 class="error-message">Unable to find identity</h5>
 		<ul class="error-messages">
-			<% _.each(errors, function(msg) { %>
-				<li><%= msg %></li>
-			<% } %>
+			<%% _.each(errors, function(msg) { %>
+				<li><%%= msg %></li>
+			<%% } %>
 		</ul>
 	</div>
 </script>

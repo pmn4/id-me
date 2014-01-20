@@ -1,41 +1,105 @@
 @import '_variables',
         '_mixins';
 
-@import 'compass/reset',
-        'compass/css3';
+@import 'compass/css3';
 
 @import 'susy';
 
-$container-style: fluid;
-
 #sprtid-app {
-	$total-columns: $desktop-columns;
-	@include container;
-	@include susy-grid-background;
+	$container-style: fluid;
+
+	@include container($desktop-layout);
+	// @include susy-grid-background;
 
 	@include at-breakpoint($phone-layout) {
-		$total-columns: $phone-columns;
-		@include container;
-		@include susy-grid-background;
+		@include container($phone-layout);
+		// @include susy-grid-background;
 	}
 	@include at-breakpoint($tablet-layout) {
-		$total-columns: $tablet-columns;
-		@include container;
-		@include susy-grid-background;
+		@include container($tablet-layout);
+		// @include susy-grid-background;
 	}
 
-	.webcam {
-		@include span-columns(4 omega);
-		@include isolate(0, $from: right);
-		@include translateZ(0);
+	#utilities-wrapper {
+		@include span-columns(3);
+
+		#brand {
+			text-align: center;
+		}
+	}
+
+	#idcontroller-container {
+		@include span-columns(9 omega);
+
+		.message {
+			width: 100%;
+			height: 100%;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.webcam {
+			float: right;
+			@include translateZ(0);
+		}
+
+		.scanned-identity {
+			margin-top: 20px;
+			padding: 20px;
+			background: rgba($color-scheme-foreground, 0.05);
+
+			@include clearfix;
+
+			.error {
+				display: none;
+				margin-top: -20px;
+				margin-bottom: 20px;
+			}
+
+			&.red-flag {
+				color: $color-scheme-error !important;
+
+				.error {
+					display: block;
+					padding: 20px;
+					text-align: center;
+					background: rgba($color-scheme-error, 0.05);
+				}
+			}
+
+			.photo-wrapper {
+				float: left;
+				margin-right: 20px;
+				margin-bottom: 20px;
+				overflow: hidden;
+			}
+
+			.name {
+				font-size: 150%;
+			}
+			.age {
+				font-size: 125%;
+			}
+			.external-id {
+				font-size: 80%;
+			}
+			.sport-team {
+				font-size: 125%;
+			}
+			.name,
+			.age,
+			.external-id,
+			.sport-team {
+				padding-bottom: 10px;
+			}
+		}
 	}
 }
 
 /*
            Desktop
-+----+--------------+------+
-|    |  form entry  |      | <-- scan
-|  s +--------------+------+
++----+---------------------+
+|    | form entry / camera | <-- scan
+|  s +---------------------+
 |  t |                |    | <-- history
 |  a |       ID       |    |
 |  t |                |    |
@@ -45,7 +109,7 @@ $container-style: fluid;
 
         Tablet
 +------------+------+
-| form entry |      | <-- scan
+| form entry/camera | <-- scan
 +------------+------+
 |              |    | <-- history
 |      ID      |    |

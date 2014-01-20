@@ -1,0 +1,38 @@
+<script type="text/template" id="template-scanned-identity">
+	<%
+		var redFlag = !Math.floor(5 * Math.random());
+	%>
+	<div class="scanned-identity <%= redFlag ? 'red-flag' : '' %>">
+		<div class="error">
+			This player has already checked in today.
+		</div>
+		<% if(identity.image) { %>
+			<%
+			var image = identity.image,
+			    ratio = 224 / image.height;
+			var randomId = "identity-image-" + Math.floor(Math.random() * 1000000);
+			var displayImageWidth = 175.46666,
+			    displayImageHeight = 224,
+			    displayImageX = 54.976284,
+			    displayImageY = 619.7193;
+			%>
+			<div class="photo-wrapper">
+				<img class="photo"
+				     src="<%= (image.protocol || '') + image.url %>"
+				     width="<%= (image.width || 0) * ratio || displayImageWidth %>"
+				     height="<%= (image.height || 0) * ratio || displayImageHeight %>" />
+			</div>
+		<% } %>
+		<div class="name"><%= identity.name %></div>
+		<div class="age">
+			<%- ViewHelpers.birthdateFormatted(identity.birthdate) %>
+			(<%- ViewHelpers.age(identity.birthdate) %>)
+		</div>
+		<div class="external-id"><%= identity.external_id %></div>
+		<div class="sport-team">
+			<%= identity.sport %>
+			|
+			<%= identity.team %>
+		</div>
+	</div>
+</script>

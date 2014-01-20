@@ -17,12 +17,20 @@ html, body {
 
 body {
 	font-family: $font-family-content;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.4em;
 	// background: $color-scheme-background url('/images/linen.png') repeat;
-	background: transparent url('/images/backgrounds/hockey.jpg') no-repeat fixed center center;
 	background-size: cover;
 	color: $color-scheme-foreground;
+	background: transparent url('/images/backgrounds/hockey.jpg') no-repeat fixed center center;
+
+	&.organization-perfect-game {
+		background-image: url('/images/backgrounds/baseball.jpg');
+	}
+
+	&.organization-aau {
+		background-image: url('/images/backgrounds/backetball.jpg');
+	}
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -52,7 +60,8 @@ select,
 input {
 	height: 2em;
 	width: 400px;
-	padding: 0 10px;
+	max-width: 95%;
+	padding: 0 2.5%;
 	line-height: 2em;
 	font-size: 1em;
 	background-color: $color-scheme-foreground;
@@ -289,4 +298,5 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 @import '_about',
         '_audience',
         '_footer',
-        '_stats';
+        '_stats',
+        '_create';

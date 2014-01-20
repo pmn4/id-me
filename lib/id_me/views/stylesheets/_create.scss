@@ -1,0 +1,16 @@
+@import '_variables',
+        '_mixins';
+
+@import 'susy';
+
+.brand-wrapper {
+	float: left;
+	margin-right: 20px;
+	padding-top: 10px;
+	width: 150px;
+	height: 100%;
+
+	#logo {
+		margin-bottom: 20px;
+	}
+}

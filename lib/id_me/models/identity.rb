@@ -46,6 +46,7 @@ module SprtId
 			field :team, :type => String
 			field :graduation_year, :type => Integer
 			field :sport, :type => String
+			field :team, :team => String
 		end
 	end
 end
