@@ -4,11 +4,14 @@ require 'sinatra/contrib'
 require 'compass'
 require 'rack/mobile-detect'
 
+require_relative 'middleware/white_label'
 require_relative 'helpers/view_helpers'
 
 module SprtId
 	class BaseApp < Sinatra::Base
 		register Sinatra::Contrib
+
+		use WhiteLabel
 
 		set :root, File.expand_path("../..", File.dirname(__FILE__))
 		set :views, File.dirname(__FILE__) + '/views'
@@ -28,8 +31,10 @@ module SprtId
 			LOGGER.level = Logger::DEBUG
 		end
 
+		SPRTID_ORGANIZATION = 'sprtid'
 		before do
-			@organization = "perfect-game"
+			@organization = WhiteLabel.organization
+			@organization = SPRTID_ORGANIZATION if @organization.blank?
 		end
 
 		get '/styles/:name.css' do
