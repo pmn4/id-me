@@ -56,6 +56,11 @@ h1, h2, h3, h4, h5, h6,
 .input-wrapper {
 	margin-top: 10px;
 }
+.checkbox-wrapper {
+	input[type=checkbox] {
+		float: left;
+	}
+}
 select,
 input {
 	height: 2em;
@@ -67,6 +72,14 @@ input {
 	background-color: $color-scheme-foreground;
 	color: $color-scheme-background;
 	border: 3px solid $color-scheme-background;
+}
+input[type=checkbox],
+input[type=radio] {
+	height: auto;
+	width: auto;
+	border: none;
+	line-height: inherit;
+	padding: 0;
 }
 
 button,
@@ -188,13 +201,17 @@ $hmax: 6;
 	@include container;
 	// @include susy-grid-background;
 
-	@include at-breakpoint($phone-layout) {
-		$total-columns: $phone-columns;
+	@include at-breakpoint($tablet-layout) {
+		padding-top: 50px;
+
+		$total-columns: $tablet-columns;
 		@include container;
 		// @include susy-grid-background;
 	}
-	@include at-breakpoint($tablet-layout) {
-		$total-columns: $tablet-columns;
+	@include at-breakpoint($phone-layout) {
+		padding-top: 10px;
+
+		$total-columns: $phone-columns;
 		@include container;
 		// @include susy-grid-background;
 	}
@@ -279,11 +296,6 @@ $menu-width: $hexagon-width * 3 / 2 + $hexagon-spacing;
 	@include transform(rotate(60deg));
 }
 
-
-#form-create-identity {
-	width: 50%;
-	float: left;
-}
 #card-preview-wrapper {
 	position: relative;
 	width: 100%;

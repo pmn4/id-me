@@ -1,67 +1,74 @@
 <div id="create-identity" class="feature-page create">
-	<div class="brand-wrapper">
-		<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
-		<p>
-			Create your identity by completing this form.
-		</p>
-		<p>
-			Present it to tournament officials to sign in at the field.
-		</p>
-	</div>
-	<h2>Create an Identity</h2>
-	<% if @errors.present? %>
-		<div class="messages">
-			<% @errors.each do |error| %>
-				<div class="error"><%= error %></div>
-			<% end %>
+	<div class="feature-page-content">
+		<div class="brand-wrapper">
+			<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
+			<p>
+				Create your id card by completing this form.
+			</p>
+			<p>
+				Present it to tournament officials to sign in at the field.
+				<em>(you may either print a hard copy or display the id on your phone)</em>
+			</p>
 		</div>
-	<% end %>
-	<form action="/create" method="POST" id="form-create-identity" enctype="multipart/form-data">
-		<div class="input-wrapper name">
-			<input id="profile_name" name="identity[name]" value="<%= params[:identity]['name'] %>" type="text" placeholder="Full Name" />
-		</div>
-		<div class="input-wrapper aau-id">
-			<input id="profile_id" name="identity[external_id]" value="<%= params[:identity]['external_id'] %>" type="text" placeholder="Organization Id" />
-		</div>
-		<div class="input-wrapper birthdate">
-			<input id="profile_birthdate" name="identity[birthdate]" value="<%= params[:identity]['birthdate'] %>" type="date" placeholder="Birthdate" />
-		</div>
-		<div class="input-wrapper graduation-year">
-			<select id="profile_graduation_year" name="identity[graduation_year]">
-				<option value="">Graduation year</option>
-				<% this_year = Time.now.year %>
-				<% (this_year..(this_year + 20)).each do |year| %>
-					<option value="<%= year %>" <%= 'selected="selected"' if year == params[:identity]['birthdate'] %>><%= year %></option>
+		<h2 class="headline">Create an Identity</h2>
+		<% if @errors.present? %>
+			<div class="messages">
+				<% @errors.each do |error| %>
+					<div class="error"><%= error %></div>
 				<% end %>
-			</select>
-		</div>
-		<div class="input-wrapper sport">
-			<select id="profile_sport" name="identity[sport]">
-				<option value="">Sport</option>
-				<% ['Football', 'Baseball', 'Basketball', 'Hockey', 'Volleyball'].each do |sport| %>
-					<option value="<%= sport %>" <%= 'selected="selected"' if sport == params[:identity]['sport'] %>><%= sport %></option>
-				<% end %>
-			</select>
-		</div>
-		<div class="input-wrapper team">
-			<select id="profile_team" name="identity[team]">
-				<option value="">Team</option>
-				<% ['Bears', 'Panthers', 'Lions', 'Dolphins', 'Ravens', 'Seahawks'].each do |team| %>
-					<option value="<%= team %>" <%= 'selected="selected"' if team == params[:identity]['team'] %>><%= team %></option>
-				<% end %>
-			</select>
-		</div>
-		<div class="input-wrapper image">
-			<%# if mobile? %>
-				<input id="profile_image" name="profile_image" type="file" accept="image/*;" capture="camera" />
-			<%# else %>
-				<!-- http://bit.ly/18rVlMy -->
-				<!-- <input id="profile_image" name="identity[images][original][url]" type="text" placeholder="http://" /> -->
-			<%# end %>
-		</div>
+			</div>
+		<% end %>
+		<form action="/create" method="POST" id="form-create-identity" enctype="multipart/form-data">
+			<div class="input-wrapper name">
+				<input id="identity_name" name="identity[name]" value="<%= params[:identity]['name'] %>" type="text" placeholder="Full Name" />
+			</div>
+			<div class="input-wrapper aau-id">
+				<input id="identity_id" name="identity[external_id]" value="<%= params[:identity]['external_id'] %>" type="text" placeholder="Organization Id" />
+			</div>
+			<div class="input-wrapper birthdate">
+				<input id="identity_birthdate" name="identity[birthdate]" value="<%= params[:identity]['birthdate'] %>" type="date" placeholder="Birthdate" />
+			</div>
+			<div class="input-wrapper graduation-year">
+				<select id="identity_graduation_year" name="identity[graduation_year]">
+					<option value="">Graduation year</option>
+					<% this_year = Time.now.year %>
+					<% (this_year..(this_year + 20)).each do |year| %>
+						<option value="<%= year %>" <%= 'selected="selected"' if year == params[:identity]['birthdate'] %>><%= year %></option>
+					<% end %>
+				</select>
+			</div>
+			<div class="input-wrapper sport">
+				<select id="identity_sport" name="identity[sport]">
+					<option value="">Sport</option>
+					<% ['Football', 'Baseball', 'Basketball', 'Hockey', 'Volleyball'].each do |sport| %>
+						<option value="<%= sport %>" <%= 'selected="selected"' if sport == params[:identity]['sport'] %>><%= sport %></option>
+					<% end %>
+				</select>
+			</div>
+			<div class="input-wrapper team">
+				<select id="identity_team" name="identity[team]">
+					<option value="">Team</option>
+					<% ['Bears', 'Panthers', 'Lions', 'Dolphins', 'Ravens', 'Seahawks'].each do |team| %>
+						<option value="<%= team %>" <%= 'selected="selected"' if team == params[:identity]['team'] %>><%= team %></option>
+					<% end %>
+				</select>
+			</div>
+			<div class="input-wrapper image">
+				<input id="identity_image" name="profile_image" type="file" accept="image/*;" capture="camera" />
+			</div>
+			<div class="input-wrapper checkbox-wrapper disclaimer">
+				<input type="checkbox" name="identity[disclaimer]" id="identity_disclaimer" value="true" />
+				<input type="hidden" name="identity[disclaimer]" value="false" />
+				<label for="identity_disclaimer">
+					By submitting this form, you agree to comply with all of the terms and conditions, and represent
+					and warrant that all information that you provide on the registration form is current, complete
+					and accurate to the best of your knowledge.
+				</label>
+			</div>
 
-		<div class="actions">
-			<button type="submit">Create</button>
-		</div>
-	</form>
+			<div class="actions">
+				<button type="submit">Create</button>
+			</div>
+		</form>
+	</div>
 </div>

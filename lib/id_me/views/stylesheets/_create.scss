@@ -3,14 +3,47 @@
 
 @import 'susy';
 
-.brand-wrapper {
-	float: left;
-	margin-right: 20px;
-	padding-top: 10px;
-	width: 150px;
-	height: 100%;
+#create-identity {
+	.feature-page-content {
+		@each $layout-columns in $desktop-layout $desktop-columns, $tablet-layout $tablet-columns, $phone-layout $phone-columns {
+			$layout: nth($layout-columns, 1);
+			$columns: nth($layout-columns, 2);
 
-	#logo {
+			@include at-breakpoint($layout) {
+				$colspan: min(6, $columns);
+				@include span-columns($colspan);
+				@include isolate(( $columns - $colspan ) / 2 + 1);
+			}
+		}
+	}
+	.brand-wrapper {
+		padding-bottom: 10px;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
 		margin-bottom: 20px;
+		@include clearfix;
+
+		#logo {
+			float: left;
+			margin-right: 20px;
+		}
+	}
+	.headline {
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	.actions {
+		margin-top: 20px;
+		text-align: center;
+	}
+	input:not([type=checkbox]),
+	select {
+		width: 100%;
+	}
+	.disclaimer {
+		margin-top: 20px;
+		border-top-width: 1px;
+		border-top-style: solid;
+		padding-top: 20px;
 	}
 }
