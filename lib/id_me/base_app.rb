@@ -33,9 +33,8 @@ module SprtId
 
 		SPRTID_ORGANIZATION = 'sprtid'
 		before do
-			# @organization = WhiteLabel.organization
-			# @organization = SPRTID_ORGANIZATION if @organization.blank?
-			@organization = 'aau'
+			@organization = WhiteLabel.organization
+			@organization = SPRTID_ORGANIZATION if @organization.blank?
 		end
 
 		get '/styles/:name.css' do
