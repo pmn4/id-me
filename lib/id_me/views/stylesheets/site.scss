@@ -25,11 +25,25 @@ body {
 	background: transparent url('/images/backgrounds/hockey.jpg') no-repeat fixed center center;
 
 	&.organization-perfect-game {
-		background: transparent url('/images/backgrounds/baseball.jpg') no-repeat fixed center center;
+		background-image: url('/images/backgrounds/baseball.jpg');
+		@include at-breakpoint($tablet-layout) {
+			background-image: url('/images/backgrounds/baseball-phone.jpg');
+		}
+		@include at-breakpoint($phone-layout) {
+			background: $color-scheme-background;
+		}
+		background-size: cover;
 	}
 
 	&.organization-aau {
-		background: transparent url('/images/backgrounds/football.jpg') no-repeat fixed center center;
+		background-image: url('/images/backgrounds/football.jpg');
+		@include at-breakpoint($tablet-layout) {
+			background-image: url('/images/backgrounds/football-phone.jpg');
+		}
+		@include at-breakpoint($phone-layout) {
+			background: $color-scheme-background;
+		}
+		background-size: cover;
 	}
 }
 
