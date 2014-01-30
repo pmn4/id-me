@@ -27,28 +27,47 @@ module SprtId
 			erb :index
 		end
 
+		helpers do
+			def initialized_id(key)
+				id = nil
+				# let's get hack tastic!
+				case params[:init]
+				when 'eb529743-2e63-4be7-8c43-f498c774708c'
+					id = Models::FullIdentity.new({
+						:name => 'Tony Lowe',
+						:organization => 'aau',
+						:external_id => 'AAU a1b3c3',
+						:team => 'Tigers',
+						:sport => 'Baseball'
+					})
+				else
+					id = nil
+				end
+
+				id
+			end
+		end
+
 		get '/create' do
 			content_type :'text/html'
 			@create_only = true
 
-			id = nil
+			id = initialized_id(params[:init])
 
-			# let's get hack tastic!
-			case params[:init]
-			when 'eb529743-2e63-4be7-8c43-f498c774708c'
-				id = Models::FullIdentity.new({
-					:name => 'Pat Newell',
-					:organization => 'aau',
-					:external_id => 'AAU a1b3c3',
-					:team => 'Tigers',
-					:sport => 'Basketball'
-				})
-			else
-				id = nil
-			end
-			WhiteLabel.organization = id.organization unless id.nil?
+			WhiteLabel.organization = id.organization unless id.respond_to?(:organization)
 			params[:identity] = id
 			erb :create
+		end
+
+		get '/email/:init' do
+			content_type :'text/html'
+			@create_only = true
+
+			id = initialized_id(params[:init])
+
+			WhiteLabel.organization = id.organization unless id.respond_to?(:organization)
+			@url = "http://www.sprtid.com/create?init=#{params[:init]}"
+			erb :'email/pre_register', :layout => false
 		end
 
 # Environment variable: CLOUDINARY_URL=cloudinary://738889633191996:He1EmU42y2Plv0FjaCU5SDpMLGQ@sprtid

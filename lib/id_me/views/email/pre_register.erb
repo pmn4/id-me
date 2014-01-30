@@ -1,0 +1,62 @@
+<%
+font_family_headline = 'Georgia, serif'
+font_family_content = '\'Trebuchet MS\', Helvetica, sans_serif'
+
+color_scheme_foreground = '#D0C6B1'
+color_scheme_background = '#192321'
+color_scheme_create = '#ef5734'
+%>
+
+<table width="100%" height="100%" cellpadding="20" cellspacing="0" border="0">
+<tbody>
+<tr>
+<td bgcolor="<%= color_scheme_background %>" align="center">
+	<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;max-width:600px;font-size:18px;font-family:<%= font_family_content %>;color:<%= color_scheme_foreground %>;line-height:1.2em;">
+	<tbody>
+	<tr>
+	<td>
+		<a href="<%= @url %>">
+			<img src="http://www.sprtid.com/images/<%= organization_name() %>.png" width="125px" align="left" alt="<%= organization_name() %>" border="0" style="margin-right:10px;margin-bottom:10px;" />
+		</a>
+		<p style="font-size:1.5em;line-height:1.2em;font-family:<%= font_family_headline %>;font-style:italic;">
+			<span style="white-space:nowrap;">Pre-Registration</span> is now open for the AAU Spring Classic on March 7th.
+		</p>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<a href="<%= @url %>" style="display:block;margin:40px;padding:20px;text-align:center;font-size:125%;background:<%= color_scheme_create %>;font-family:<%= font_family_headline %>;font-style:italic;color:<%= color_scheme_background %>;text-decoration:none;border:2px solid <%= color_scheme_foreground %>;">
+			Pre-Register Now!
+		</a>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<p>
+			Good news: the process has already been started for you!
+		</p>
+		<p style="margin-top:20px;">
+			Here is what you do:
+		</p>
+		<ol style="margin-top:20px;">
+			<li>click on your <a href="<%= @url %>" style="color:<%= color_scheme_create %>;text-decoration:none;">pre-registration link</a></li>
+			<li>complete the remaining unfilled fields</li>
+			<li>take a photo using your phone&apos;s or computer&apos;s camera <em>(you may also upload an image you already have)</em></li>
+			<li>take your phone to the field*</li>
+		</ol>
+		<p><em>* - no phone? no problem! print out your id and organizers can scan it at the field</em></p>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<a href="<%= @url %>" style="display:block;margin:40px;padding:20px;text-align:center;font-size:125%;background:<%= color_scheme_create %>;font-family:<%= font_family_headline %>;font-style:italic;color:<%= color_scheme_background %>;text-decoration:none;border:2px solid <%= color_scheme_foreground %>;">
+			Pre-Register Now!
+		</a>
+	</td>
+	</tr>
+	</tbody>
+	</table>
+</td>
+</tr>
+</tbody>
+</table>

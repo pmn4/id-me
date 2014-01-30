@@ -26,5 +26,9 @@ module SprtId
 			content_type :'application/json'
 			response.to_json
 		end
+
+		get '/:organization/logo' do
+			send_file("/images/#{params[:organization_name]}.png", :disposition => 'inline', :filename => "#{params[:organization_name]}.png")
+		end
 	end
 end
