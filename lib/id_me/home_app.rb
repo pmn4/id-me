@@ -30,7 +30,24 @@ module SprtId
 		get '/create' do
 			content_type :'text/html'
 			@create_only = true
-			params[:identity] = {}
+
+			id = nil
+
+			# let's get hack tastic!
+			case params[:init]
+			when 'eb529743-2e63-4be7-8c43-f498c774708c'
+				id = Models::FullIdentity.new({
+					:name => 'Pat Newell',
+					:organization => 'aau',
+					:external_id => 'AAU a1b3c3',
+					:team => 'Tigers',
+					:sport => 'Basketball'
+				})
+			else
+				id = nil
+			end
+			WhiteLabel.organization = id.organization unless id.nil?
+			params[:identity] = id
 			erb :create
 		end
 

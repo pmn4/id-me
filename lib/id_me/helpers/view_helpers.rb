@@ -1,6 +1,12 @@
 module SprtId
 	module Helpers
 		module ViewHelpers
+
+			SPRTID_ORGANIZATION_NAME = 'sprtid'
+			def organization_name
+				WhiteLabel.organization || SPRTID_ORGANIZATION_NAME
+			end
+
 			def file_load(file)
 				begin
 					s = File.read(file)
@@ -17,6 +23,12 @@ module SprtId
 
 			def plaintext_logo
 				'<em>sprt<strong>id</strong></em>'
+			end
+
+			def complete?(*keys)
+				ptr = params
+				keys.each {|key| ptr = ptr[key] unless ptr.nil?}
+				ptr.present? && (!ptr.respond_to?(:valid?) || ptr.valid?)
 			end
 		end
 	end

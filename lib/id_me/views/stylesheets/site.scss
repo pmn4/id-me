@@ -187,6 +187,13 @@ $features: 'main' $color-scheme-foreground 'hockey.jpg', 'create' $color-scheme-
 			input {
 				color: $color;
 			}
+
+			&.complete {
+				select,
+				input {
+					color: $color-scheme-background;
+				}
+			}
 		}
 		button {
 			@include button($color);

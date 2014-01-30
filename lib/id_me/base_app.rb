@@ -31,12 +31,6 @@ module SprtId
 			LOGGER.level = Logger::DEBUG
 		end
 
-		SPRTID_ORGANIZATION = 'sprtid'
-		before do
-			@organization = WhiteLabel.organization
-			@organization = SPRTID_ORGANIZATION if @organization.blank?
-		end
-
 		get '/styles/:name.css' do
 			content_type 'text/css', :charset => 'utf-8'
 			scss(:"stylesheets/#{params[:name]}", Compass.sass_engine_options)

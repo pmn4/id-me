@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/styles/site.css">
 	<%= yield_content(:stylesheet) if content_for?(:stylesheet) %>
 </head>
-<body class="organization-<%= @organization %>">
+<body class="organization-<%= organization_name() %>">
 	<%= yield %>
 
 	<script src="/scripts/lib/underscore/underscore-min.js"></script>

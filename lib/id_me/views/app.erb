@@ -5,7 +5,7 @@
 
 <div id="sprtid-app">
 	<div id="utilities-wrapper">
-		<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
+		<%= erb :"app/organization/#{organization_name()}/brand", :layout => false %>
 		<div ng-controller="StatsController" id="statscontroller-container">
 		</div>
 	</div>

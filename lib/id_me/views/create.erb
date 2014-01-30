@@ -1,7 +1,7 @@
 <div id="create-identity" class="feature-page create">
 	<div class="feature-page-content">
 		<div class="brand-wrapper">
-			<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
+			<%= erb :"app/organization/#{organization_name()}/brand", :layout => false %>
 			<p>
 				Create your id card by completing this form.
 			</p>
@@ -19,41 +19,45 @@
 			</div>
 		<% end %>
 		<form action="/create" method="POST" id="form-create-identity" enctype="multipart/form-data">
-			<div class="input-wrapper name">
-				<input id="identity_name" name="identity[name]" value="<%= params[:identity]['name'] %>" type="text" placeholder="Full Name" />
+			<div class="input-wrapper name <%= complete?(:identity, :name) ? 'complete' : 'incomplete' %>">
+				<input id="identity_name" name="identity[name]" value="<%= params[:identity][:name] %>" type="text" placeholder="Full Name" />
 			</div>
-			<div class="input-wrapper aau-id">
-				<input id="identity_id" name="identity[external_id]" value="<%= params[:identity]['external_id'] %>" type="text" placeholder="Organization Id" />
+			<div class="input-wrapper aau-id <%= complete?(:identity, :external_id) ? 'complete' : 'incomplete' %>">
+				<input id="identity_id" name="identity[external_id]" value="<%= params[:identity][:external_id] %>" type="text" placeholder="Organization Id" />
 			</div>
-			<div class="input-wrapper birthdate">
-				<input id="identity_birthdate" name="identity[birthdate]" value="<%= params[:identity]['birthdate'] %>" type="date" placeholder="Birthdate" />
+			<div class="input-wrapper birthdate <%= complete?(:identity, :birthdate) ? 'complete' : 'incomplete' %>">
+				<input id="identity_birthdate" name="identity[birthdate]" value="<%= params[:identity][:birthdate] %>" type="date" placeholder="Birthdate" />
 			</div>
-			<div class="input-wrapper graduation-year">
+			<div class="input-wrapper graduation-year <%= complete?(:identity, :graduation_year) ? 'complete' : 'incomplete' %>">
 				<select id="identity_graduation_year" name="identity[graduation_year]">
 					<option value="">Graduation year</option>
 					<% this_year = Time.now.year %>
 					<% (this_year..(this_year + 20)).each do |year| %>
-						<option value="<%= year %>" <%= 'selected="selected"' if year == params[:identity]['birthdate'] %>><%= year %></option>
+						<option value="<%= year %>" <%= 'selected="selected"' if year == params[:identity][:graduation_year] %>><%= year %></option>
 					<% end %>
 				</select>
 			</div>
-			<div class="input-wrapper sport">
+			<div class="input-wrapper sport <%= complete?(:identity, :sport) ? 'complete' : 'incomplete' %>">
 				<select id="identity_sport" name="identity[sport]">
 					<option value="">Sport</option>
 					<% ['Football', 'Baseball', 'Basketball', 'Hockey', 'Volleyball'].each do |sport| %>
-						<option value="<%= sport %>" <%= 'selected="selected"' if sport == params[:identity]['sport'] %>><%= sport %></option>
+						<option value="<%= sport %>" <%= 'selected="selected"' if sport == params[:identity][:sport] %>><%= sport %></option>
 					<% end %>
 				</select>
 			</div>
-			<div class="input-wrapper team">
+			<div class="input-wrapper team <%= complete?(:identity, :team) ? 'complete' : 'incomplete' %>">
 				<select id="identity_team" name="identity[team]">
 					<option value="">Team</option>
-					<% ['Bears', 'Panthers', 'Lions', 'Dolphins', 'Ravens', 'Seahawks'].each do |team| %>
-						<option value="<%= team %>" <%= 'selected="selected"' if team == params[:identity]['team'] %>><%= team %></option>
+					<%
+						teams = ['Bears', 'Panthers', 'Lions', 'Dolphins', 'Ravens', 'Seahawks']
+						teams.unshift(params[:identity][:team]) unless params[:identity][:team].blank? || teams.include?(params[:identity][:team])
+						teams.each do |team|
+					%>
+						<option value="<%= team %>" <%= 'selected="selected"' if team == params[:identity][:team] %>><%= team %></option>
 					<% end %>
 				</select>
 			</div>
-			<div class="input-wrapper image">
+			<div class="input-wrapper image <%= complete?(:identity, :name) ? 'complete' : 'incomplete' %>">
 				<input id="identity_image" name="profile_image" type="file" accept="image/*;" capture="camera" />
 			</div>
 			<div class="input-wrapper checkbox-wrapper disclaimer">
