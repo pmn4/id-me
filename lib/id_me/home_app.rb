@@ -54,7 +54,7 @@ module SprtId
 
 			id = initialized_id(params[:init])
 
-			WhiteLabel.organization = id.organization unless id.respond_to?(:organization)
+			WhiteLabel.organization = id.organization if id.respond_to?(:organization)
 			params[:identity] = id
 			erb :create
 		end
@@ -65,7 +65,7 @@ module SprtId
 
 			id = initialized_id(params[:init])
 
-			WhiteLabel.organization = id.organization unless id.respond_to?(:organization)
+			WhiteLabel.organization = id.organization if id.respond_to?(:organization)
 			@url = "http://www.sprtid.com/create?init=#{params[:init]}"
 			erb :'email/pre_register', :layout => false
 		end
