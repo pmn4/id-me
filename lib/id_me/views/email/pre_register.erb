@@ -19,7 +19,7 @@ color_scheme_create = '#ef5734'
 			<img src="http://www.sprtid.com/images/<%= organization_name() %>.png" width="125px" align="left" alt="<%= organization_name() %>" border="0" style="margin-right:10px;margin-bottom:10px;" />
 		</a>
 		<p style="font-size:1.5em;line-height:1.2em;font-family:<%= font_family_headline %>;font-style:italic;">
-			<span style="white-space:nowrap;">Pre-Registration</span> is now open for the AAU Spring Classic on March 7th.
+			<%= first_name(@id.name) %>, <span style="white-space:nowrap;">Pre-Registration</span> is now open for the <%= @id.event %>.
 		</p>
 	</td>
 	</tr>

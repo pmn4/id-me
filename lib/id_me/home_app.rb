@@ -35,9 +35,28 @@ module SprtId
 				when 'eb529743-2e63-4be7-8c43-f498c774708c'
 					id = Models::FullIdentity.new({
 						:name => 'Tony Lowe',
+						:event => 'AAU Spring Baseball Classic',
 						:organization => 'aau',
 						:external_id => 'AAU a1b3c3',
 						:team => 'Tigers',
+						:sport => 'Baseball'
+					})
+				when 'e29ec939-0ad6-4b82-9964-00ee03f135d2'
+					id = Models::FullIdentity.new({
+						:name => 'Henry Forrest',
+						:event => 'AAU Spring Baseball Classic',
+						:organization => 'aau',
+						:external_id => 'AAU #1',
+						:team => 'Marlins',
+						:sport => 'Baseball'
+					})
+				when 'e29ec939-0ad6-4b82-9964-00ee03f135d2'
+					id = Models::FullIdentity.new({
+						:name => 'Rusty Buchanan',
+						:event => 'AAU Spring Baseball Classic',
+						:organization => 'aau',
+						:external_id => 'AAU aa11bb22',
+						:team => 'Marlins',
 						:sport => 'Baseball'
 					})
 				else
@@ -63,9 +82,9 @@ module SprtId
 			content_type :'text/html'
 			@create_only = true
 
-			id = initialized_id(params[:init])
+			@id = initialized_id(params[:init])
 
-			WhiteLabel.organization = id.organization if id.respond_to?(:organization)
+			WhiteLabel.organization = @id.organization if @id.respond_to?(:organization)
 			@url = "http://www.sprtid.com/create?init=#{params[:init]}"
 			erb :'email/pre_register', :layout => false
 		end

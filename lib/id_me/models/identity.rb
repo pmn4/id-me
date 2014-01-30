@@ -43,6 +43,7 @@ module SprtId
 
 		class FullIdentity < SimpleIdentity
 			field :organization, :type => String
+			field :event, :type => String
 			field :team, :type => String
 			field :graduation_year, :type => Integer
 			field :sport, :type => String

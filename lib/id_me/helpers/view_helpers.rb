@@ -30,6 +30,10 @@ module SprtId
 				keys.each {|key| ptr = ptr[key] unless ptr.nil?}
 				ptr.present? && (!ptr.respond_to?(:valid?) || ptr.valid?)
 			end
+
+			def first_name(full_name)
+				full_name.gsub(/^([^ ]*).*/, '\1')
+			end
 		end
 	end
 end
