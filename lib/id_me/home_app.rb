@@ -50,7 +50,7 @@ module SprtId
 						:team => 'Marlins',
 						:sport => 'Baseball'
 					})
-				when 'e29ec939-0ad6-4b82-9964-00ee03f135d2'
+				when 'eb81eb7e-09c4-4beb-b48b-a642b474e8e1'
 					id = Models::FullIdentity.new({
 						:name => 'Rusty Buchanan',
 						:event => 'AAU Spring Baseball Classic',
