@@ -74,7 +74,7 @@ module SprtId
 			id = initialized_id(params[:init])
 
 			WhiteLabel.organization = id.organization if id.respond_to?(:organization)
-			params[:identity] = id
+			params[:identity] = id || Models::FullIdentity.new()
 			erb :create
 		end
 

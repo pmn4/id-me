@@ -1,9 +1,22 @@
-<ul>
+<table>
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
 <% @identities.each do |identity| %>
-	<li>
-		<a href="/i/<%= identity._id %>" target="_blank">
-			<%= identity.name %>
-		</a>
-	</li>
+		<tr>
+			<th>
+				<%= identity.created_at || 'n/a' %>
+			</th>
+			<td>
+				<a href="/i/<%= identity._id %>" target="_blank">
+					<%= identity.name %>
+				</a>
+			</td>
+		</tr>
 <% end %>
-</ul>
+	</tbody>
+</table>

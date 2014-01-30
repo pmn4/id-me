@@ -2,6 +2,9 @@
 	<div class="feature-page-content">
 		<div class="brand-wrapper">
 			<%= erb :"app/organization/#{organization_name()}/brand", :layout => false %>
+			<% if params[:identity][:event] %>
+				<h2 class="default"><%= params[:identity][:event] %></h2>
+			<% end %>
 			<p>
 				Create your id card by completing this form.
 			</p>

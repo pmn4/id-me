@@ -53,6 +53,10 @@ h1, h2, h3, h4, h5, h6,
 	font-style: italic;
 	color: $color-scheme-foreground;
 
+	&.default {
+		color: $color-scheme-foreground !important;
+	}
+
 	span {
 		font-weight: normal;
 	}
