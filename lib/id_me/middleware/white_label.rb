@@ -65,7 +65,7 @@ module SprtId
 			Rack::Utils.set_cookie_header!(headers, COOKIE_NAME, {
 				:value => organization,
 				:path => '/',
-				:expires => nil, # session cookie # Time.new + 2.years.to_i,
+				:expires => Time.new + 2.years.to_i,
 				:httponly => true
 			})
 		end
