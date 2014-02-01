@@ -22,7 +22,7 @@ module SprtId
 			end
 
 			def plaintext_logo
-				'<em>sprt<strong>id</strong></em>'
+				'<em>sprt&middot;id</em>'
 			end
 
 			def complete?(*keys)

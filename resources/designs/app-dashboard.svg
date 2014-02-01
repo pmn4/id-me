@@ -53,7 +53,7 @@
      id="layer1"
      transform="translate(0,-252.36218)">
     <rect
-       style="opacity:1;fill:#d0c6b1;fill-opacity:1;stroke:none"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
        id="rect2985"
        width="216.37468"
        height="137.17871"
@@ -79,9 +79,9 @@
        height="65.845779"
        width="216.37468"
        id="rect2995"
-       style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
     <rect
-       style="fill:#d0c6b1;fill-opacity:1;stroke:none"
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
        id="rect2997"
        width="216.37468"
        height="65.845779"
@@ -191,7 +191,7 @@
        height="264.45792"
        width="216.37468"
        id="rect3041"
-       style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
     <text
        transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"
        sodipodi:linespacing="125%"
@@ -276,7 +276,7 @@
          height="144.32834"
          width="118.08683"
          id="rect3073"
-         style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
       <text
          transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"
          sodipodi:linespacing="125%"
@@ -358,7 +358,7 @@
            id="tspan3219"
            sodipodi:role="line">sprtid id</tspan></text>
       <rect
-         style="fill:#d0c6b1;fill-opacity:1;stroke:none"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
          id="rect3221"
          width="118.08683"
          height="144.32834"
@@ -450,7 +450,7 @@
          height="144.32834"
          width="118.08683"
          id="rect3251"
-         style="fill:#d0c6b1;fill-opacity:1;stroke:none" />
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
       <text
          transform="matrix(0.88049898,-0.47404805,0.47404805,0.88049898,0,0)"
          sodipodi:linespacing="125%"
@@ -532,7 +532,7 @@
            id="tspan3279"
            sodipodi:role="line">sprtid id</tspan></text>
       <rect
-         style="fill:#d0c6b1;fill-opacity:1;stroke:none"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
          id="rect3281"
          width="118.08683"
          height="144.32834"
