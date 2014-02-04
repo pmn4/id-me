@@ -5,6 +5,7 @@ require 'compass'
 require 'rack/mobile-detect'
 
 require_relative 'middleware/white_label'
+require_relative 'middleware/event'
 require_relative 'helpers/view_helpers'
 
 module Sprtid
@@ -12,6 +13,7 @@ module Sprtid
 		register Sinatra::Contrib
 
 		use WhiteLabel
+		use Event
 
 		set :root, File.expand_path("../..", File.dirname(__FILE__))
 		set :views, File.dirname(__FILE__) + '/views'

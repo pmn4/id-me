@@ -4,7 +4,7 @@
 <% end %>
 
 <div id="sprtid-app" ng-controller="AuthController">
-	<%= erb :"app/organization/#{@organization}/brand", :layout => false %>
+	<%= erb :"app/organization/#{organization_name}/brand", :layout => false %>
 	<div ng-view></div>
 </div>
 
