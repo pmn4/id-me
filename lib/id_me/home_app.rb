@@ -1,9 +1,9 @@
 # require 'aws/s3'
 require 'cloudinary'
 
-set :bucket, 'mybucket'
-set :s3_key, 'THISISANEXAMPLEKEYID'
-set :s3_secret, 'Thi$isJu5taNExamp/etO0itSh0u1dBel0NgeR'
+# set :bucket, 'mybucket'
+# set :s3_key, 'THISISANEXAMPLEKEYID'
+# set :s3_secret, 'Thi$isJu5taNExamp/etO0itSh0u1dBel0NgeR'
 
 require_relative 'base_app'
 require_relative 'helpers/view_helpers'
@@ -18,11 +18,6 @@ module Sprtid
 
 		get '/' do
 			content_type :'text/html'
-
-			@identities = []
-			Models::FullIdentity.all.each do |identity|
-				@identities << identity
-			end
 
 			erb :index
 		end

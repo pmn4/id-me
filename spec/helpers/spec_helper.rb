@@ -2,7 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'rack/test'
 
-module HomeMixin
+module AppMixin
 	include Rack::Test::Methods
 	Dir[File.dirname(__FILE__) + '/../../lib/**/*.rb'].each do |file|
 		require file
@@ -14,7 +14,7 @@ module HomeMixin
 end
 
 RSpec.configure do |config|
-	config.include HomeMixin
+	config.include AppMixin
 	config.mock_with :rspec
 	config.order = 'random'
 end

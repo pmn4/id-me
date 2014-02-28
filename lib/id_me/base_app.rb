@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/contrib'
 require 'compass'
 require 'rack/mobile-detect'
+require 'logger'
 
 require_relative 'middleware/white_label'
 require_relative 'middleware/event'
@@ -28,7 +29,7 @@ module Sprtid
 		end
 
 		configure do
-			Compass.add_project_configuration(File.join(Sinatra::Application.root, 'config', 'compass.config'))
+			Compass.add_project_configuration(File.join(settings.root, 'config', 'compass.config'))
 			enable :logging
 			LOGGER.level = Logger::DEBUG
 		end
