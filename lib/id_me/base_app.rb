@@ -7,7 +7,7 @@ require 'rack/mobile-detect'
 require_relative 'middleware/white_label'
 require_relative 'helpers/view_helpers'
 
-module SprtId
+module Sprtid
 	class BaseApp < Sinatra::Base
 		register Sinatra::Contrib
 

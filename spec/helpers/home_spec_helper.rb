@@ -9,7 +9,7 @@ module HomeMixin
 	end
 
 	def app
-		SprtId::HomeApp
+		Sprtid::HomeApp
 	end
 end
 

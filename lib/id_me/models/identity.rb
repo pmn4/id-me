@@ -1,6 +1,6 @@
 # require 'active_model'
 
-module SprtId
+module Sprtid
 	module Models
 		class Base # < ActiveRecord::Base
 			include Mongoid::Document
@@ -33,6 +33,8 @@ module SprtId
 
 		class Identity < Base
 			field :external_id, :type => String
+
+			embeds_many :checkins, :class => 'Checkin', :inverse_of => :identity
 		end
 
 		class SimpleIdentity < Identity

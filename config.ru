@@ -9,8 +9,8 @@ require './lib/id_me/home_app'
 
 # app map
 run Rack::URLMap.new({
-  "/"        => SprtId::HomeApp,
-  "/app"     => SprtId::SprtIdApp,
+	"/"        => Sprtid::HomeApp,
+	"/app"     => Sprtid::SprtidApp,
 })
 
 # use SCSS for styling

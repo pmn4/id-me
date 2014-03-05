@@ -1,4 +1,4 @@
-module SprtId
+module Sprtid
 	class WhiteLabel
 		COOKIE_NAME = 'sprtid_wl'
 		URL_PARAM = 'white-label'

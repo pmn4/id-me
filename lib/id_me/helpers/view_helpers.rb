@@ -1,4 +1,4 @@
-module SprtId
+module Sprtid
 	module Helpers
 		module ViewHelpers
 

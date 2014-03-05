@@ -1,4 +1,4 @@
-module SprtId
+module Sprtid
 	module Models
 		class AjaxResponse
 			attr_accessor :success

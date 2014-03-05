@@ -1,8 +1,8 @@
 require_relative 'base_app'
 require_relative 'models/ajax_response'
 
-module SprtId
-	class SprtIdApp < BaseApp
+module Sprtid
+	class SprtidApp < BaseApp
 		get '/' do
 			content_type :'text/html'
 			erb :app

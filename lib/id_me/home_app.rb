@@ -8,7 +8,7 @@ set :s3_secret, 'Thi$isJu5taNExamp/etO0itSh0u1dBel0NgeR'
 require_relative 'base_app'
 require_relative 'helpers/view_helpers'
 
-module SprtId
+module Sprtid
 	class HomeApp < BaseApp
 		Cloudinary.config do |config|
 			config.cloud_name = 'sprtid'
