@@ -1,14 +1,8 @@
-# require 'active_model'
+require_relative 'base'
+require_relative 'checkin'
 
 module Sprtid
 	module Models
-		class Base # < ActiveRecord::Base
-			include Mongoid::Document
-			include Mongoid::Timestamps
-
-			field :version, :type => String, :default => '1.0'
-		end
-
 		class IdentityImage < Base
 			# embedded_in :imagable, :polymorphic => true
 
@@ -34,7 +28,7 @@ module Sprtid
 		class Identity < Base
 			field :external_id, :type => String
 
-			embeds_many :checkins, :class => 'Checkin', :inverse_of => :identity
+			has_many :checkins, :class_name => 'Sprtid::Models::Checkin', :inverse_of => :identity
 		end
 
 		class SimpleIdentity < Identity

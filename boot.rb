@@ -14,4 +14,3 @@ Dir["./lib/**/*.rb"].each { |f| require f }
 
 # Mongoid config
 Mongoid.load!('config/mongoid.yml')
-

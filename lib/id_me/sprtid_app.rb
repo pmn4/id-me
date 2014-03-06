@@ -1,5 +1,6 @@
 require_relative 'base_app'
 require_relative 'models/ajax_response'
+require_relative 'models/checkin'
 
 module Sprtid
 	class SprtidApp < BaseApp
@@ -15,6 +16,37 @@ module Sprtid
 					:success => true,
 					:content => identity.as_document
 				})
+			rescue Mongoid::Errors::DocumentNotFound => e
+				LOGGER.error(e)
+				response = Models::AjaxResponse.new({
+					:success => false,
+					:errors => ['Unable to find this Identity']
+				})
+			end
+
+			content_type :'application/json'
+			response.to_json
+		end
+
+		get '/id/:id/checkin' do
+			begin
+				identity = Models::FullIdentity.find(params[:id])
+				response = Models::AjaxResponse.new({
+					:success => true,
+					:content => identity.as_document
+				})
+
+				begin
+					checkin = Models::Checkin.new({
+						:method => params[:method].present? ? params[:method].to_sym : :scan,
+						:device => params[:web].present? ? params[:device].to_sym : :web
+					})
+					# identity.checkins ||= []
+					identity.checkins << checkin
+					identity.save
+				rescue => e # Mongoid::Errors::
+					LOGGER.error(e)
+				end
 			rescue Mongoid::Errors::DocumentNotFound => e
 				LOGGER.error(e)
 				response = Models::AjaxResponse.new({

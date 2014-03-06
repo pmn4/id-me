@@ -19,7 +19,7 @@ var module = angular.module("sprtId", [
 	.directive("webcam", ["$log", Webcam])
 	.factory("$identityProvider", ["$http", "$log", function($http, $log) {
 		var URL_TOKEN_ID = "#{id}",
-		    APP_ID_URL_PATTERN = "/app/id/" + URL_TOKEN_ID;
+		    APP_ID_URL_PATTERN = "/app/id/" + URL_TOKEN_ID + "/checkin";
 
 		return {
 			fetch: fetch
