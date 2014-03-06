@@ -1,6 +1,8 @@
 <script type="text/template" id="template-scanned-identity">
 	<%
-		var redFlag = !Math.floor(5 * Math.random());
+		var checkinTimestamp = identity.checkinData.mostRecent.updated_at,
+		    redFlag = Math.floor(new Date(checkinTimestamp) / 24 / 60 / 60 / 1000) == Math.floor((new Date()) / 24 / 60 / 60 / 1000);
+		 console.log(Math.floor(new Date(checkinTimestamp) / 24 / 60 / 60 / 1000), Math.floor((new Date()) / 24 / 60 / 60 / 1000));
 	%>
 	<div class="scanned-identity <%= redFlag ? 'red-flag' : '' %>">
 		<div class="error">
@@ -25,7 +27,7 @@
 		<% } %>
 		<div class="name"><%= identity.name %></div>
 		<div class="age">
-			<%- ViewHelpers.birthdateFormatted(identity.birthdate) %>
+			<%- ViewHelpers.dateFormatted(identity.birthdate) %>
 			(<%- ViewHelpers.age(identity.birthdate) %>)
 		</div>
 		<div class="external-id"><%= identity.external_id %></div>
@@ -33,6 +35,20 @@
 			<%= identity.sport %>
 			|
 			<%= identity.team %>
+		</div>
+		<div class="checkins">
+			<div class="last-checkin">
+				<%
+					var checkin = identity.checkinData.mostRecent;
+				%>
+				<%= ViewHelpers.dateTimeFormatted(checkin.updated_at) %> <em>(via <%= checkin.device %>/<%= checkin.method %>)</em>
+			</div>
+			<div class="last-event-checkin">
+				<%
+					checkin = identity.checkinData.mostRecentForEvent;
+				%>
+				<%= ViewHelpers.dateTimeFormatted(checkin.updated_at) %> <em>(via <%= checkin.device %>/<%= checkin.method %>)</em>
+			</div>
 		</div>
 	</div>
 </script>

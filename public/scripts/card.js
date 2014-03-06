@@ -4,7 +4,7 @@ var NOT_SO_SECRET_PASSPHRASE = "killer boots man";
 
 var ViewHelpers = {
 	months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-	birthdateFormatted: function(date) {
+	dateFormatted: function(date) {
 		var tmp;
 		if(date instanceof Date) {
 			if(date > 0) {
@@ -13,7 +13,22 @@ var ViewHelpers = {
 
 			return "";
 		} else if((tmp = Date.parse(date)) && !isNaN(tmp)) {
-			return ViewHelpers.birthdateFormatted(new Date(tmp));
+			return ViewHelpers.dateFormatted(new Date(tmp));
+		}
+
+		return date;
+	},
+	dateTimeFormatted: function(date) {
+		var tmp;
+		if(date instanceof Date) {
+			if(date > 0) {
+				return ViewHelpers.months[date.getUTCMonth()] + " " + date.getUTCDate() + ", " + date.getUTCFullYear() + " " +
+				       date.getHours() + ':' + ('0' + date.getMinutes()).substr(-2);
+			}
+
+			return "";
+		} else if((tmp = Date.parse(date)) && !isNaN(tmp)) {
+			return ViewHelpers.dateTimeFormatted(new Date(tmp));
 		}
 
 		return date;

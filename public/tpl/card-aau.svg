@@ -102,7 +102,7 @@
          x="234.52077"
          y="670.90521"
          id="identity-birthdate"
-         style="font-size:14px;fill:#d40000"><%- ViewHelpers.birthdateFormatted(identity.birthdate) %></tspan></text>
+         style="font-size:14px;fill:#d40000"><%- ViewHelpers.dateFormatted(identity.birthdate) %></tspan></text>
     <text
        x="237.02069"
        y="687.06323"

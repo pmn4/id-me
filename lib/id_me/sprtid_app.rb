@@ -33,7 +33,12 @@ module Sprtid
 				identity = Models::FullIdentity.find(params[:id])
 				response = Models::AjaxResponse.new({
 					:success => true,
-					:content => identity.as_document
+					:content => identity.as_document.merge({
+						'checkinData' => {
+							'mostRecent' => identity.checkins.last.as_document,
+							'mostRecentForEvent' => identity.checkins.first.as_document
+						}
+					})
 				})
 
 				begin
