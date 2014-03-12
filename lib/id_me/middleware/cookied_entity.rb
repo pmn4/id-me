@@ -1,4 +1,4 @@
-module SprtId
+module Sprtid
 	class CookiedEntity
 		def initialize(app, cookie_name, url_param, lifespan = nil)
 			@app = app

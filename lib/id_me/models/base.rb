@@ -1,3 +1,5 @@
+require 'mongoid'
+
 module Sprtid
 	module Models
 		class Base # < ActiveRecord::Base

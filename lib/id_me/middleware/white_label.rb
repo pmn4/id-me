@@ -1,9 +1,6 @@
-module Sprtid
-	class WhiteLabel
-		COOKIE_NAME = 'sprtid_wl'
-		URL_PARAM = 'white-label'
+require_relative 'cookied_entity'
 
-module SprtId
+module Sprtid
 	class WhiteLabel < CookiedEntity
 		def initialize(app)
 			super(app, 'sprtid_wl', 'organization_id', Time.new + 2.years.to_i)

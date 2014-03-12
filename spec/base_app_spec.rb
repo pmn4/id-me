@@ -1,8 +1,8 @@
 require_relative 'helpers/spec_helper'
 require 'securerandom'
 
-describe SprtId::BaseApp do
-	class TestApp < SprtId::BaseApp
+describe Sprtid::BaseApp do
+	class TestApp < Sprtid::BaseApp
 		get '/' do
 		end
 	end

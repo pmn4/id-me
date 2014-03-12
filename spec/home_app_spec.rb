@@ -1,6 +1,6 @@
 require_relative 'helpers/spec_helper'
 
-describe SprtId::HomeApp do
+describe Sprtid::HomeApp do
 	def app
 		described_class
 	end
