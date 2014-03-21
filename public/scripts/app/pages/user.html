@@ -1,0 +1,22 @@
+<ul ng-controller="UserController" class="user-tile-wrapper">
+	<li ng-repeat="tile in tiles" class="user-tile {{ 'user-tile-' + tile.title | asClassname }}">
+		<!-- <div ng-controller="UserController" class="user-tile-container"> -->
+		<div class="user-tile-container">
+			<div class="tile-headline">
+				<h3>
+					<span class="tile-icon icon"></span>{{ tile.title }}
+				</h3>
+				<div class="tile-exposure {{ 'tile-exposure-' + tile.exposure | asClassname }}">
+					{{ tile.exposure }}
+				</div>
+			</div>
+			<div class="tile-content">
+				{{ tile.content }}
+				<div class="tile-edit">
+					<a href="#" class="btn btn-tile-edit icon">Edit</a>
+					<a href="#" class="btn btn-tile-save icon">Save</a>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>

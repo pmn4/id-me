@@ -13,10 +13,10 @@
 		  // "sprtId.controllers"
 		])
 		.config(function($routeProvider) {
-			$routeProvider.when('/', {
+			$routeProvider/*.when('/', {
 				templateUrl : pageUrl('login.html'),
 				controller  : 'AuthController'
-			}).when('/user', {
+			})*/.when('/'/*'/user'*/, {
 				templateUrl : pageUrl('user.html'),
 				controller  : 'UserController'
 			}).when('/app', {
@@ -70,15 +70,18 @@
 				return items.slice().reverse();
 			};
 		})
+		.filter('asClassname', function() {
+			return function(str) {
+				return str.replace(/[^0-9a-z]/gi, '-').toLowerCase();
+			};
+		})
 		.controller("AuthController", ["$scope", "$log", function($scope, $log) {
 			$log.info("AuthController");
 		}])
 		.controller("AppController", ["$scope", "$log", function($scope, $log) {
 			$log.info("AppController");
 		}])
-		.controller("UserController", ["$scope", "$log", function($scope, $log) {
-			$log.info("UserController");
-		}])
+		.controller("UserController", ["$scope", "$log", UserController])
 		.controller("DataController", ["$scope", "$log", function($scope, $log) {
 			$log.info("DataController");
 		}])

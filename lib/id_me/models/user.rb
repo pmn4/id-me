@@ -11,14 +11,14 @@ module Sprtid
 			embeds_many :checkins, :class_name => 'Sprtid::Models::Checkin', :inverse_of => :user
 		end
 
-		class DataBits < Base
+		class DataBit < Base
 			# when a User has multiple DataBits of the same type, active indicates which to display
 			field :active, :type => Boolean
 
 			field :visibility, :type => Symbol
 			validates_inclusion_of :visibility, :in => [:public, :private, :protected]
 
-			belongs_to :user, class_name => 'Sprtid::Models::User', :inverse_of => :data_bits
+			belongs_to :user, :class_name => 'Sprtid::Models::User', :inverse_of => :data_bits
 		end
 
 
