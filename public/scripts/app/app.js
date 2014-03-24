@@ -89,6 +89,7 @@
 		.controller("ScanController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", ScanController])
 		.controller("HistoryController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", HistoryController])
 		.controller("StatsController", ["$scope", "$log", "$scanDispatcher", StatsController])
+		.controller("TileController", ["$scope", "$log", TileController])
 		;
 	})(angular, Webcam, HistoryController, ScanController, StatsController, ViewHelpers);
 })();

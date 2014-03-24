@@ -1,6 +1,5 @@
 <ul ng-controller="UserController" class="user-tile-wrapper">
-	<li ng-repeat="tile in tiles" class="user-tile {{ 'user-tile-' + tile.title | asClassname }}">
-		<!-- <div ng-controller="UserController" class="user-tile-container"> -->
+	<li ng-repeat="tile in tiles" ng-controller="TileController" ng-init="tile=tile" class="user-tile {{ 'user-tile-' + tile.title | asClassname }} {{editing ? 'editing' : ''}}">
 		<div class="user-tile-container">
 			<div class="tile-headline">
 				<h3>
@@ -13,8 +12,8 @@
 			<div class="tile-content">
 				{{ tile.content }}
 				<div class="tile-edit">
-					<a href="#" class="btn btn-tile-edit icon">Edit</a>
-					<a href="#" class="btn btn-tile-save icon">Save</a>
+					<button class="btn btn-tile-edit icon" ng-click="edit(true)">Edit</button>
+					<button class="btn btn-tile-save icon" ng-click="edit(false)">Save</button>
 				</div>
 			</div>
 		</div>

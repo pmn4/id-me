@@ -4,23 +4,22 @@
 @import 'susy';
 
 .user-tile-wrapper {
-	@each $layout-columns in $desktop-layout $desktop-columns, $tablet-layout $tablet-columns, $phone-layout $phone-columns {
-		$layout: nth($layout-columns, 1);
-		$columns: nth($layout-columns, 2);
+	$container-style: fluid;
 
-		@include at-breakpoint($layout) {
-			@include span-columns($columns omega);
-		}
+	@include container($desktop-layout);
+	// @include susy-grid-background;
+
+	@include at-breakpoint($phone-layout) {
+		@include container($phone-layout);
+		// @include susy-grid-background;
 	}
-
-	.user-tile-container {
-		height: 260px;
-		padding: $default-spacing;
-		background: $color-scheme-view;
+	@include at-breakpoint($tablet-layout) {
+		@include container($tablet-layout);
+		// @include susy-grid-background;
 	}
 
 	.user-tile {
-		$span-columns: 4;
+		$span-columns: 3;
 
 		@include span-columns($span-columns);
 
@@ -32,6 +31,30 @@
 				&:nth-child(#{$columns / $span-columns}n) {
 					@include span-columns($span-columns omega);
 				}
+			}
+		}
+
+		.user-tile-container {
+			height: 260px;
+			padding: $default-spacing;
+			background: $color-scheme-view;
+		}
+		.btn-tile-edit {
+		}
+		.btn-tile-save {
+		}
+		&.editing {
+			.user-tile-container {
+				background: $color-scheme-foreground;
+				color: $color-scheme-background;
+			}
+			.btn-tile-edit {
+				display: none;
+				color: $color-scheme-background;
+			}
+			.btn-tile-save {
+				display: block;
+				color: $color-scheme-background;
 			}
 		}
 	}
