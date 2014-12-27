@@ -1,9 +1,18 @@
+# require 'sinatra/cross_origin'
 require_relative 'base_app'
 require_relative 'models/ajax_response'
 require_relative 'models/checkin'
 
 module Sprtid
 	class SprtidApp < BaseApp
+		configure do
+			enable :cross_origin
+		end
+
+		# before do
+		# 	cross_origin :allow_origin => '*', :allow_methods => [:get], :allow_credentials => false, :max_age => "60"
+		# end
+
 		get '/' do
 			content_type :'text/html'
 			erb :app
