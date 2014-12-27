@@ -1,0 +1,21 @@
+<ul ng-controller="UserController" class="user-tile-wrapper">
+	<li ng-repeat="tile in tiles" ng-controller="TileController" ng-init="tile=tile" class="user-tile {{ 'user-tile-' + tile.title | asClassname }} {{editing ? 'editing' : ''}}">
+		<div class="user-tile-container">
+			<div class="tile-headline">
+				<h3>
+					<span class="tile-icon icon"></span>{{ tile.title }}
+				</h3>
+				<div class="tile-exposure {{ 'tile-exposure-' + tile.exposure | asClassname }}">
+					{{ tile.exposure }}
+				</div>
+			</div>
+			<div class="tile-content">
+				{{ tile.content }}
+				<div class="tile-edit">
+					<button class="btn btn-tile-edit icon" ng-click="edit(true)">Edit</button>
+					<button class="btn btn-tile-save icon" ng-click="edit(false)">Save</button>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>

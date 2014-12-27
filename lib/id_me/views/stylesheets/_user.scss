@@ -1,0 +1,90 @@
+@import '_variables',
+        '_mixins';
+
+@import 'susy';
+
+.user-tile-wrapper {
+	$container-style: fluid;
+
+	@include container($desktop-layout);
+	// @include susy-grid-background;
+
+	@include at-breakpoint($phone-layout) {
+		@include container($phone-layout);
+		// @include susy-grid-background;
+	}
+	@include at-breakpoint($tablet-layout) {
+		@include container($tablet-layout);
+		// @include susy-grid-background;
+	}
+
+	.user-tile {
+		$span-columns: 3;
+
+		@include span-columns($span-columns);
+
+		@each $layout-columns in $desktop-layout $desktop-columns, $tablet-layout $tablet-columns, $phone-layout $phone-columns {
+			$layout: nth($layout-columns, 1);
+			$columns: nth($layout-columns, 2);
+
+			@include at-breakpoint($layout) {
+				&:nth-child(#{$columns / $span-columns}n) {
+					@include span-columns($span-columns omega);
+				}
+			}
+		}
+
+		.user-tile-container {
+			height: 260px;
+			padding: $default-spacing;
+			background: $color-scheme-view;
+		}
+		.btn-tile-edit {
+		}
+		.btn-tile-save {
+		}
+		&.editing {
+			.user-tile-container {
+				background: $color-scheme-foreground;
+				color: $color-scheme-background;
+			}
+			.btn-tile-edit {
+				display: none;
+				color: $color-scheme-background;
+			}
+			.btn-tile-save {
+				display: block;
+				color: $color-scheme-background;
+			}
+		}
+	}
+
+	.tile-headline,
+	.tile-content {
+		position: relative;
+	}
+
+	.tile-exposure {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.tile-edit {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+	&.editting {
+		.tile-edit {
+			.btn-tile-edit {
+				display: none;
+			}
+		}
+	}
+	.tile-edit {
+		.btn-tile-save {
+			display: none;
+		}
+	}
+}

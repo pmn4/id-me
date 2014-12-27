@@ -4,8 +4,6 @@ require_relative 'checkin'
 module Sprtid
 	module Models
 		class IdentityImage < Base
-			# embedded_in :imagable, :polymorphic => true
-
 			field :key, :type => String
 			field :height, :type => Integer
 			field :width, :type => Integer
@@ -29,13 +27,13 @@ module Sprtid
 			field :external_id, :type => String
 
 			has_many :checkins, :class_name => 'Sprtid::Models::Checkin', :inverse_of => :identity
+			belongs_to :team, :class_name => 'Sprtid::Models::Team', :inverse_of => :players
 		end
 
 		class SimpleIdentity < Identity
 			field :name, :type => String
 			field :birthdate, :type => Date
 			field :image, :type => IdentityImage
-			# embeds_many :images, :as => :imagable, :cascade_callbacks => true
 		end
 
 		class FullIdentity < SimpleIdentity

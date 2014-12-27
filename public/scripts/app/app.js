@@ -1,24 +1,36 @@
 /*jshint smarttabs:true */
 (function() {
 	"use strict";
-
-	// Declare app level module which depends on filters, and services
-	angular.module("sprtId", [
-	  // "ngRoute",
-	  // "sprtId.filters",
-	  // "sprtId.services",
-	  // "sprtId.directives",
-	  // "sprtId.controllers"
-	])
-	// .config(["$routeProvider", function($routeProvider) {
-	//   $routeProvider.when("/view1", {templateUrl: "partials/partial1.html", controller: "MyCtrl1"});
-	//   $routeProvider.when("/view2", {templateUrl: "partials/partial2.html", controller: "MyCtrl2"});
-	//   $routeProvider.otherwise({redirectTo: "/view1"});
-	// }]);
+	(function(angular, Webcam, HistoryController, ScanController, StatsController, ViewHelpers) {
+		function pageUrl(filename) {
+			return '/scripts/app/pages/' + filename;
+		}
+		var sprtidApp = angular.module("sprtId", [
+		  "ngRoute"
+		  // "sprtId.filters",
+		  // "sprtId.services",
+		  // "sprtId.directives",
+		  // "sprtId.controllers"
+		])
+		.config(function($routeProvider) {
+			$routeProvider/*.when('/', {
+				templateUrl : pageUrl('login.html'),
+				controller  : 'AuthController'
+			})*/.when('/'/*'/user'*/, {
+				templateUrl : pageUrl('user.html'),
+				controller  : 'UserController'
+			}).when('/app', {
+				templateUrl : pageUrl('app.html'),
+				controller  : 'AppController'
+			}).when('/export', {
+				templateUrl : pageUrl('export.html'),
+				controller  : 'DataController'
+			});
+		})
 		.directive("webcam", ["$log", Webcam])
 		.factory("$identityProvider", ["$http", "$log", function($http, $log) {
 			var URL_TOKEN_ID = "#{id}",
-			    APP_ID_URL_PATTERN = "/app/id/" + URL_TOKEN_ID + "/checkin";
+			    APP_ID_URL_PATTERN = "/app/id/" + URL_TOKEN_ID;
 
 			return {
 				fetch: fetch
@@ -58,9 +70,26 @@
 				return items.slice().reverse();
 			};
 		})
+		.filter('asClassname', function() {
+			return function(str) {
+				return str.replace(/[^0-9a-z]/gi, '-').toLowerCase();
+			};
+		})
+		.controller("AuthController", ["$scope", "$log", function($scope, $log) {
+			$log.info("AuthController");
+		}])
+		.controller("AppController", ["$scope", "$log", function($scope, $log) {
+			$log.info("AppController");
+		}])
+		.controller("UserController", ["$scope", "$log", UserController])
+		.controller("DataController", ["$scope", "$log", function($scope, $log) {
+			$log.info("DataController");
+		}])
 		// .controller("IdentityController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", IdentityController])
 		.controller("ScanController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", ScanController])
 		.controller("HistoryController", ["$scope", "$log", "$identityProvider", "$scanDispatcher", HistoryController])
-		.controller("AppStatsController", ["$scope", "$log", "$scanDispatcher", StatsController])
+		.controller("StatsController", ["$scope", "$log", "$scanDispatcher", StatsController])
+		.controller("TileController", ["$scope", "$log", TileController])
 		;
+	})(angular, Webcam, HistoryController, ScanController, StatsController, ViewHelpers);
 })();

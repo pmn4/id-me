@@ -1,0 +1,53 @@
+<div id="utilities-wrapper">
+	<div ng-controller="StatsController" id="statscontroller-container">
+	</div>
+</div>
+<div ng-controller="IdentityController" id="idcontroller-container" container="id-card-container">
+	<div ng-controller="ScanController">
+		<webcam on-stream="onStream(stream,video)" on-error="onError(err)" on-streaming="onSuccess(video)">
+		</webcam>
+		<!-- move to directive, modify qrcode reader to take init properties, e.g., #qr-canvas -->
+		<canvas id="qr-canvas" style="display: none;"></canvas>
+		<img id="qr-image" style="display: none;" />
+		<!-- (end) move to directive -->
+
+		<div classs="message error initialization-error" ng-show="state.error">
+			<p>Use of your webcam is required to scan ids.</p>
+		</div>
+		<div classs="message info webcam-init" ng-show="state.init">
+			<p>Please &quot;allow&quot; use of your camera</p>
+		</div>
+		<div classs="message success start-message" ng-show="state.pause" ng-click="play(false)" ng-dblclick="play(true)">
+			<div class="icon play"></div>
+			<p>Click to scan an id.</p>
+			<p>Double-click to start multi-scan mode.</p>
+		</div>
+		<div classs="message warn pause-message" ng-show="state.play" ng-click="pause()">
+			<div class="icon pause"></div>
+			<p>Click to stop camera.</p>
+		</div>
+
+		<input ng-model="identityId" required />
+		<button class="btn" ng-click="render()">Display Identity</button>
+	</div>
+	<div id="current-scan-and-history">
+		<div id="id-card-container"></div>
+		<div ng-controller="HistoryController" id="historycontroller-container" class="view">
+			<h6 class="headline">History</h6>
+			<ul>
+				<li ng-repeat="identity in identities | reverse">
+					<div class="history-identity" ng-click="render(identity._id)">
+						<div class="image-wrapper">
+							<img ng-src="{{(identity.image.protocol || '') + identity.image.url}}" />
+						</div>
+						<div class="name">
+							{{identity.name}}
+							({{identity.birthdate | ageFormatter}})
+						</div>
+						<div class="team">{{identity.team}}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

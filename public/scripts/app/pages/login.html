@@ -1,0 +1,23 @@
+<div ng-controller="AuthController" id="auth-container">
+	<div>
+		<p>Please login</p>
+	</div>
+	<form action="/account/login" method="POST">
+		<div class="input-wrapper username">
+			<input id="username" name="username" placeholder="email address" type="text" />
+		</div>
+		<div class="input-wrapper password">
+			<input id="password" name="password" placeholder="password" type="password" />
+		</div>
+		<div class="actions">
+			<button type="submit">Log In.</button>
+		</div>
+	</form>
+	<div class="demo-link-wrapper">
+		<a id="demo-link" href="#app?oid=sprtid&amp;eid=a1b2c3d4">
+			<em>
+				take me to the demo...
+			</em>
+		</a>
+	</div>
+</div>

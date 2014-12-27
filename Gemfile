@@ -4,6 +4,7 @@ ruby '1.9.3'
 ## Main application
 gem 'sinatra', '1.4.3'
 gem 'sinatra-contrib'
+gem 'sinatra-cross_origin'
 gem 'rack-mobile-detect'
 gem 'unicorn'
 
