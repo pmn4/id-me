@@ -1,0 +1,16 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# redirect requests to the API to the heroku-hosted API
+RewriteRule ^api/(.*)$ http://sprtid-api.herokuapp.com/$1 [R=301,L]
+
+# redirect requests to the App to the heroku-hosted App
+RewriteRule ^app/(.*)$ http://sprtid-app.divshot.io/#/$1 [R=301,L]
+
+# www.sprtid.com to sprtid.com
+RewriteCond %{HTTP_HOST} ^www.sprtid.com [NC]
+RewriteRule ^(.*)$ http://sprtid.com/$1 [R=301,L]
+
+# Non-SSL -> SSL
+# RewriteCond %{SERVER_PORT} 80
+# RewriteRule ^(.*)$ https://sprtid.com/$1 [R,L]
