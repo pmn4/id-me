@@ -1,10 +1,11 @@
 source "https://rubygems.org"
-ruby '1.9.3'
+ruby '2.0.0'
 
 ## Main application
 gem 'sinatra', '1.4.3'
 gem 'sinatra-contrib'
 gem 'sinatra-cross_origin'
+gem 'rack-rewrite', '~> 1.5.0'
 gem 'rack-mobile-detect'
 gem 'unicorn'
 

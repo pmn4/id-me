@@ -43,6 +43,7 @@ GEM
       rack
     rack-protection (1.5.0)
       rack
+    rack-rewrite (1.5.0)
     rack-test (0.6.2)
       rack (>= 1.0)
     raindrops (0.12.0)
@@ -94,6 +95,7 @@ DEPENDENCIES
   mongo
   mongoid (~> 2.0.0)
   rack-mobile-detect
+  rack-rewrite (~> 1.5.0)
   rake (= 10.1)
   rqrcode (~> 0.4.2)
   rspec (= 2.10)

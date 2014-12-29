@@ -15,3 +15,9 @@ run Rack::URLMap.new({
 # use SCSS for styling
 # Sass::Plugin.options[:style] = :compressed
 # use Sass::Plugin::Rack
+
+require 'rack/rewrite'
+use Rack::Rewrite do
+  r301      %r{^api(?:[/\?](.*))?$},       'http://sprtid-api.herokuapp.com/$1'
+  r301      %r{^app(?:[/\?](.*))?$},       'http://sprtid-app.divshot.io/#/$1'
+end
